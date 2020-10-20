@@ -7,7 +7,6 @@ import android.widget.EditText
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var texto_casilla: EditText;
     private lateinit var boton: Button;
     private lateinit var salida: TextView;
@@ -33,6 +32,4 @@ class MainActivity : AppCompatActivity() {
     public fun mostrar(){
         salida.setText(texto_casilla.getText())
     }
-
-
 }
