@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GuiaEstudiantes">
         <activity android:name=".Centros"></activity>
-        <activity android:name=".Masters" />
         <activity android:name=".Grados" />
         <activity android:name=".Comedores" />
         <activity android:name=".PaginaPrincipal" />
