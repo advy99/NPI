@@ -7,7 +7,7 @@
     tools:context=".PaginaPrincipal">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/img_comedores"
         android:layout_width="110dp"
         android:layout_height="95dp"
         android:layout_marginTop="84dp"
@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/ic_asiento" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/img_centros"
         android:layout_width="110dp"
         android:layout_height="95dp"
         android:layout_marginStart="70dp"
@@ -29,7 +29,7 @@
         app:srcCompat="@drawable/ic_universidad" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/texto_centros"
         android:layout_width="110dp"
         android:layout_height="45dp"
         android:layout_marginStart="70dp"
@@ -38,10 +38,10 @@
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/img_centros" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/texto_comedores"
         android:layout_width="110dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
@@ -50,21 +50,21 @@
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/img_comedores" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/img_calendario"
         android:layout_width="110dp"
         android:layout_height="95dp"
         android:layout_marginStart="70dp"
         android:layout_marginTop="100dp"
         android:contentDescription="@string/calendario"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/texto_centros"
         app:srcCompat="@drawable/ic_calendario" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/texto_calendario"
         android:layout_width="110dp"
         android:layout_height="45dp"
         android:layout_marginStart="70dp"
@@ -73,21 +73,21 @@
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/img_calendario" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/img_grados"
         android:layout_width="110dp"
         android:layout_height="95dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="68dp"
         android:contentDescription="@string/grados"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/texto_comedores"
         app:srcCompat="@drawable/ic_grados" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/texto_grados"
         android:layout_width="110dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
@@ -96,21 +96,21 @@
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/img_grados" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/img_bibliotecas"
         android:layout_width="110dp"
         android:layout_height="95dp"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="101dp"
         android:contentDescription="@string/bibliotecas"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/texto_calendario"
         app:srcCompat="@drawable/ic_bibliotecas" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/texto_bibliotecas"
         android:layout_width="110dp"
         android:layout_height="45dp"
         android:layout_marginStart="70dp"
@@ -119,21 +119,21 @@
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+        app:layout_constraintTop_toBottomOf="@+id/img_bibliotecas" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/img_sitios_interes"
         android:layout_width="110dp"
         android:layout_height="95dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="70dp"
         android:contentDescription="@string/sitios_interes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/texto_grados"
         app:srcCompat="@drawable/ic_sitios_interes" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/texto_sitios_interes"
         android:layout_width="110dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
@@ -142,6 +142,6 @@
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+        app:layout_constraintTop_toBottomOf="@+id/img_sitios_interes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,9 +18,7 @@
     <string name="centros">Centros</string>
     <string name="centros">Centros</string>
     <string name="comedores">Comedores</string>
-    <string name="grados">Grados</string>
     <string name="bibliotecas">Bibliotecas</string>
-    <string name="bibliotecas">Bibliotecas</string>
-    <string name="sitios_de_n_interes">Sitios de\n interes</string>
+    <string name="sitios_de_n_interes">Sitios de interes</string>
     <string name="sitios_interes">sitios_interes</string>
 </resources>
