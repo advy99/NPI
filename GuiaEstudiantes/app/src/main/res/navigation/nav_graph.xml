@@ -2,4 +2,16 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph" />
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/paginaPrincipal">
+    <activity
+        android:id="@+id/paginaPrincipal"
+        android:name="com.npi_grupo4.guiaestudiantes.PaginaPrincipal"
+        android:label="activity_pagina_principal"
+        tools:layout="@layout/activity_pagina_principal" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.npi_grupo4.guiaestudiantes.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+</navigation>
