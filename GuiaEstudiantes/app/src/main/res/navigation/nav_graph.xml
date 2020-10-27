@@ -3,15 +3,68 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/paginaPrincipal">
-    <activity
-        android:id="@+id/paginaPrincipal"
-        android:name="com.npi_grupo4.guiaestudiantes.PaginaPrincipal"
-        android:label="activity_pagina_principal"
-        tools:layout="@layout/activity_pagina_principal" />
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.npi_grupo4.guiaestudiantes.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+    app:startDestination="@id/inicioSesion2">
+    <fragment
+        android:id="@+id/paginaInicio"
+        android:name="com.npi_grupo4.guiaestudiantes.PaginaInicio"
+        android:label="fragment_pagina_inicio"
+        tools:layout="@layout/fragment_pagina_inicio" >
+        <action
+            android:id="@+id/action_paginaInicio_to_centros"
+            app:destination="@id/centros" />
+        <action
+            android:id="@+id/action_paginaInicio_to_bibliotecas"
+            app:destination="@id/bibliotecas" />
+        <action
+            android:id="@+id/action_paginaInicio_to_calendario"
+            app:destination="@id/calendario" />
+        <action
+            android:id="@+id/action_paginaInicio_to_grados"
+            app:destination="@id/grados" />
+        <action
+            android:id="@+id/action_paginaInicio_to_comedores"
+            app:destination="@id/comedores" />
+        <action
+            android:id="@+id/action_paginaInicio_to_sitiosInteres"
+            app:destination="@id/sitiosInteres" />
+    </fragment>
+    <fragment
+        android:id="@+id/centros"
+        android:name="com.npi_grupo4.guiaestudiantes.Centros"
+        android:label="fragment_centros"
+        tools:layout="@layout/fragment_centros" />
+    <fragment
+        android:id="@+id/bibliotecas"
+        android:name="com.npi_grupo4.guiaestudiantes.Bibliotecas"
+        android:label="fragment_bibliotecas"
+        tools:layout="@layout/fragment_bibliotecas" />
+    <fragment
+        android:id="@+id/inicioSesion2"
+        android:name="com.npi_grupo4.guiaestudiantes.InicioSesion"
+        android:label="fragment_inicio_sesion"
+        tools:layout="@layout/fragment_inicio_sesion" >
+        <action
+            android:id="@+id/action_inicioSesion2_to_paginaInicio"
+            app:destination="@id/paginaInicio" />
+    </fragment>
+    <fragment
+        android:id="@+id/calendario"
+        android:name="com.npi_grupo4.guiaestudiantes.Calendario"
+        android:label="fragment_calendario"
+        tools:layout="@layout/fragment_calendario" />
+    <fragment
+        android:id="@+id/grados"
+        android:name="com.npi_grupo4.guiaestudiantes.Grados"
+        android:label="fragment_grados"
+        tools:layout="@layout/fragment_grados" />
+    <fragment
+        android:id="@+id/comedores"
+        android:name="com.npi_grupo4.guiaestudiantes.Comedores"
+        android:label="fragment_comedores"
+        tools:layout="@layout/fragment_comedores" />
+    <fragment
+        android:id="@+id/sitiosInteres"
+        android:name="com.npi_grupo4.guiaestudiantes.SitiosInteres"
+        android:label="fragment_sitios_interes"
+        tools:layout="@layout/fragment_sitios_interes" />
 </navigation>
