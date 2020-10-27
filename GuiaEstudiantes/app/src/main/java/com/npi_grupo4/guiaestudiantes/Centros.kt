@@ -28,7 +28,9 @@ class Centros : Fragment() {
          */
         val sydney = LatLng(-34.0, 151.0)
         googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        val yokese = LatLng(-34.0, 51.0)
+        googleMap.addMarker(MarkerOptions().position(yokese).title("Marker in yokese"))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(yokese))
     }
 
     override fun onCreateView(
