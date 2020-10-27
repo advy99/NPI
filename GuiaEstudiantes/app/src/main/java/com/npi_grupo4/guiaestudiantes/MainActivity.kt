@@ -10,9 +10,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_pagina_inicio)
-
-
+        setContentView(R.layout.fragment_inicio_sesion)
     }
 
 }
