@@ -46,9 +46,6 @@
         <action
             android:id="@+id/action_inicioSesion_to_paginaInicio"
             app:destination="@id/paginaInicio" />
-        <action
-            android:id="@+id/action_inicioSesion_to_paginaInicio2"
-            app:destination="@id/paginaInicio" />
     </fragment>
     <fragment
         android:id="@+id/calendario"
