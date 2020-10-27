@@ -40,15 +40,5 @@
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="40dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
