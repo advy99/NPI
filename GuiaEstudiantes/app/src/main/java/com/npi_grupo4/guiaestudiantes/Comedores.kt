@@ -1,10 +1,14 @@
 package com.npi_grupo4.guiaestudiantes
 
+import android.net.http.SslError
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.SslErrorHandler
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 
 
@@ -30,14 +34,40 @@ class Comedores : Fragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         val view: View = inflater.inflate(R.layout.fragment_comedores, container, false)
         val webview = view.findViewById(R.id.pdf_comedores) as WebView
         webview.getSettings().setJavaScriptEnabled(true)
         val pdf = "http://scu.ugr.es/?theme=pdf"
+
+        webview.settings.javaScriptEnabled = true
+        webview.clearCache(true)
+        webview.webViewClient = object : WebViewClient() {
+
+            override fun onPageFinished(view: WebView, url: String?) {
+                if (view.title == "") view.reload()
+            }
+
+            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+                webview.loadUrl("https://drive.google.com/viewerng/viewer?embedded=true&url=" + pdf)
+                return true
+            }
+
+            override fun onReceivedSslError(
+                view: WebView,
+                handler: SslErrorHandler,
+                error: SslError
+            ) {
+                println("before handler")
+                handler.proceed()
+                println("after handler")
+            }
+        }
+
         webview.loadUrl("https://drive.google.com/viewerng/viewer?embedded=true&url=" + pdf)
+
         return view
     }
 
