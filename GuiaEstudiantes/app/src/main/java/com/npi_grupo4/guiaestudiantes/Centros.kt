@@ -1,11 +1,16 @@
 package com.npi_grupo4.guiaestudiantes
 
+import android.content.Context
+import android.content.pm.PackageManager
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -13,8 +18,12 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import java.util.jar.Manifest
 
 class Centros : Fragment() {
+
+    private var mLocationPermissionGranted = false
+    private  val LOCATION_PERMISSION_REQUEST_CODE = 1
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -44,6 +53,37 @@ class Centros : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+        getLocationPermission();
         mapFragment?.getMapAsync(callback)
+    }
+
+    private fun getLocationPermission() {
+        val permissions = arrayOf<String>(android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION)
+
+        if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+            if(ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+                mLocationPermissionGranted = true
+            } else {
+                ActivityCompat.requestPermissions(requireActivity(),permissions,LOCATION_PERMISSION_REQUEST_CODE)
+            }
+        } else {
+            ActivityCompat.requestPermissions(requireActivity(),permissions,LOCATION_PERMISSION_REQUEST_CODE)
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        mLocationPermissionGranted = false
+
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE){
+            if(grantResults.size > 0){
+                for (i in 0 until grantResults.size){
+                    if (grantResults[i] != PackageManager.PERMISSION_GRANTED){
+                        mLocationPermissionGranted = false
+                        return
+                    }
+                }
+                mLocationPermissionGranted = true
+            }
+        }
     }
 }
