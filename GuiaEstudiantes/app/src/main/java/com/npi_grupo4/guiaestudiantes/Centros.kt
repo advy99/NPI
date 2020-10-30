@@ -2,9 +2,7 @@ package com.npi_grupo4.guiaestudiantes
 
 import android.content.Context
 import android.content.pm.PackageManager
-import android.location.Location
-import androidx.fragment.app.Fragment
-
+import android.location.LocationManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +10,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.google.android.gms.maps.*
-
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.fragment.app.Fragment
+import com.google.android.gms.location.*
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import java.util.jar.Manifest
+import com.google.maps.android.data.kml.KmlLayer
+
 
 class Centros : Fragment() {
 
@@ -33,10 +35,28 @@ class Centros : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
-        val ETSIIT = LatLng(37.197055556, -3.624111111)
-        googleMap.addMarker(MarkerOptions().position(ETSIIT).title("Marker in ETSIIT"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(ETSIIT))
+
+//        var lm: LocationManager? = getSystemService(Context.LOCATION_SERVICE) as LocationManager?
+//        val location: Location? = lm!!.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+//        val longitude: Double = location.getLongitude()
+//        val latitude: Double = location.getLatitude()
+
+
+//        val location = LatLng(37.197055556, -3.624111111)
+//
+//        googleMap.moveCamera(CameraUpdateFactory.newLatLng(location))
+//        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 14.0F))
+
+        val kmlFile = KmlLayer(googleMap, R.raw.mapas_campus_ugr, requireActivity())
+        kmlFile.addLayerToMap()
+        Toast.makeText(requireActivity(), "HOLASF", Toast.LENGTH_LONG).show()
+
+
+//        val ETSIIT = LatLng(37.197055556, -3.624111111)
+//        googleMap.addMarker(MarkerOptions().position(ETSIIT).title("Marker in ETSIIT"))
+//        googleMap.moveCamera(CameraUpdateFactory.newLatLng(ETSIIT))
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
