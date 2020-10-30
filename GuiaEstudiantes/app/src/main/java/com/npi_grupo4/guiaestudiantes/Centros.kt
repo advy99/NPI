@@ -54,6 +54,12 @@ class Centros : Fragment() {
 
                     googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
+                } else {
+                    Toast.makeText(requireActivity(), "Activa la ubicacion. Centrando en Granada", Toast.LENGTH_LONG).show()
+                    var position = LatLng(37.1886273, -3.5907775 )
+
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
                 }
 
 
