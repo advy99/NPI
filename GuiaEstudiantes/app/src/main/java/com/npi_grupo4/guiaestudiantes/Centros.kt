@@ -1,8 +1,8 @@
 package com.npi_grupo4.guiaestudiantes
 
-import android.content.Context
+import android.Manifest
 import android.content.pm.PackageManager
-import android.location.LocationManager
+import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,13 +10,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
 import com.google.maps.android.data.kml.KmlLayer
 
 
@@ -42,14 +43,31 @@ class Centros : Fragment() {
 //        val latitude: Double = location.getLatitude()
 
 
-//        val location = LatLng(37.197055556, -3.624111111)
-//
-//        googleMap.moveCamera(CameraUpdateFactory.newLatLng(location))
-//        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 14.0F))
+        getLocationPermission()
+        var location = LocationServices.getFusedLocationProviderClient(requireContext())
+
+        if (mLocationPermissionGranted) {
+            location.lastLocation.addOnSuccessListener { loc: Location? ->
+
+                if ( loc != null){
+                    var position = LatLng(loc!!.latitude, loc!!.longitude)
+
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
+                }
+
+
+            }
+        }
+
+
+
+
+
 
         val kmlFile = KmlLayer(googleMap, R.raw.mapas_campus_ugr, requireActivity())
         kmlFile.addLayerToMap()
-        Toast.makeText(requireActivity(), "HOLASF", Toast.LENGTH_LONG).show()
+        //Toast.makeText(requireActivity(), "HOLASF", Toast.LENGTH_LONG).show()
 
 
 //        val ETSIIT = LatLng(37.197055556, -3.624111111)
@@ -102,4 +120,5 @@ class Centros : Fragment() {
             }
         }
     }
+
 }
