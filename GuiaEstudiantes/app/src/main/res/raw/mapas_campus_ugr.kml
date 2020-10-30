@@ -1,0 +1,3183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Mapas de Campus UGR</name>
+    <description>Mapa indicando los distintos campus de la UGR junto con información adicional tal como servicios, bibliotecas, transporte, etc</description>
+    <Style id="icon-1037-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1037-biz-house.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1037-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1037-biz-house.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1037">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1037-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1037-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1085-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1085-biz-restaurant-generic.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1085-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1085-biz-restaurant-generic.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1085">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1085-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1085-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1113-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1113-biz-tv.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1113-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1113-biz-tv.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1113">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1113-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1113-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1115-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1115-biz-video.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1115-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1115-biz-video.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1115">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1115-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1115-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1195-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1195-fac-flag.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1195-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1195-fac-flag.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1195">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1195-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1195-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1197-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1197-fac-headquarters.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1197-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1197-fac-headquarters.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1197">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1197-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1197-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1199-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1199-fac-help.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1199-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1199-fac-help.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1199">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1199-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1199-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1201-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1201-fac-info-alt.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1201-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1201-fac-info-alt.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1201">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1201-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1201-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1223-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1223-fac-wheelchair.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1223-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1223-fac-wheelchair.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1223">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1223-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1223-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1229-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1229-poi-art.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1229-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1229-poi-art.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1229">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1229-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1229-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1233-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1233-poi-bridge.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1233-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1233-poi-bridge.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1233">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1233-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1233-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1239-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1239-poi-civic.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1239-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1239-poi-civic.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1239">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1239-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1239-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1249-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1249-poi-factory.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1249-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1249-poi-factory.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1249">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1249-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1249-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1257-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1257-poi-government.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1257-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1257-poi-government.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1257">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1257-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1257-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1269-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1269-poi-hospital-cross.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1269-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1269-poi-hospital-cross.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1269">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1269-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1269-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1279-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1279-poi-library.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1279-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1279-poi-library.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1279">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1279-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1279-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1295-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1295-poi-ngo.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1295-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1295-poi-ngo.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1295">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1295-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1295-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1301-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1301-poi-police.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1301-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1301-poi-police.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1301">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1301-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1301-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1303-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1303-poi-post-office.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1303-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1303-poi-post-office.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1303">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1303-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1303-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1335-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1335-poi-stadium.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1335-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1335-poi-stadium.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1335">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1335-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1335-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1341-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1341-poi-theater.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1341-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1341-poi-theater.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1341">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1341-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1341-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1347-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1347-poi-university.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1347-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1347-poi-university.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1347">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1347-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1347-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1389-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1389-rec-soccer.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1389-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1389-rec-soccer.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1389">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1389-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1389-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1417-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1417-trans-airport.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1417-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1417-trans-airport.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1417">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1417-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1417-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1423-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1423-trans-bus.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1423-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1423-trans-bus.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1423">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1423-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1423-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1441-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1441-trans-marina.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1441-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1441-trans-marina.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1441">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1441-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1441-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1459-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1459-trans-train.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1459-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/1459-trans-train.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1459">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1459-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1459-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-000000-normal">
+      <IconStyle>
+        <color>ff000000</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-000000-highlight">
+      <IconStyle>
+        <color>ff000000</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-503-000000">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-000000-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-000000-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-0BA9CC-normal">
+      <IconStyle>
+        <color>ffcca90b</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-0BA9CC-highlight">
+      <IconStyle>
+        <color>ffcca90b</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-503-0BA9CC">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-0BA9CC-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-0BA9CC-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-3F5BA9-normal">
+      <IconStyle>
+        <color>ffa95b3f</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-3F5BA9-highlight">
+      <IconStyle>
+        <color>ffa95b3f</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-503-3F5BA9">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-3F5BA9-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-3F5BA9-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-62AF44-normal">
+      <IconStyle>
+        <color>ff44af62</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-62AF44-highlight">
+      <IconStyle>
+        <color>ff44af62</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-503-62AF44">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-62AF44-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-62AF44-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-7C3592-normal">
+      <IconStyle>
+        <color>ff92357c</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-7C3592-highlight">
+      <IconStyle>
+        <color>ff92357c</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-503-7C3592">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-7C3592-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-7C3592-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-7C3592-nodesc-normal">
+      <IconStyle>
+        <color>ff92357c</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-7C3592-nodesc-highlight">
+      <IconStyle>
+        <color>ff92357c</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-7C3592-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-7C3592-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-7C3592-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-DB4436-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-DB4436-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-503-DB4436">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-DB4436-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-DB4436-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-F4EB37-normal">
+      <IconStyle>
+        <color>ff37ebf4</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-F4EB37-highlight">
+      <IconStyle>
+        <color>ff37ebf4</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-503-F4EB37">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-F4EB37-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-F4EB37-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-F8971B-normal">
+      <IconStyle>
+        <color>ff1b97f8</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-F8971B-highlight">
+      <IconStyle>
+        <color>ff1b97f8</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-503-F8971B">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-F8971B-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-F8971B-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-959-0BA9CC-normal">
+      <IconStyle>
+        <color>ffcca90b</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/959-wht-circle-blank.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-959-0BA9CC-highlight">
+      <IconStyle>
+        <color>ffcca90b</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/959-wht-circle-blank.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-959-0BA9CC">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-959-0BA9CC-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-959-0BA9CC-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-961-F4B400-normal">
+      <IconStyle>
+        <color>ff00b4f4</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/961-wht-square-blank.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-961-F4B400-highlight">
+      <IconStyle>
+        <color>ff00b4f4</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/961-wht-square-blank.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-961-F4B400">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-961-F4B400-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-961-F4B400-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-962-7CCFA9-normal">
+      <IconStyle>
+        <color>ffa9cf7c</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/962-wht-diamond-blank.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-962-7CCFA9-highlight">
+      <IconStyle>
+        <color>ffa9cf7c</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/962-wht-diamond-blank.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-962-7CCFA9">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-962-7CCFA9-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-962-7CCFA9-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-985-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/985-biz-book.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-985-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/985-biz-book.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-985">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-985-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-985-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-991-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/991-biz-cafe.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-991-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/991-biz-cafe.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-991">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-991-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-991-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Facultades y ETS</name>
+      <Placemark>
+        <name>Arquitectura / Architecture</name>
+        <styleUrl>#icon-503-7C3592-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5913073,37.1729291,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ciencias del Trabajo / Labour Sciences</name>
+        <description><![CDATA[Rector López Argüeta, S/N (Edificio San Jerónimo) Granada <br> http://citrab.ugr.es/]]></description>
+        <styleUrl>#icon-503-7C3592</styleUrl>
+        <Point>
+          <coordinates>
+            -3.604382,37.1804395,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Derecho / Law</name>
+        <description>Plaza de la Universidad, 1 Granada http://derecho.ugr.es/</description>
+        <styleUrl>#icon-503-7C3592</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6019021,37.1782229,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Centro de Enfermería (S.A.S.) "Virgen de las Nieves" / Nursing Training Centre]]></name>
+        <description>Avda. de las Fuerzas Armadas, 2. Granada http://www.hvn.es/escuela_universitaria_enfermeria/</description>
+        <styleUrl>#icon-503-7C3592</styleUrl>
+        <Point>
+          <coordinates>
+            -3.612576,37.189835,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Ciencias Políticas y Sociología / Political Sciences & Sociology]]></name>
+        <description>Rector López Argüeta, S/N Granada http://www.ugr.es/~ccpolsoc/</description>
+        <styleUrl>#icon-503-7C3592</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6042133,37.1804669,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trabajo Social / Social Work</name>
+        <description>Rector López Argüeta, S/N Granada http://trabajosocial.ugr.es/</description>
+        <styleUrl>#icon-503-7C3592</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6042932,37.1804007,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Traducción e Interpretación / Translation and Interpreting</name>
+        <description><![CDATA[Palacio de las Columnas. C/ Puentezuelas, 55 Granada <br>http://fti.ugr.es/]]></description>
+        <styleUrl>#icon-503-7C3592</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6036392,37.1755389,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Filosofía y Letras / Arts</name>
+        <description>Campus Universitario de Cartuja, Granada http://filosofiayletras.ugr.es/</description>
+        <styleUrl>#icon-503-3F5BA9</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5954948,37.1914072,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Comunicación y Documentación / Communication and Documentation Sciences</name>
+        <description>Campus Universitario de Cartuja, Granada http://fcd.ugr.es/</description>
+        <styleUrl>#icon-503-3F5BA9</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5965875,37.1933953,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Odontología / Dentistry</name>
+        <description>Antiguo Colegio Máximo, Campus Universitario de Cartuja Granada                                                             http://odontologia.ugr.es/</description>
+        <styleUrl>#icon-503-3F5BA9</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5964684,37.1931375,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ciencias de la Educación / Education</name>
+        <description>Campus Universitario de Cartuja, Granada http://fcce.ugr.es</description>
+        <styleUrl>#icon-503-3F5BA9</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5996017,37.1930356,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ciencias Económicas y Empresariales / Economics and Business</name>
+        <description>Campus Universitario de Cartuja Granada http://fccee.ugr.es/?lang=en</description>
+        <styleUrl>#icon-503-3F5BA9</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5948682,37.1922579,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA["La Inmaculada" Teacher Training Centre / Centro de Magisterio "La Inmaculada"]]></name>
+        <description>C/ Joaquina Eguaras, nº 114 Granada http://www.eulainmaculada.com/</description>
+        <styleUrl>#icon-503-3F5BA9</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6116852,37.2067392,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Psicología / Psychology</name>
+        <description>Campus Universitario de Cartuja Granada http://facultadpsicologia.ugr.es/</description>
+        <styleUrl>#icon-503-3F5BA9</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5945424,37.1944997,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ciencias del Deporte / Sports Sciences</name>
+        <description>Carretera de Alfacar, s/n Granada http://deporte.ugr.es</description>
+        <styleUrl>#icon-503-3F5BA9</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5973522,37.2049185,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>E.T.S. de Ingeniería de Edificación / Building Engineering</name>
+        <description>Campus Universitario Fuentenueva, Granada http://etsie.ugr.es/</description>
+        <styleUrl>#icon-503-62AF44</styleUrl>
+        <Point>
+          <coordinates>
+            -3.606831,37.181437,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>E.T.S. de Ingeniería de Caminos, Canales y Puertos / Civil Engineering</name>
+        <description><![CDATA[Campus Universitario de Fuentenueva (Edificio Politécnico) Granada <br>http://etsiccp.ugr.es/]]></description>
+        <styleUrl>#icon-503-62AF44</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6082419,37.1816594,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Science / Facultad de Ciencias</name>
+        <description>Campus Universitario de Fuentenueva, Granada http://fciencias.ugr.es/</description>
+        <styleUrl>#icon-503-62AF44</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6094835,37.1797131,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>E.T.S. de Ingenierías de Informática y de Telecomunicación / Computer and Telecommunication Engineering</name>
+        <description><![CDATA[C/ Periodista Daniel Saucedo Aranda s/n, Granada<br>http://etsiit.ugr.es/]]></description>
+        <styleUrl>#icon-503-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6243776,37.1967874,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bellas Artes / Fine Arts</name>
+        <description>Avenida de Andalucía s/n, Granada http://bellasartes.ugr.es/</description>
+        <styleUrl>#icon-503-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6268348,37.1953582,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ciencias de la Salud / Health Sciences</name>
+        <description>Avenida de la Ilustración S/N, Granada http://cienciasdelasalud.ugr.es/</description>
+        <styleUrl>#icon-503-F8971B</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6051464,37.1489998,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Medicina / Medicine</name>
+        <description>Avenida de la Investigación, 11 Granada http://www.ugr.es/~facmed/</description>
+        <styleUrl>#icon-503-F8971B</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6051733,37.1484976,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Educación, Economía y Tecnología / Education, Economics and Technology</name>
+        <description><![CDATA[C/ Cortadura del Valle S.N. Ceuta <br>http://feh-ceuta.ugr.es/]]></description>
+        <styleUrl>#icon-503-F4EB37</styleUrl>
+        <Point>
+          <coordinates>
+            -5.299487,35.890441,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Facultad de Ciencias de la Salud de Ceuta / Health Sciencies Ceuta Campus</name>
+        <description>Paseo de la Marina, 116 Ceuta http://enfermeriaceuta.ugr.es/</description>
+        <styleUrl>#icon-503-F4EB37</styleUrl>
+        <Point>
+          <coordinates>
+            -5.2981626,35.8903839,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ciencias de la Educación y del Deporte (Campus Melilla) / Education and Sport Sciences (Melilla Campus)</name>
+        <description><![CDATA[C/ Santander 1, Melilla <br>https://faedumel.ugr.es/]]></description>
+        <styleUrl>#icon-503-000000</styleUrl>
+        <Point>
+          <coordinates>
+            -2.9522242,35.289689,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Enfermería (Campus Melilla) / Nursing (Melilla Campus)</name>
+        <description>C/ Santander 1, Melilla http://enfermeriamelilla.ugr.es/</description>
+        <styleUrl>#icon-503-000000</styleUrl>
+        <Point>
+          <coordinates>
+            -2.9527073,35.2900327,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ciencias Sociales y Juridicas (Campus Melilla) / Social and Legal Sciences (Melilla Campus)</name>
+        <description><![CDATA[C/ Santander nº1, Melilla <br> https://faciso.ugr.es/]]></description>
+        <styleUrl>#icon-503-000000</styleUrl>
+        <Point>
+          <coordinates>
+            -2.9530454,35.2895777,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Farmacia / Pharmacy
+</name>
+        <description>Campus Universitario de Cartuja, Granada https://farmacia.ugr.es/</description>
+        <styleUrl>#icon-503-3F5BA9</styleUrl>
+        <Point>
+          <coordinates>
+            -3.59657,37.1949557,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Servicios de Información</name>
+      <Placemark>
+        <name>General Information Office / Oficina de Información General</name>
+        <description>Hospital Real, Cuesta del Hospicio, S/N  Granada http://secretariageneral.ugr.es/</description>
+        <styleUrl>#icon-1201</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6008173,37.1847153,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Oficina de Relaciones Internacionales / International Relations Office 
+</name>
+        <description><![CDATA[Complejo Administrativo Triunfo, Cuesta del Hospicio s/n,  Granada<br>http://internacional.ugr.es/]]></description>
+        <styleUrl>#icon-1201</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6002963,37.1834652,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>International Welcome Centre</name>
+        <description><![CDATA[Service facility for international doctoral candidates, researchers and academic staff (non-academic services).<br><br>Centro de Transferencia Tecnológica, Gran Vía 48, Granada<br>http://internacional.ugr.es/iwelcomecentre?lang=en]]></description>
+        <styleUrl>#icon-1201</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6000259,37.1810835,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Escuela Internacional de Posgrado / International School for Postgraduate Studies
+</name>
+        <description><![CDATA[Information for master's students and doctoral candidates (academic services).<br><br>Av.Madrid, 12 Granada                                                       http://escuelaposgrado.ugr.es/]]></description>
+        <styleUrl>#icon-1201</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6042291,37.1874077,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Student Information Centre / Centro de Información Estudiantil</name>
+        <description><![CDATA[C/ Severo Ochoa s/n, Edificio Comedores Universitarios, Granada<br>http://ve.ugr.es/pages/sipe/ventanilla_info]]></description>
+        <styleUrl>#icon-1201</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6056855,37.1826061,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Bibliotecas</name>
+      <Placemark>
+        <name>Filosofía y Letras  / Arts </name>
+        <description>Campus Universitario de Cartuja, Granada https://biblioteca.ugr.es/pages/biblioteca_ugr/bibliotecas_centros/filosofia</description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5960323,37.1916641,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Centro de Documentación Científica  / Centre for Scientific Documentation</name>
+        <description>Calle Rector López Argüeta S/N, Granada https://www.ugr.es/universidad/organizacion/entidades/biblioteca-centro-de-documentacion-cientifica  https://www.ugr.es/universidad/organizacion/entidades/centro-de-documentacion-cientifica </description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6047387,37.1807812,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Campus Ceuta / Ceuta Campus
+</name>
+        <description>C/ Cortadura S.N., Ceuta https://biblioteca.ugr.es/pages/biblioteca_ugr/bibliotecas_centros/ceuta </description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -5.2989239,35.8901322,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ingeniería de Caminos, Canales y Puertos / Civil Engineering
+</name>
+        <description>Campus Universitario de Fuentenueva (Edificio Politécnico) Granada  http://etsiccp.ugr.es/pages/escuela/infraestructuras/biblioteca</description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6081827,37.1815825,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Colegio Máximo de Cartuja </name>
+        <description>Campus Universitario de Cartuja, Granada      http://fcd.ugr.es/pages/facultad/colegio </description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5963756,37.1935785,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ingenierías Informática y de Telecomunicación / Computer Science and Telecommunication Engineering </name>
+        <description>C/ Periodista Daniel Saucedo Aranda s/n, Granada https://biblioteca.ugr.es/pages/biblioteca_ugr/bibliotecas_centros/informatica</description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6244959,37.1969544,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ciencias Económicas y Empresariales / Economics and Business </name>
+        <description>Campus Universitario de Cartuja, Granada  https://biblioteca.ugr.es/pages/biblioteca_ugr/bibliotecas_centros/economicas</description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5949272,37.192147,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ciencias de la Educación / Education </name>
+        <description>Campus Universitario de Cartuja, Granada https://biblioteca.ugr.es/pages/biblioteca_ugr/bibliotecas_centros/educacion</description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5997015,37.1932709,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Centro de Documentación Europea (CDE) / European Documentation Centre (EDC) </name>
+        <description><![CDATA[C/ Rector López Argüeta, s/n <br>Granada, Granada 18071 España  http://cde.ugr.es/ ]]></description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6046207,37.180888,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bellas Artes / Fine Arts </name>
+        <description>Avenida de Andalucía, s/n, Granada https://biblioteca.ugr.es/pages/biblioteca_ugr/bibliotecas_centros/bellas_artes</description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6273926,37.1953947,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hospital Real (UGR General Library)</name>
+        <description>Hospital Real, Avda. Hospicio, 14, Granada https://biblioteca.ugr.es/pages/biblioteca_ugr/bibliotecas_centros/bibhre </description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6006349,37.1849717,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ciencias del Trabajo y Ciencias Sociales / Labour Sciences and Social Sciences
+</name>
+        <description>Rector López Argüeta s/n, Granada https://biblioteca.ugr.es/pages/biblioteca_ugr/bibliotecas_centros/san_jeronimo</description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6043632,37.1803772,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Derecho / Law </name>
+        <description>Plaza de la Universidad, 1 Granada https://biblioteca.ugr.es/pages/biblioteca_ugr/bibliotecas_centros/derecho</description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6020082,37.1781547,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Medicina y Ciencias de la Salud / Medicine and Health Sciences /</name>
+        <description>Avenida de Madrid, S/N, Granada https://biblioteca.ugr.es/pages/biblioteca_ugr/bibliotecas_centros/biosanitaria</description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.604154,37.1873649,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Campus Melilla / Melilla Campus
+</name>
+        <description>C/ Santander, 1, Melilla http://biblioteca.ugr.es/pages/biblioteca_ugr/bibliotecas_centros/melilla</description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -2.9524684,35.2896716,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Farmacia  / Pharmacy </name>
+        <description>Campus Universitario de Cartuja, Granada https://biblioteca.ugr.es/pages/biblioteca_ugr/bibliotecas_centros/farmacia</description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5964131,37.1949545,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ciencias Políticas y Sociología / Political Science and Sociology </name>
+        <description>Rector López Argüeta, S/N, Granada https://biblioteca.ugr.es/pages/biblioteca_ugr/bibliotecas_centros/politicas</description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.604095,37.180638,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ciencias / Sciences</name>
+        <description>Campus Universitario de Fuentenueva, Granada https://biblioteca.ugr.es/pages/biblioteca_ugr/bibliotecas_centros/ciencias</description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6087406,37.1801635,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ciencias del Deporte / Sports Sciences </name>
+        <description>Carretera de Alfacar, Polígono de Cartuja S/N Granada https://biblioteca.ugr.es/pages/biblioteca_ugr/bibliotecas_centros/deportes</description>
+        <styleUrl>#icon-1279</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5977167,37.20506,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Cafeterías</name>
+      <Placemark>
+        <name>Aynadamar Canteen / Comedor Aynadamar</name>
+        <description><![CDATA[C/ Periodista Daniel Saucedo Aranda, s/n, Granada<br>http://www.ugr.es/~scu/]]></description>
+        <styleUrl>#icon-1085</styleUrl>
+        <Point>
+          <coordinates>
+            -3.624351,37.1970997,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cartuja Campus Canteen / Comedor Campus de Cartuja
+
+</name>
+        <description><![CDATA[Residencia Universitaria Emperador Carlos V<br>C/ Profesor Vicente Callao 3, Campus Universitario de Cartuja, <br>Granada<br>http://www.ugr.es/~scu/]]></description>
+        <styleUrl>#icon-1085</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5978856,37.1919206,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>City Centre Canteen / Comedor del Campus Centro</name>
+        <description><![CDATA[Colegio Mayor "Isabel la Católica", Calle Rector López Argüeta S/N, Granada                                      http://www.ugr.es/~scu/]]></description>
+        <styleUrl>#icon-1085</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6052859,37.1812021,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Fuentenueva Canteen / Comedor Fuentenueva </name>
+        <description><![CDATA[C/ Rector Marín Ocete, s/n, Granada<br>http://www.ugr.es/~scu/]]></description>
+        <styleUrl>#icon-1085</styleUrl>
+        <Point>
+          <coordinates>
+            -3.605656,37.1828561,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafetería Bellas Artes</name>
+        <description><![CDATA[Avenida de Andalucía S/N, Granada<br>http://bellasartes.ugr.es/pages/facultad/aulasespacios/cafeteria]]></description>
+        <styleUrl>#icon-991</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6264673,37.1961403,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafetería Ciencias del Deporte</name>
+        <description><![CDATA[Carretera de Alfacar, s/n Granada<br>http://deporte.ugr.es/pages/servicios/otros_servicios/cafeteria]]></description>
+        <styleUrl>#icon-991</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5976174,37.2050579,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafetería Ceuta</name>
+        <description><![CDATA[C/ Cortadura del Valle S.N. Ceuta<br>http://feh-ceuta.ugr.es/pages/servicios]]></description>
+        <styleUrl>#icon-991</styleUrl>
+        <Point>
+          <coordinates>
+            -5.2983499,35.8913274,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafetería Económicas y Empresariales</name>
+        <description>Campus Universitario de Cartuja, Granada</description>
+        <styleUrl>#icon-991</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5947099,37.1921726,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafetería Filosofía y letras</name>
+        <description><![CDATA[Campus Universitario de Cartuja, Granada<br>http://cafeteriafilosofia.es/]]></description>
+        <styleUrl>#icon-991</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5960376,37.1915274,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafetería Fuentenueva</name>
+        <description>Campus Universitario Fuentenueva, Granada</description>
+        <styleUrl>#icon-991</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6096632,37.1797425,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafetería GranVía48 UGR</name>
+        <description>Calle Gran Vía de Colón, 48, 18010 Granada</description>
+        <styleUrl>#icon-991</styleUrl>
+        <Point>
+          <coordinates>
+            -3.600134,37.1809863,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafetería Hospital Real</name>
+        <description>Hospital Real, Cuesta del Hospicio, S/N  Granada</description>
+        <styleUrl>#icon-991</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6011271,37.1846949,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafetería Informática y Telecomunicación</name>
+        <description><![CDATA[Periodista Daniel Saucedo Aranda, S/N Granada<br>http://etsiit.ugr.es/pages/instalaciones_servicios/cafeteriacomedor]]></description>
+        <styleUrl>#icon-991</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6244409,37.1971307,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafetería Ingeniería de Edificación</name>
+        <description><![CDATA[Campus Universitario Fuentenueva, Granada<br>http://etsie.ugr.es/administracion-servicios/cafeteria]]></description>
+        <styleUrl>#icon-991</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6067799,37.1811444,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafetería Medicina</name>
+        <description>Avenida de Madrid, S/N Granada</description>
+        <styleUrl>#icon-991</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6043417,37.1865636,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafetería Melilla</name>
+        <description>C/ Santander nº1 Melilla</description>
+        <styleUrl>#icon-991</styleUrl>
+        <Point>
+          <coordinates>
+            -2.9526722,35.2900044,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafetería Odontología / Comunicación y Documentación</name>
+        <description>Antiguo Colegio Máximo, Campus Universitario de Cartuja, Granada</description>
+        <styleUrl>#icon-991</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5963944,37.1932282,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Servicios</name>
+      <Placemark>
+        <name>Servicio de Alojamiento / Accommodation Service</name>
+        <description><![CDATA[C/ Severo Ochoa s/n, Edificio Comedores Universitarios, Granada<br>http://estudiantes.ugr.es/alojamientos3/]]></description>
+        <styleUrl>#icon-1037</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6056936,37.1826178,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA["BREAKER" Centre for Entrepreneurship of the UGR / Centro de Emprendimiento "BREAKER"]]></name>
+        <description>Av. de Madrid, 20A, 18012 Granada, Spain (antigua facultad de medicina) https://ugremprendedora.ugr.es/breaker-2/</description>
+        <styleUrl>#icon-1249</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6044302,37.1867175,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Fundación UGR-Empresa / Business-UGR General Foundation</name>
+        <description><![CDATA[Calle Gran Vía de Colón, 48, 18010 Granada, <br>https://fundacionugrempresa.es/]]></description>
+        <styleUrl>#icon-1249</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6001112,37.1810595,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Centro Cultural "Casa de Porras" (Casa del Estudiante)/ "Casa de Porras" University Cultural Centre (Casa del Estudiante)
+]]></name>
+        <description><![CDATA[Placeta de Porras, Granada<br>http://ve.ugr.es/pages/casa-de-porras]]></description>
+        <styleUrl>#icon-1341</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5950318,37.1783866,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Aula Permanente de Formación Abierta / Centre for Open Learning for Seniors</name>
+        <description>Escuela Internacional de Posgrado, C/ La Paz, 18, 18071 Granada                       http://aulaperm.ugr.es/ </description>
+        <styleUrl>#icon-985</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6030757,37.1747182,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Centro de Iniciativas de Cooperación al Desarrollo / Centre for Development Cooperation Initiatives (CICODE)</name>
+        <description>Avenida del Hospicio, s/n (Complejo Administrativo Triunfo) 18071 Granada  http://cicode.ugr.es/</description>
+        <styleUrl>#icon-1295</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6004002,37.1838301,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Confucius Institute / Instituto Confucio</name>
+        <description><![CDATA[Avda. Constitución, 18, Edf. Elvira, Granada<br>http://institutoconfucio.ugr.es/]]></description>
+        <styleUrl>#icon-1257</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6052511,37.1847815,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Servicios para discapacitados / Disability Services</name>
+        <description>C/Severo Ochoa s/n                                                    http://ve.ugr.es/pages/sae/atencion_social/necesidades_english                                                                            http://ve.ugr.es/pages/sae/atencion_social/intervencion_estudiantes_discapacidad</description>
+        <styleUrl>#icon-1223</styleUrl>
+        <Point>
+          <coordinates>
+            -3.605656,37.1828561,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Gabinete Psicopedagógico / Educational Psychology Office (GPP)</name>
+        <description><![CDATA[Calle Ancha de Capuchinos s/n, Granada<br>http://ve.ugr.es/pages/gpp]]></description>
+        <styleUrl>#icon-962-7CCFA9</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6020458,37.185117,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Centro de Promoción de Empleo y Prácticas / Employment and Work Placement Office</name>
+        <description><![CDATA[Acera de San Ildefonso nº 42. Granada<br>http://cpep.ugr.es]]></description>
+        <styleUrl>#icon-1249</styleUrl>
+        <Point>
+          <coordinates>
+            -3.600077,37.1849396,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Euro-Arab Foundation for Higher Studies / Fundación Euroárabe de Altos Estudios</name>
+        <description><![CDATA[Calle San Jerónimo, 27 - Granada<br>http://www.fundea.org/]]></description>
+        <styleUrl>#icon-1257</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6011834,37.1781526,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Grants Service / Servicio de Becas</name>
+        <description><![CDATA[C/ Severo Ochoa s/n, Edificio Comedores Universitarios, Granada<br>http://ve.ugr.es/pages/becas]]></description>
+        <styleUrl>#icon-962-7CCFA9</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6055608,37.1826606,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA["La Madraza" Centre for Contemporary Culture / "La Madraza" Centro de Cultura Contemporánea]]></name>
+        <description><![CDATA[Palacio de la Madraza, Calle Oficios 14, Granada<br>http://lamadraza.ugr.es/]]></description>
+        <styleUrl>#icon-1341</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6043142,37.1863377,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Lecture Theatre Building (International School for Postgraduate Studies) / Aulario Escuela de Posgrado</name>
+        <description>18012, Av. de Madrid, 28, 18012 Granada     http://escuelaposgrado.ugr.es/  </description>
+        <styleUrl>#icon-1233</styleUrl>
+        <Point>
+          <coordinates>
+            -3.605876,37.1895743,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Centro Mediterráneo / Mediterranean Summer School</name>
+        <description><![CDATA[Complejo Administrativo Triunfo.<br>Avda. del Hospicio s/n, <br>18071, Granada<br>://www.ugr.es/~cm/]]></description>
+        <styleUrl>#icon-985</styleUrl>
+        <Point>
+          <coordinates>
+            -3.60082,37.1838755,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Centro de Lenguas Modernas (CLM) / Modern Languages Centre (CLM )</name>
+        <description><![CDATA[Placeta del Hospicio Viejo s/n, Granada<br>http://www.clm-granada.com/]]></description>
+        <styleUrl>#icon-1257</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5944832,37.1744746,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Centro de Producción de Recursos para la Universidad Digital (CEPRUD), antiguo CEVUG/ Resource Production Centre for the Digital University (CEPRUD)
+</name>
+        <description>C/ Real de Cartuja, 36/38 18012, Granada  http://ceprud.ugr.es/</description>
+        <styleUrl>#icon-1113</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6000093,37.1865235,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Centro Ruso "Russkiy Mir" de la Universidad de Granada / "Russkiy Mir" Russian Centre of the University of Granada]]></name>
+        <description>Avda. Constitución, 18, Edf. Elvira, Granada  http://centroruso.ugr.es/</description>
+        <styleUrl>#icon-1257</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6051464,37.184758,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Secretariado de Asociacionismo, Cultura y Sociedad / Secretariat for Student Societies, Culture and Society</name>
+        <description><![CDATA[Edificios de los Comedores Universitarios C/Severo Ochoa s/n                                                   <br>Granada                                                                          http://ve.ugr.es/pages/asociacionismo]]></description>
+        <styleUrl>#icon-1335</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6057901,37.1827536,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Servicio de Alumnos / Student Admissions Office</name>
+        <description><![CDATA[Complejo Administrativo Triunfo, Cuesta del Hospicio s/n,  Granada<br>http://serviciodealumnos.ugr.es/]]></description>
+        <styleUrl>#icon-1199</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6003024,37.1837504,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Student Council (DGE) / Delegación General de Estudiantes (DGE)</name>
+        <description><![CDATA[Acera de San Idelfonso 28, Granada<br>http://dge.ugr.es/]]></description>
+        <styleUrl>#icon-1347</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5999215,37.1845999,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Student Support Service / Servicio de Asistencia Estudiantil (SAE)</name>
+        <description><![CDATA[C/ Severo Ochoa s/n, Edificio Comedores Universitarios, Granada<br>http://ve.ugr.es/pages/futuros_estudiantes<br>http://ve.ugr.es/pages/sae]]></description>
+        <styleUrl>#icon-1199</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6055863,37.1825869,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tienda UGR Centro / UGR Official Shop (City Centre)</name>
+        <description><![CDATA[Plaza Isabel la Católica 4, Granada<br>http://www.ugr.es/~laboveda/]]></description>
+        <styleUrl>#icon-1197</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5968691,37.1755047,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tienda UGR Comedores / UGR Official Shop (next to University Catering Services)</name>
+        <description>Calle Dr. Severo Ochoa (next to University Catering Services) 18001 Granada http://www.ugr.es/~laboveda/</description>
+        <styleUrl>#icon-1197</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6055702,37.1827835,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>UGR-Solidaria</name>
+        <description>Av. Capitán Moreno, 4, 18010 Granada                  http://viceresponsabilidad.ugr.es/ugrsolidaria/</description>
+        <styleUrl>#icon-1335</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6006001,37.1837109,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cine Club Universitario/ University Film Club</name>
+        <description>Av. de Madrid, 20A, 18012 Granada (antigua Facultad de Medicina)             http://veu.ugr.es/pages/auladecineycineclub </description>
+        <styleUrl>#icon-1115</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6046663,37.1869676,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Editorial Universidad de Granada / University of Granada Press</name>
+        <description><![CDATA[Antiguo Colegio Máximo, Campus Universitario de Cartuja, Granada<br>http://editorial.ugr.es/]]></description>
+        <styleUrl>#icon-985</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5956031,37.1938221,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Oficina del Defensor Universitario / University Ombudsman Office</name>
+        <description>Hospital Real Cuesta del Hospicio s/n 18071 Granada  http://www.ugr.es/~defensor/</description>
+        <styleUrl>#icon-961-F4B400</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6007395,37.1847152,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Centro de Actividades Deportivas (Cartuja) / Sports Centre (Cartuja)</name>
+        <description><![CDATA[Paseo Profesor Clavera s/n, Granada<br>http://cad.ugr.es/]]></description>
+        <styleUrl>#icon-1389</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5990993,37.190005,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Centro de Actividades Deportivas (Fuentenueva) / Sports Centre (Fuentenueva)</name>
+        <description><![CDATA[Paseo Profesor Juan Ossorio s/n, Granada<br>http://cad.ugr.es/]]></description>
+        <styleUrl>#icon-1389</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6084723,37.1821894,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vth Centenary Building / Espacio V Centenario </name>
+        <description>Av. de Madrid, 20A, 18012 Granada, Spain (antigua facultad de medicina)  https://patrimonio.ugr.es/bienes/antigua-facultad-de-medicina/</description>
+        <styleUrl>#icon-1233</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6042318,37.1860507,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Centros e Institutos de Investigación</name>
+      <Placemark>
+        <name>Andalusian Earth Sciences Institute (IACT) / Instituto Andaluz
+de Ciencias de la Tierra (IACT)</name>
+        <description><![CDATA[Avda. de las Palmeras 4, Armilla (Granada)<br>http://www.iact.ugr-csic.es/web_es/index.html]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6171358,37.1406632,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Andalusian Institute of Geophysics and Earthquake Disaster Prevention (IAGPDS) / Instituto Universitario de Investigación Andaluz de Geofísica y Prevención de Desastres Sísmicos (IAGPDS) </name>
+        <description><![CDATA[C/ Profesor Clavera Nº12, Granada<br>http://iagpds.ugr.es/]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5958874,37.1902881,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Andalusian Inter-University Institute of Criminology (IAIC) / Instituto Andaluz Interuniversitario de Criminología (IAIC) 
+</name>
+        <description><![CDATA[Rector López Argüeta S/N, Granada<br>http://criminologia.ugr.es/]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6048433,37.1808058,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Andalusian Inter-University Institute for Earth System Research (IISTA-CEAMA) / Instituto Interuniversitario de Investigación del Sistema Tierra en Andalucía- CEAMA
+</name>
+        <description><![CDATA[Av. del Mediterráneo s/n, Granada<br>http://www.iista.es/en/]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6049479,37.1638712,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Biomedical Research Centre (CIBM) / Centro de Investigación Biomédica (CIBM)</name>
+        <description><![CDATA[Avda. del Conocimiento S/N, Armilla (Granada)<br>http://cibm.ugr.es/]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6078984,37.1479453,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Biopathology and Regenerative Medicine Institute (IBIMER) / Instituto Universitario de Investigación de Biopatología y Medicina Regenerativa</name>
+        <description><![CDATA[Avda. del Conocimiento S/N, Armilla (Granada)<br>http://cibm.ugr.es/pages/estructura/estructuracientifica/ibimer]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6078313,37.1476525,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Biotechnology Institute (IBT-UGR) / Instituto Universitario de Investigación de Biotecnología (IBT-UGR) </name>
+        <description><![CDATA[Avda. del Conocimiento S/N, Armilla (Granada)<br>http://www.ibtugr.es/ ]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6079573,37.1475883,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Biotic Granada Campus of International Excellence (CIE Biotic Granada)/ Campus de Excelencia Internacional Biotic Granada (CEI Biotic Granada)</name>
+        <description><![CDATA[Parque Tecnológico de Ciencias de la Salud, Avda. del Conocimiento s/n, Armilla (Granada)<br>http://biotic.ugr.es/en/]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6057151,37.1481057,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA["Carlos I" Institute of Theoretical and Computational Physics (iC1) / Instituto Universitario de Investigación "Carlos I" de Física Teórica y Computacional (iC1)]]></name>
+        <description><![CDATA[Campus Universitario Fuentenueva, Granada<br>http://ic1.ugr.es/]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6092877,37.1795823,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Centre for Scientific Instrumentation (CIC) / Centro de Instrumentación Científica (CIC)</name>
+        <description><![CDATA[Paseo del Prof. Juan Ossorio, s/n, Campus Universitario de Fuentenueva, Granada<br>http://cic.ugr.es/]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6107469,37.1823582,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Research Centre for Information and Communications Technologies (CITIC-UGR) / Centro de Investigación en Tecnologías de la Información y las Comunicaciones 
+
+</name>
+        <description>Calle Periodista Rafael Gómez Montero, 2, 18014 Granada,  http://citic.ugr.es/</description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6240237,37.1976979,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA["Federico Olóriz" Institute of Neurosciences / Instituto Universitario de Investigación de Neurociencias "Federico Olóriz"]]></name>
+        <description><![CDATA[Avda. del Conocimiento S/N, Armilla (Granada)<br>http://ineurociencias.ugr.es]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6079332,37.1476545,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pfizer-University of Granada-Andalusian Government Centre for Genomics and Oncological Research (GENYO) / Centro Pfizer-Universidad de Granada-Junta de Andalucía de Genómica e Investigación Oncológica (GENYO)</name>
+        <description>Av. de la Ilustración, 114, 18007 Urb. los Vergeles, Granada,  http://www.genyo.es/</description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5970193,37.148995,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA["José Mataix Verdú" Institute of Nutrition and Food Technology (INYTA) / Instituto Universitario de Investigación de Nutrición y Tecnología de Alimentos "José Mataix Verdú"]]></name>
+        <description><![CDATA[Avda. del Conocimiento S/N, Armilla (Granada)<br>http://winyta.ugr.es/]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.607842,37.1475798,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Health Sciences Technology Park (PTS) / Parque Tecnológico de Ciencias de la Salud </name>
+        <description><![CDATA[Avda. del Conocimiento s/n, Armilla (Granada)<br>http://www.ptsgranada.com/]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6027566,37.148918,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Institute for Migration Research / Instituto Universitario de Investigación de Migraciones </name>
+        <description><![CDATA[Polígono Tecnológico Ogíjares, C/ Zamora, Parcela 111-112, Ogíjares (Granada)<br>http://migraciones.ugr.es/]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6159074,37.1319968,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Institute of Peace and Conflict Studies / Instituto Universitario de Investigación de la Paz y los Conflictos</name>
+        <description><![CDATA[Rector López Argüeta S/N, Granada<br>http://www.ugr.es/~eirene/main.html]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6047307,37.1808148,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>International Research Projects Office (OFPI) / Oficina de Proyectos Internacionales (OFPI)</name>
+        <description><![CDATA[Centro de Transferencia Tecnológica, Calle Gran Vía de Colón, 48, 18010 Granada<br>http://ofpi.ugr.es/?lang=en]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6002104,37.1810023,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Math Institute of the University of Granada (IEMath-GR) / Instituto Universitario de Investigación de Matemáticas de la Universidad de Granada </name>
+        <description>C/ Ventanilla, 11, 18001, Granada  http://wpd.ugr.es/~iemath/</description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6036149,37.1811401,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>MediaLab-UGR Research Laboratory for Digital Culture and Society / MediaLab-UGR Laboratorio de Investigación en Cultura y Sociedad Digital </name>
+        <description>Calle Gran Vía, 48, Granada  http://medialab.ugr.es/</description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.60012,37.1810504,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mind, Brain and Behaviour Research Centre (CIMCYC) / Centro de Investigación Mente, Cerebro y Comportamiento</name>
+        <description><![CDATA[Campus Universitario Cartuja, Granada<br>http://cimcyc.ugr.es]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5960993,37.1963946,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Regional Development Institute (IDR) / Instituto Universitario de Investigación de Desarrollo Regional (IDR) 
+</name>
+        <description><![CDATA[Rector López Argüeta S/N, Granada<br>http://idr.ugr.es]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6047937,37.1808515,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Research Transfer Office (OTRI) / Oficina de Transferencia de Resultados de Investigación (OTRI)</name>
+        <description><![CDATA[Centro de Transferencia Tecnológica, Calle Gran Vía de Colón, 48, 18010 Granada<br>http://otri.ugr.es/?set_language=en]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6002024,37.1810183,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Technology Transfer Centre (CTT) / Centro de Transferencia Tecnológica</name>
+        <description>Calle Gran Vía de Colón, 48, 18010 Granada</description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6002259,37.181014,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>UGR-MADOC Joint Centre / Centro Mixto MADOC-UGR</name>
+        <description>Calle Gran Vía de Colón, 48, 18010 Granada  http://cemixugrmadoc.ugr.es/</description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6001984,37.1809292,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vice-Rectorate for Research and Knowledge Transfer / Vicerrectorado de Investigación y Transferencia</name>
+        <description><![CDATA[Centro de Transferencia Tecnológica, Calle Gran Vía de Colón, 48, 18010 Granada<br>http://investigacion.ugr.es/]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6001896,37.1810044,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Water Institute (IdA) / Instituto Universitario de Investigación del Agua (IdA)</name>
+        <description><![CDATA[Edificio Fray Luís, C/ Ramón y Cajal, 4. Granada<br>http://www.institutodelagua.es/]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6154085,37.1830506,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Women’s and Gender Studies Institute / Instituto Universitario de Investigación de Estudios de las Mujeres y de Género</name>
+        <description><![CDATA[Rector López Argüeta S/N, Granada<br>http://www.ugr.es/~insmujer/]]></description>
+        <styleUrl>#icon-959-0BA9CC</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6047743,37.1807656,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Cultura y Alojamiento</name>
+      <Placemark>
+        <name>Carmen de la Victoria Visitors Residence / Residencia de Invitados Carmen de la Victoria</name>
+        <description>Cuesta del Chapiz, 9, 18010 Granada, Granada, Spain                                          http://carmendelavictoria.ugr.es/</description>
+        <styleUrl>#icon-1229</styleUrl>
+        <Point>
+          <coordinates>
+            -3.588663,37.181015,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA["Casa de Porras" University Cultural Centre (Casa del Estudiante) / Centro Cultural "Casa de Porras" (Casa del Estudiante)]]></name>
+        <description><![CDATA[Placeta de Porras, Granada<br>http://ve.ugr.es/pages/casa-de-porras]]></description>
+        <styleUrl>#icon-1229</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5949942,37.1784047,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Corrala de Santiago Visitors Residence / Residencia de Invitados Corrala de Santiago</name>
+        <description>c/ Santiago, 5. 18009 Granada                                 http://corraladesantiago.ugr.es/  </description>
+        <styleUrl>#icon-1229</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5936854,37.1730854,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Euro-Arab Foundation for Higher Studies / Fundación Euroárabe de Altos Estudios</name>
+        <description><![CDATA[Calle San Jerónimo, 27 - Granada<br>http://www.fundea.org/]]></description>
+        <styleUrl>#icon-1229</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6011164,37.1781056,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hospital Real - Sala de exposiciones del Crucero bajo</name>
+        <description>Avenida del Hospicio, S/N - Granada</description>
+        <styleUrl>#icon-1229</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6008709,37.1847708,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Madrasah of Granada / Madraza de Granada</name>
+        <description>Calle Oficios 14 , Granada                                          http://lamadraza.ugr.es/ </description>
+        <styleUrl>#icon-1229</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5981982,37.1762153,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vth Centenary Building / Espacio V Centenario</name>
+        <description>Av. de Madrid, 20A, 18012 Granada, Spain (antigua facultad de medicina) https://patrimonio.ugr.es/bienes/antigua-facultad-de-medicina/</description>
+        <styleUrl>#icon-1229</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6043096,37.1862666,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Transporte</name>
+      <Placemark>
+        <name>Federico García Lorca Airport / Aeropuerto Federico García Lorca Granada-Jaén</name>
+        <description><![CDATA[Carretera de Málaga, Granada <br>http://www.aena.es/csee/Satellite/Aeropuerto-Federico-Garcia-Lorca-Granada-Jaen/es/]]></description>
+        <styleUrl>#icon-1417</styleUrl>
+        <Point>
+          <coordinates>
+            -3.7781274,37.1877154,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Melilla Airport / Aeropuerto de Melilla</name>
+        <description>Ctra. de Yasinen, s/n, 52005 Melilla                         http://www.aena.es/csee/Satellite/Aeropuerto-Melilla/es/Inicio.html</description>
+        <styleUrl>#icon-1417</styleUrl>
+        <Point>
+          <coordinates>
+            -2.9567385,35.2792235,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Granada Bus Station / Estación de Autobuses de Granada</name>
+        <description>Calle Minerva s/n, Granada                                         http://www.granadadirect.com/transporte/estacion-autobuses-granada/</description>
+        <styleUrl>#icon-1423</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6136651,37.1993814,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Granada Train Station / Estación de Trenes de Granada</name>
+        <description>Avenida de Andaluces, Granada http://www.renfe.com/</description>
+        <styleUrl>#icon-1459</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6087513,37.1839288,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Melilla Port / Puerto de Melilla</name>
+        <description>Avenida de La Marina Española, nº4 - Melilla 52001 España                      http://www.puertodemelilla.es/</description>
+        <styleUrl>#icon-1441</styleUrl>
+        <Point>
+          <coordinates>
+            -2.9319871,35.2918084,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ceuta Port / Puerto de Ceuta</name>
+        <description><![CDATA[Muelle de España, s/n, 51001 Ceuta, Ceuta, Spain<br>www.puertos.es]]></description>
+        <styleUrl>#icon-1441</styleUrl>
+        <Point>
+          <coordinates>
+            -5.3227686,35.8946823,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Varios (Hospitales, Policía...)</name>
+      <Placemark>
+        <name>Hospital Campus de la Salud</name>
+        <description>Avenida de la Innovación, s/n  http://www.hvn.es/comp_hospitalario/estructura_fisica/hospital_campus_de_la_salud/</description>
+        <styleUrl>#icon-1269</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6070669,37.1473873,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hospital Clínico San Cecilio </name>
+        <description><![CDATA[Avenida Dr. Olóriz, s/n, Granada                              http://www.juntadeandalucia.es/servicioandaluzdesalud/hsc/joomla/index.php?option=com_content&task=view&id=1458&Itemid=1249]]></description>
+        <styleUrl>#icon-1269</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6053073,37.1877539,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hospital Comarcal de Melilla</name>
+        <description>Calle Remonta, 2, 52005 Melilla http://www.areasaludmelilla.es/asm/index.php  </description>
+        <styleUrl>#icon-1269</styleUrl>
+        <Point>
+          <coordinates>
+            -2.9475009,35.286103,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hospital General</name>
+        <description>Av. de las Fuerzas Armadas, 2, 18014 Granada    http://www.hospitalgranada.es/hospitales_de_granada/hospitales/hospital_general     </description>
+        <styleUrl>#icon-1269</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6099476,37.1886941,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hospital Materno Infantil</name>
+        <description>Ribera del Beiro, s/n o Avda. de las Fuerzas Armadas, s/n                  http://www.hospitalgranada.es/hospitales_de_granada/hospitales/hospital_materno_infantil</description>
+        <styleUrl>#icon-1269</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6107576,37.1892966,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hospital Universitario Virgen de las Nieves</name>
+        <description><![CDATA[Avenida de las Fuerzas Armadas 2, Granada<br>http://www.hospitalvirgendelasnieves.org/]]></description>
+        <styleUrl>#icon-1269</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6093145,37.188318,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hospital Universitario de Ceuta</name>
+        <description><![CDATA[Urbanización Loma Colmenar, S/N, 51003 Ceuta <br>http://www.areasanitariaceuta.es/atencion-especializada/hospital-universitario-de-ceuta/]]></description>
+        <styleUrl>#icon-1269</styleUrl>
+        <Point>
+          <coordinates>
+            -5.3417587,35.8808618,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Police Station (Cuerpo Nacional de Policía)</name>
+        <description><![CDATA[Plaza de los Campos 3, Granada<br>http://www.policia.es/]]></description>
+        <styleUrl>#icon-1301</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5956796,37.1726948,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Police Station (Comisaría De Policía De Granada Sur)</name>
+        <description><![CDATA[Calle Chile, 13, Granada<br>http://www.policia.es/]]></description>
+        <styleUrl>#icon-1301</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6017856,37.154036,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Police Station (Jefatura Superior De Andalucía Occidental)</name>
+        <description><![CDATA[Calle de la Palmita 1, Granada<br>http://www.policia.es/]]></description>
+        <styleUrl>#icon-1301</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6216178,37.1990439,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Police Station (in Melilla)</name>
+        <description>C/ Actor Tallaví Nº 3 - 52003, Melilla http://www.policia.es/documentacion/oficinas/melilla.html</description>
+        <styleUrl>#icon-1301</styleUrl>
+        <Point>
+          <coordinates>
+            -2.9399371,35.2888922,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Police Station (in Ceuta)</name>
+        <description>Paseo de Colón, 4, 51001 Ceuta, Spain                 http://www.policia.es/documentacion/oficinas/ceuta.html   </description>
+        <styleUrl>#icon-1301</styleUrl>
+        <Point>
+          <coordinates>
+            -5.3121256,35.8866959,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Granada City Hall / Ayuntamiento de Granada</name>
+        <description><![CDATA[Plaza del Carmen s/n, Granada<br>http://www.granada.org/]]></description>
+        <styleUrl>#icon-1197</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5987225,37.1742223,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>City Hall (Ciudad Autónoma de Melilla)</name>
+        <description>Plaza de España, s/n, 52001 Melilla                         http://www.melilla.es/melillaPortal/index.jsp   </description>
+        <styleUrl>#icon-1197</styleUrl>
+        <Point>
+          <coordinates>
+            -2.9369974,35.29222,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>City Hall (in Ceuta) / Ayuntamiento de Ceuta</name>
+        <description>Plaza de África, 1                                                       http://www.ceuta.es/ceuta/</description>
+        <styleUrl>#icon-1197</styleUrl>
+        <Point>
+          <coordinates>
+            -5.3158593,35.8884373,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Main Post Office / Correos</name>
+        <description>Calle Puerta Real 2, Granada</description>
+        <styleUrl>#icon-1303</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5994923,37.1733931,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Post Office (in Melilla)</name>
+        <description>C/ Marques Montemar, 11 - 13, 52001 Melilla     http://www.correos.es/ss/Satellite/site/pagina-inicio/info</description>
+        <styleUrl>#icon-1303</styleUrl>
+        <Point>
+          <coordinates>
+            -2.9396072,35.2842836,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Post Office (in Ceuta)</name>
+        <description><![CDATA[Plaza de España, s/n, 51001 Ceuta, Spain<br>www.concorreos.com]]></description>
+        <styleUrl>#icon-1303</styleUrl>
+        <Point>
+          <coordinates>
+            -5.3099102,35.8868075,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Office for Foreign Residents / Oficina de Extranjería</name>
+        <description><![CDATA[C/ San Agapito, 2, 18013  Granada<br>http://extranjeros.empleo.gob.es]]></description>
+        <styleUrl>#icon-1195</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6051893,37.1926235,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Office for Foreign Residents (Melilla) / Oficina de Extranjería (Melilla)</name>
+        <description>Paseo Alcalde Rafael Ginel, Marítimo, 0, 52004 Melilla                                                                           http://www.seap.minhap.gob.es/web/delegaciones_gobierno/delegaciones/melilla/extranjeria.html</description>
+        <styleUrl>#icon-1195</styleUrl>
+        <Point>
+          <coordinates>
+            -2.9371154,35.2913618,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Office for Foreign Residents (Ceuta) / Oficina de Extranjería (Ceuta)</name>
+        <description><![CDATA[Avenida Nuestra Señora de Otero, (Edificio Mutua), S/N<br>51002 - Ceuta  http://www.seap.minhap.gob.es/web/delegaciones_gobierno/localizacion?serv=1749]]></description>
+        <styleUrl>#icon-1195</styleUrl>
+        <Point>
+          <coordinates>
+            -5.3231013,35.8902843,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Granada Conference Centre / Palacio de Congresos</name>
+        <description>S/N, Paseo del Violón, 18006 Granada https://www.pcgr.org/en/</description>
+        <styleUrl>#icon-1239</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5985965,37.1658912,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Principales lugares turísticos</name>
+      <Placemark>
+        <name>Alhambra (UNESCO World Heritage Site) / La Alhambra</name>
+        <description><![CDATA[Calle Real de la Alhambra s/n, Granada<br>http://www.alhambra-patronato.es/]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5880768,37.1759705,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Madrasah Palace / Palacio de la Madraza</name>
+        <description>Calle Oficios 14 , Granada</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5981566,37.1762313,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sacromonte</name>
+        <description><![CDATA[Camino del Sacromonte s/n, Granada<br>http://www.granada.org/inet/wagenda.nsf/wwcetod/Abad%C3%ADa%20del%20Sacromonte%20%28Iglesia%20y%20Museo%29]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5880607,37.1811637,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Science Museum / Parque de las Ciencias</name>
+        <description><![CDATA[Avda. de la Ciencia s/n, Granada<br>http://www.parqueciencias.com/]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            -3.6053395,37.1628709,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sierra Nevada Ski Resort / Estación de Esquí de Sierra Nevada</name>
+        <description>Plaza de Andalucía, 4 Edf. Cetursa - 18196 Sierra Nevada - Granada</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            -3.4002257,37.0937828,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA["Los Cármenes" Stadium / Estadio Los Cármenes]]></name>
+        <description>Calle del Pintor Manuel Maldonado s/n, Granada</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5966492,37.1533862,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tourist Information Office (Alhambra)</name>
+        <description><![CDATA[Calle Real de la Alhambra s/n, Granada<br>http://www.alhambra-patronato.es/]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5904586,37.1772529,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tourist Information Office (City Hall)</name>
+        <description><![CDATA[Plaza del Carmen s/n, Granada<br>http://www.granadatur.com/]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5986876,37.1741326,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tourist Information Office (Casa de las Chirimías)</name>
+        <description>Carrera del Darro, 16 Granada</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5904104,37.178736,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tourist Information Office (Regional Government of Andalusia)</name>
+        <description><![CDATA[Santa Ana, 2 Granada<br>http://www.andalucia.org/]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5941333,37.1776461,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tourist Information Office (Patronato Provincial de Turismo)</name>
+        <description><![CDATA[Plaza de Mariana Pineda, 10 Granada<br>http://www.turgranada.es/]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5975182,37.1721835,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tourist Information Office (Patronato de Turismo de Granada)</name>
+        <description>Cárcel Baja, 3, 18001 Granada                                  http://www.turgranada.es/</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            -3.5998034,37.1766245,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tourist Information Office (Melilla)</name>
+        <description>Calle Teniente Aguilar de Mera, 4, 52001 Melilla  http://www.melillaturismo.com/</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            -2.9373702,35.2936671,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tourist Information Office (Ceuta)</name>
+        <description>Calle Edrisis, 0 Edificio Valuarte de los Mallorquines, 51001 Ceuta       http://www.ceuta.si/</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            -5.3176939,35.8895129,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>
