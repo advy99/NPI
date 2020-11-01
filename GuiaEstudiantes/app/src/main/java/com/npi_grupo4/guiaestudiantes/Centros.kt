@@ -1,6 +1,7 @@
 package com.npi_grupo4.guiaestudiantes
 
 import android.Manifest
+import android.accessibilityservice.AccessibilityService
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
@@ -23,8 +24,6 @@ import com.google.maps.android.data.kml.KmlLayer
 
 class Centros : Fragment() {
 
-    private var mLocationPermissionGranted = false
-    private val LOCATION_PERMISSION_REQUEST_CODE = 1
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -43,10 +42,15 @@ class Centros : Fragment() {
 //        val latitude: Double = location.getLatitude()
 
 
-        getLocationPermission()
+        GestorPermisos.getLocationPermission(requireContext(), requireActivity())
         var location = LocationServices.getFusedLocationProviderClient(requireContext())
 
-        if (mLocationPermissionGranted) {
+        var position = LatLng(37.1886273, -3.5907775 )
+
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
+
+        if (GestorPermisos.locationPermissionGranted()) {
             location.lastLocation.addOnSuccessListener { loc: Location? ->
 
                 if ( loc != null){
@@ -56,19 +60,12 @@ class Centros : Fragment() {
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
                 } else {
                     Toast.makeText(requireActivity(), "Activa la ubicacion. Centrando en Granada", Toast.LENGTH_LONG).show()
-                    var position = LatLng(37.1886273, -3.5907775 )
 
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
                 }
 
 
             }
         }
-
-
-
-
 
 
         val kmlFile = KmlLayer(googleMap, R.raw.mapas_campus_ugr, requireActivity())
@@ -93,38 +90,10 @@ class Centros : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
-        getLocationPermission();
+        GestorPermisos.getLocationPermission(requireContext(), requireActivity())
         mapFragment?.getMapAsync(callback)
     }
 
-    private fun getLocationPermission() {
-        val permissions = arrayOf<String>(android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION)
 
-        if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-            if(ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-                mLocationPermissionGranted = true
-            } else {
-                ActivityCompat.requestPermissions(requireActivity(),permissions,LOCATION_PERMISSION_REQUEST_CODE)
-            }
-        } else {
-            ActivityCompat.requestPermissions(requireActivity(),permissions,LOCATION_PERMISSION_REQUEST_CODE)
-        }
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        mLocationPermissionGranted = false
-
-        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE){
-            if(grantResults.size > 0){
-                for (i in 0 until grantResults.size){
-                    if (grantResults[i] != PackageManager.PERMISSION_GRANTED){
-                        mLocationPermissionGranted = false
-                        return
-                    }
-                }
-                mLocationPermissionGranted = true
-            }
-        }
-    }
 
 }

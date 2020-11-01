@@ -2,23 +2,77 @@ package com.npi_grupo4.guiaestudiantes
 
 
 import android.graphics.Bitmap
+import android.location.Location
 import android.os.Bundle
 import android.view.*
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.model.LatLng
+import java.lang.Float.POSITIVE_INFINITY
 
 
 class Grados : Fragment() {
 
-    var web : String = "https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/guiasdocentes_curso_actual"
+    private var posiciones = ArrayList<LatLng>()
+    private var webs = ArrayList<String>()
+    private var indice = 0
+
+
+
     lateinit var webView : WebView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
         retainInstance = true;
+
+        posiciones.add(LatLng(37.1962126,-3.6246538)) // informatica
+        posiciones.add(LatLng(37.1948506, -3.6256143) )// bellas artes
+        posiciones.add(LatLng(37.1743285,-3.5926879)) // arquitectura
+        posiciones.add(LatLng(37.1930924,-3.6019477)) // educacion
+        posiciones.add(LatLng(37.1949702,-3.598714)) // farmacia
+        posiciones.add(LatLng(37.1493728,-3.606892) ) // medicina
+
+        webs.add("https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/guiasdocentes_curso_actual")
+        webs.add("https://grados.ugr.es/bellasartes/pages/infoacademica/guias-docentes")
+        webs.add("https://grados.ugr.es/arquitectura/pages/infoacademica/guias")
+        webs.add("https://grados.ugr.es/primaria/pages/infoacademica/estudios")
+        webs.add("https://grados.ugr.es/farmacia/pages/guiasdocentes/gd2019")
+        webs.add("https://grados.ugr.es/medicina/pages/infoacademica/estudios")
+
+        GestorPermisos.getLocationPermission(requireContext(), requireActivity())
+        var location = LocationServices.getFusedLocationProviderClient(requireContext())
+
+        if (GestorPermisos.locationPermissionGranted()) {
+            location.lastLocation.addOnSuccessListener { loc: Location? ->
+
+                if ( loc != null){
+                    var position = LatLng(loc!!.latitude, loc!!.longitude)
+
+                    var minimo = POSITIVE_INFINITY
+                    var resultado = FloatArray(3)
+
+                    for (pos in 0..posiciones.size-1) {
+                        Location.distanceBetween(posiciones[pos].latitude, posiciones[pos].longitude, position.latitude, position.longitude, resultado)
+                        if ( minimo > resultado[0]){
+                            minimo = resultado[0]
+                            indice = pos
+                        }
+                    }
+
+                } else {
+                    Toast.makeText(requireActivity(), "Si activas la ubicación, te saldrá el grado de la facultad más cercana", Toast.LENGTH_LONG).show()
+                }
+
+
+            }
+        }
     }
 
 
@@ -36,56 +90,51 @@ class Grados : Fragment() {
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // ponemos los indices por separado, por si actualizamos la web en otro sitio con otra accion
         when (item.toString()) {
             "E.T.S. de Ingenierías Informática y de Telecomunicación" -> {
-                web = "https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/guiasdocentes_curso_actual"
-                webView.loadUrl(web)
-                webView.settings.setJavaScriptEnabled(true);
-                webView.settings.setSupportZoom(true);
-                webView.settings.builtInZoomControls = true;
+                indice = 0
+
             }
 
             "Facultad de Bellas Artes" -> {
-                web = "https://grados.ugr.es/bellasartes/pages/infoacademica/guias-docentes"
-                webView.loadUrl(web)
-                webView.settings.setJavaScriptEnabled(true);
-                webView.settings.setSupportZoom(true);
-                webView.settings.builtInZoomControls = true;
+                indice = 1
+
             }
 
             "E.T.S. de Arquitectura" -> {
-                web = "https://grados.ugr.es/arquitectura/pages/infoacademica/guias"
-                webView.loadUrl(web)
-                webView.settings.setJavaScriptEnabled(true);
-                webView.settings.setSupportZoom(true);
-                webView.settings.builtInZoomControls = true;
+                indice = 2
+
             }
 
             "Facultad de Ciencias de la Educación" -> {
-                web = "https://grados.ugr.es/primaria/pages/infoacademica/estudios"
-                webView.loadUrl(web)
-                webView.settings.setJavaScriptEnabled(true);
-                webView.settings.setSupportZoom(true);
-                webView.settings.builtInZoomControls = true;
+                indice = 3
+
             }
 
             "Facultad de Farmacia" -> {
-                web = "https://grados.ugr.es/farmacia/pages/guiasdocentes/gd2019"
-                webView.loadUrl(web)
-                webView.settings.setJavaScriptEnabled(true);
-                webView.settings.setSupportZoom(true);
-                webView.settings.builtInZoomControls = true;
+                indice = 4
+
             }
 
             "Facultad de Medicina" -> {
-                web = "https://grados.ugr.es/medicina/pages/infoacademica/estudios"
-                webView.loadUrl(web)
-                webView.settings.setJavaScriptEnabled(true);
-                webView.settings.setSupportZoom(true);
-                webView.settings.builtInZoomControls = true;
+                indice = 5
+
             }
         }
+
+        cambiarWeb()
+
+
+
         return true
+    }
+
+    private fun cambiarWeb() {
+        webView.loadUrl(webs[indice])
+        webView.settings.setJavaScriptEnabled(true);
+        webView.settings.setSupportZoom(true);
+        webView.settings.builtInZoomControls = true;
     }
 
     override fun onCreateView(
@@ -96,7 +145,7 @@ class Grados : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_grados, container, false)
 
         webView = view.findViewById(R.id.webView)
-        webView.loadUrl(web)
+        webView.loadUrl(webs[indice])
         webView.settings.setJavaScriptEnabled(true);
         webView.settings.setSupportZoom(true);
         webView.settings.builtInZoomControls = true;
