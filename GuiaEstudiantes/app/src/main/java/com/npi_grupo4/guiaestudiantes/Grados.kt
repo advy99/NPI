@@ -14,7 +14,6 @@ class Grados : Fragment() {
 
     var web : String = "https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/guiasdocentes_curso_actual"
     lateinit var webView : WebView
-    lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,7 +96,6 @@ class Grados : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_grados, container, false)
 
         webView = view.findViewById(R.id.webView)
-        progressBar = view.findViewById(R.id.progressBar);
         webView.loadUrl(web)
         webView.settings.setJavaScriptEnabled(true);
         webView.settings.setSupportZoom(true);
