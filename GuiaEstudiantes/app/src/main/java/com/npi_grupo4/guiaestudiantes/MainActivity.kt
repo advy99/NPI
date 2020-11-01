@@ -1,21 +1,31 @@
 package com.npi_grupo4.guiaestudiantes
 
-import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.navigation.NavigationView
-import androidx.core.view.MotionEventCompat
-import androidx.core.view.GestureDetectorCompat
+import android.util.Log
 import android.view.GestureDetector
-import android.widget.Toast
 import android.view.MotionEvent
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GestureDetectorCompat
+import androidx.core.view.MotionEventCompat
+import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
+import kotlin.math.abs
 
 private const val DEBUG_TAG = "Gestures"
 
+enum class Accion{
+    ATRAS, NINGUNA
+}
+
 class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
     private lateinit var mDetector: GestureDetectorCompat;
+
+    private var previousX: Float = 0f
+    private var previousY: Float = 0f
+
+    private var accion: Accion = Accion.NINGUNA
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,11 +41,26 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        return if (mDetector.onTouchEvent(event)) {
-            true
-        } else {
-            super.onTouchEvent(event)
+        val x: Float = event.x
+        val y: Float = event.y
+        if ( event.action == MotionEvent.ACTION_MOVE) {
+            if ( abs(y - previousY) < 50 && previousX < x ) {
+                accion = Accion.ATRAS
+            } else {
+                accion = Accion.NINGUNA
+            }
+        } else if ( event.action == MotionEvent.ACTION_UP) {
+            if (accion == Accion.ATRAS){
+                val navigation = findNavController(this, R.id.nav_frag)
+                navigation.navigateUp()
+            }
         }
+
+        previousY = y
+        previousX = x
+
+        return true
+
     }
 
     override fun onDown(event: MotionEvent): Boolean {
