@@ -4,6 +4,7 @@ package com.npi_grupo4.guiaestudiantes
 import android.graphics.Bitmap
 import android.location.Location
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -39,6 +40,7 @@ class Grados : Fragment() {
         posiciones.add(LatLng(37.1949702,-3.598714)) // farmacia
         posiciones.add(LatLng(37.1493728,-3.606892) ) // medicina
 
+
         webs.add("https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/guiasdocentes_curso_actual")
         webs.add("https://grados.ugr.es/bellasartes/pages/infoacademica/guias-docentes")
         webs.add("https://grados.ugr.es/arquitectura/pages/infoacademica/guias")
@@ -46,6 +48,11 @@ class Grados : Fragment() {
         webs.add("https://grados.ugr.es/farmacia/pages/guiasdocentes/gd2019")
         webs.add("https://grados.ugr.es/medicina/pages/infoacademica/estudios")
 
+
+    }
+
+
+    private fun cargarMasCercano() {
         GestorPermisos.getLocationPermission(requireContext(), requireActivity())
         var location = LocationServices.getFusedLocationProviderClient(requireContext())
 
@@ -60,6 +67,7 @@ class Grados : Fragment() {
 
                     for (pos in 0..posiciones.size-1) {
                         Location.distanceBetween(posiciones[pos].latitude, posiciones[pos].longitude, position.latitude, position.longitude, resultado)
+                        Log.i("Distancia", " " + resultado[0] + " ")
                         if ( minimo > resultado[0]){
                             minimo = resultado[0]
                             indice = pos
@@ -70,11 +78,12 @@ class Grados : Fragment() {
                     Toast.makeText(requireActivity(), "Si activas la ubicación, te saldrá el grado de la facultad más cercana", Toast.LENGTH_LONG).show()
                 }
 
-
+                Log.i("----", " " + indice + " ")
+                cambiarWeb()
             }
         }
-    }
 
+    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_sample, menu)
@@ -126,7 +135,6 @@ class Grados : Fragment() {
         cambiarWeb()
 
 
-
         return true
     }
 
@@ -145,11 +153,8 @@ class Grados : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_grados, container, false)
 
         webView = view.findViewById(R.id.webView)
-        webView.loadUrl(webs[indice])
-        webView.settings.setJavaScriptEnabled(true);
-        webView.settings.setSupportZoom(true);
-        webView.settings.builtInZoomControls = true;
 
+        cargarMasCercano()
 
 
         return view
