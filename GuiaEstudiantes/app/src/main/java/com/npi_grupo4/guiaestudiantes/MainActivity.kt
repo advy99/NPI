@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
 
     private var previousX: Float = 0f
     private var previousY: Float = 0f
+    private var recorridoX: Float = 0f
+    private var recorridoY: Float = 0f
 
     private var accion: Accion = Accion.NINGUNA
 
@@ -94,9 +96,17 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
                 accion = Accion.NINGUNA
             }
         } else if ( event.action == MotionEvent.ACTION_UP) {
-            if (accion == Accion.ATRAS){
 
+            recorridoX = x - recorridoX
+            recorridoY = y - recorridoY
+
+            if (accion == Accion.ATRAS && recorridoX > 20){
                 navigation.navigateUp()
+            }
+        } else if ( event.action == MotionEvent.ACTION_DOWN) {
+            if (accion == Accion.ATRAS){
+                recorridoX = x
+                recorridoY = y
             }
         }
 
