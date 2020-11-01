@@ -179,10 +179,17 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
     override fun onSensorChanged(event: SensorEvent){
 
         val navigation = findNavController(this, R.id.nav_frag)
+        val gravedad = 9.83f
+
+        val current_fragment = (navigation.currentDestination?.label ?:"" )
 
         when(event.sensor.type) {
             Sensor.TYPE_ACCELEROMETER -> {
-
+                if ( event.values[2] - gravedad > 10 ){
+                    if ( current_fragment == "fragment_pagina_inicio") {
+                        navigation.navigate(R.id.action_paginaInicio_to_centros)
+                    }
+                }
             }
 
             Sensor.TYPE_GRAVITY -> {
