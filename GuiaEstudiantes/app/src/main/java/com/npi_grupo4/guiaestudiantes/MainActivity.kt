@@ -55,22 +55,27 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
 
         sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)?.let {
             acelerometro = it
+            sensorManager.registerListener(this, acelerometro, SensorManager.SENSOR_DELAY_NORMAL, SensorManager.SENSOR_DELAY_UI)
         }
 
         sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY)?.let {
             gravedad = it
+            sensorManager.registerListener(this, gravedad, SensorManager.SENSOR_DELAY_NORMAL, SensorManager.SENSOR_DELAY_UI)
         }
 
         sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE)?.let {
             giroscopio = it
+            sensorManager.registerListener(this, giroscopio, SensorManager.SENSOR_DELAY_NORMAL, SensorManager.SENSOR_DELAY_UI)
         }
 
         sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)?.let {
             aceleracionLineal = it
+            sensorManager.registerListener(this, aceleracionLineal, SensorManager.SENSOR_DELAY_NORMAL, SensorManager.SENSOR_DELAY_UI)
         }
 
         sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)?.let {
             rotacion = it
+            sensorManager.registerListener(this, rotacion, SensorManager.SENSOR_DELAY_NORMAL, SensorManager.SENSOR_DELAY_UI)
         }
 
     }
@@ -177,7 +182,7 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
 
         when(event.sensor.type) {
             Sensor.TYPE_ACCELEROMETER -> {
-                Toast.makeText(this, " " + event.values[0] + " " + event.values[1] + " " + event.values[2],Toast.LENGTH_SHORT).show()
+
             }
 
             Sensor.TYPE_GRAVITY -> {
