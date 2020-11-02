@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Granada</name>
+    <description>Lugares de interés en Granada. Las señales en rojo indican monumentos o lugares que visitar. Las señales en verde sólo dan información de la zona.</description>
+    <Style id="icon-124-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/124-red.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-124-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/124-red.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-124">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-124-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-124-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-124-nodesc-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/124-red.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-124-nodesc-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/124-red.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-124-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-124-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-124-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-125-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/125-restaurant.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-125-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/125-restaurant.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-125">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-125-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-125-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-20-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/20-bar.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-20-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/20-bar.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-20">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-20-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-20-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-35-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/35-coffeehouse.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-35-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/35-coffeehouse.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-35">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-35-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-35-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-62-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/62-green.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-62-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/62-green.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-62">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-62-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-62-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-62-nodesc-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/62-green.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-62-nodesc-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/62-green.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-62-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-62-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-62-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Capa sin nombre</name>
+      <Placemark>
+        <name><![CDATA[Bocadillos "La Mancha"]]></name>
+        <description>Típicos bocadillos calientes y fríos. Muy recomendable para almorzar. Es una tasca típica andaluza.</description>
+        <styleUrl>#icon-125</styleUrl>
+        <Point>
+          <coordinates>
+            -3.597475,37.176407,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Cervecería "Hanningans"]]></name>
+        <description>No es algo andaluz sino una cervecería irlandesa con mucho ambiente.</description>
+        <styleUrl>#icon-20</styleUrl>
+        <Point>
+          <coordinates>
+            -3.597797,37.176748,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Plaza Nueva</name>
+        <description>Un poco turístico y las tapas son escasas, pero hay varios lugares que no están mal.</description>
+        <styleUrl>#icon-62</styleUrl>
+        <Point>
+          <coordinates>
+            -3.596263,37.176748,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cuesta Gomérez</name>
+        <description>Aquí comienza la verdadera subida a la Alhambra. Es una pendiente intensa pero el final vale la pena.</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.595512,37.176483,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ALHAMBRA - ALCAZABA</name>
+        <description>Se entra por aquí</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.591113,37.177202,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ALHAMBRA  - Palacio de Carlos V</name>
+        <description>Es gratuito y alberga el Museo de la Alhambra</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.589911,37.176817,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ALHAMBRA - Palacios Nazaríes</name>
+        <description>Lo más famoso de la Alhambra. Sólo se puede visitar en la media hora que te dice el tiquet de entrada a la Alhambra. La entrada está aquí. Siempre habrá cola.</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.59019,37.177236,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ALHAMBRA - Generalife</name>
+        <description>Palacio de verano de los Sultanes, rodeado de jardines y fuentes.</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.585266,37.177894,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ALHAMBRA - ENTRADA</name>
+        <description>Aquí está la entrada al recinto, donde se compran y recogen las entradas. Mucha gente siempre.</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.584547,37.174372,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Paseo de los Tristes</name>
+        <description>Preciosa visión de la Alhambra desde abajo. Hay varios restaurantes que no están mal, aunque las tapas no son demasiado buenas (se nota que es un sitio turístico).</description>
+        <styleUrl>#icon-62</styleUrl>
+        <Point>
+          <coordinates>
+            -3.589965,37.1788,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Acera del Darro</name>
+        <description><![CDATA[Aquí comienza "Acera del Darro", una calle estrecha junto al río Darro que sube hacia el Albaicín y el Paseo de los Tristes.]]></description>
+        <styleUrl>#icon-62</styleUrl>
+        <Point>
+          <coordinates>
+            -3.594922,37.177441,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mirador de San Nicolás</name>
+        <description>Visita OBLIGADA, ver la Alhambra desde este típico mirador del Albaicin. En los alrededores hay varios lugares de tapas y restaurantes (caros, pero preciosos) con vistas a la Alhambra.</description>
+        <styleUrl>#icon-62</styleUrl>
+        <Point>
+          <coordinates>
+            -3.592604,37.181117,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Catedral de Granada</name>
+        <description>Se entra por aquí.</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.598473,37.17662,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Capilla Real</name>
+        <description>Donde están enterrados los Reyes Católicos (Isabel de Castilla y Fernando de Aragón) y sus hijos Juana (La Loca) y Felipe (el Hermoso). Tiene un pequeño museo.</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.598784,37.17606,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Helados "Los Italianos"]]></name>
+        <description>Los mejores helados de Granada.</description>
+        <styleUrl>#icon-35</styleUrl>
+        <Point>
+          <coordinates>
+            -3.597722,37.176201,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Plaza de Isabel La Católica</name>
+        <styleUrl>#icon-62-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -3.597497,37.175637,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Alcaicería</name>
+        <description>El antiguo zoco árabe. Pensarás que estás en Túnez o Marruecos cuando pasees por estas callejuelas.</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.59902,37.175509,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Corral del Carbón</name>
+        <description>Un lugar pequeñito pero agradable. A veces hacen exposiciones o funciones de teatro. Entrada gratuita, se ve en 5 minutos.</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.598087,37.174919,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Restaurante... ¿Los Manueles?</name>
+        <description>No estoy seguro si se llama así, pero anda por esta esquina o en la esquina de la calle siguiente.</description>
+        <styleUrl>#icon-125</styleUrl>
+        <Point>
+          <coordinates>
+            -3.598827,37.173808,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Restaurante "Chikito"]]></name>
+        <description>Uno de los mejores de Granada. No es tan caro como podría ser. Vale la pena.</description>
+        <styleUrl>#icon-125</styleUrl>
+        <Point>
+          <coordinates>
+            -3.597883,37.171953,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafetería con Piononos</name>
+        <description>No os podéis ir de Granada sin probar el típico dulce, los Piononos, en honor al papa Pío IX. En esta esquina hay una cafetería agradable donde los podéis encontrar.</description>
+        <styleUrl>#icon-35</styleUrl>
+        <Point>
+          <coordinates>
+            -3.597658,37.171397,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Plaza de las Batallas</name>
+        <description>Es el centro. Por las tardes de otoño e invierno podéis buscar a un hombre vendiendo castañas asadas.</description>
+        <styleUrl>#icon-62</styleUrl>
+        <Point>
+          <coordinates>
+            -3.59858,37.172038,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Carrera de la Virgen</name>
+        <description>Bonita avenida peatonal, a veces ponen tiendecillas en ella.</description>
+        <styleUrl>#icon-62</styleUrl>
+        <Point>
+          <coordinates>
+            -3.597239,37.170687,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Iglesia de las Angustias</name>
+        <description>Una de las más famosas de Granada. Para mi gusto, demasiado recargada, pero suele gustar mucho.</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.596982,37.169961,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Plaza Bibrambla</name>
+        <description>Está llena de lugares para comer, pero las tapas suelen brillar por su ausencia. También hay varias cafeterías.</description>
+        <styleUrl>#icon-125</styleUrl>
+        <Point>
+          <coordinates>
+            -3.599868,37.175235,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Restaurantes en Calle Navas</name>
+        <description><![CDATA[Esta calle está plagada de restaurantes (recuerdo el "Nuevo Restaurante" en la posición indicada) y de lugares de tapas. En algunos podréis degustar los típicos platos de la Alpujarra.]]></description>
+        <styleUrl>#icon-125</styleUrl>
+        <Point>
+          <coordinates>
+            -3.597722,37.173355,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Campo del Príncipe</name>
+        <description>La plaza más importante del Realejo Granadino. Tiene muchos lugares de tapas.</description>
+        <styleUrl>#icon-62</styleUrl>
+        <Point>
+          <coordinates>
+            -3.592014,37.17297,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Calle de las Teterías</name>
+        <description><![CDATA[No te puedes ir de Granada sin pasar por aquí y tomarte un té en alguna tetería. Es la subida típica al Albaicin. Dos notas importantes:<br><br>- Lleva un mapa o te perderás en el Albaicín.<br>- Cuidado con andar en la noche, te pueden dar un susto, aunque en los últimos años esto ha mejorado bastante.]]></description>
+        <styleUrl>#icon-62</styleUrl>
+        <Point>
+          <coordinates>
+            -3.597089,37.1778,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Cafetería "La Isla"]]></name>
+        <description>Donde puedes comprar más piononos ;)</description>
+        <styleUrl>#icon-35</styleUrl>
+        <Point>
+          <coordinates>
+            -3.598323,37.170533,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Restaurante "La Pataleta"]]></name>
+        <description>Uno de mis preferidos en Granada. Es caro (mínimo 30 euros por persona) pero si te gusta la carne a la brasa, éste es tu sitio.</description>
+        <styleUrl>#icon-125</styleUrl>
+        <Point>
+          <coordinates>
+            -3.605897,37.176971,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>San Juan de Dios</name>
+        <description>Una de las iglesias más importantes e imponentes de Granada.</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.602775,37.180817,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Jardines del Triunfo</name>
+        <description>Unos bonitos jardines</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.602024,37.183886,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Puerta de Elvira</name>
+        <description>La antigua puerta de acceso a Granada.</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.59961,37.182151,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Calle Mesones</name>
+        <description>Típica calle comercial</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.600265,37.174201,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Calle Alhóndiga</name>
+        <description>Otra calle comercial</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.600833,37.173919,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Plaza de la Trinidad</name>
+        <styleUrl>#icon-124-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -3.601649,37.176065,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Plaza de la Universidad</name>
+        <styleUrl>#icon-124-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -3.601638,37.178321,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Cafetería "El Tren"]]></name>
+        <description><![CDATA[Donde podrás degustar gran variedad de cafés y tartas, y "caprichos" de café.]]></description>
+        <styleUrl>#icon-35</styleUrl>
+        <Point>
+          <coordinates>
+            -3.604792,37.176458,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tapas Kaito</name>
+        <description>De las mejores de Graná. Con 2 cervezas prácticamente comes.</description>
+        <styleUrl>#icon-125</styleUrl>
+        <Point>
+          <coordinates>
+            -3.60859,37.178381,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Universidad de Ciencias</name>
+        <description>Alrededor de la Universidad hay muchos lugares buenos de tapas, pero pilla algo lejos del centro de Granada, por eso no es tan turístico.</description>
+        <styleUrl>#icon-62</styleUrl>
+        <Point>
+          <coordinates>
+            -3.609148,37.179142,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Plaza de Toros</name>
+        <description>Aunque pilla lejos del centro de Granada, los alrededores están llenos de lugares de tapas. Pero no es demasiado turístico.</description>
+        <styleUrl>#icon-62</styleUrl>
+        <Point>
+          <coordinates>
+            -3.607721,37.189049,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cartuja</name>
+        <description>Monasterio de la Cartuja. Es uno de los monumentos más visitados de Granada, a mí no me gusta mucho (muy recargado, demasiado oro por todos lados y la vida y sufrimientos de santos y santos)... aunque normalmente encanta.</description>
+        <styleUrl>#icon-124</styleUrl>
+        <Point>
+          <coordinates>
+            -3.599567,37.191895,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Genil y Darro</name>
+        <description>Aquí confluyen los ríos Darro (que ahora va bajo la ciudad desde el principio de Acera del Darro) y el Genil. Es una curiosidad.</description>
+        <styleUrl>#icon-62</styleUrl>
+        <Point>
+          <coordinates>
+            -3.596349,37.168618,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Palacio de Congresos</name>
+        <styleUrl>#icon-62-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -3.598355,37.165592,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Instituto de Astrofísica de Andalucía</name>
+        <styleUrl>#icon-62-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -3.590341,37.161821,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>
