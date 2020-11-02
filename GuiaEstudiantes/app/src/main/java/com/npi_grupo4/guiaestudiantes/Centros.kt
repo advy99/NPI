@@ -1,29 +1,13 @@
 package com.npi_grupo4.guiaestudiantes
 
-<<<<<<< HEAD
-import android.net.http.SslError
-=======
 import android.Manifest
 import android.accessibilityservice.AccessibilityService
 import android.content.pm.PackageManager
 import android.location.Location
->>>>>>> main
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-<<<<<<< HEAD
-import android.webkit.SslErrorHandler
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
-import android.webkit.WebViewClient
-import androidx.fragment.app.Fragment
-
-
-// TODO: Rename parameter arguments, choose names that match
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-=======
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -37,18 +21,9 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.maps.android.data.kml.KmlLayer
 
->>>>>>> main
 
 class Centros : Fragment() {
-    // TODO: Rename and change types of parameters
 
-<<<<<<< HEAD
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-=======
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -101,60 +76,17 @@ class Centros : Fragment() {
 //        val ETSIIT = LatLng(37.197055556, -3.624111111)
 //        googleMap.addMarker(MarkerOptions().position(ETSIIT).title("Marker in ETSIIT"))
 //        googleMap.moveCamera(CameraUpdateFactory.newLatLng(ETSIIT))
->>>>>>> main
     }
 
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
+            inflater: LayoutInflater,
+            container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        val view: View = inflater.inflate(R.layout.fragment_centros, container, false)
-        val webview = view.findViewById(R.id.mapa_centros) as WebView
-        webview.getSettings().setJavaScriptEnabled(true)
-
-<<<<<<< HEAD
-        webview.settings.javaScriptEnabled = true
-        webview.clearCache(true)
-        webview.webViewClient = object : WebViewClient() {
-
-            override fun onPageFinished(view: WebView, url: String?) {
-                if (view.title == "") view.reload()
-            }
-
-            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
-                webview.loadUrl("https://www.google.com/maps/d/embed?mid=1k7hR-nnrQivEs6-5LWRwE9aLRDMvJjaT")
-                return true
-            }
-
-            override fun onReceivedSslError(
-                    view: WebView,
-                    handler: SslErrorHandler,
-                    error: SslError
-            ) {
-                println("before handler")
-                handler.proceed()
-                println("after handler")
-            }
-        }
-
-        webview.loadUrl("https://www.google.com/maps/d/embed?mid=1k7hR-nnrQivEs6-5LWRwE9aLRDMvJjaT")
-
-        return view
+        return inflater.inflate(R.layout.fragment_centros, container, false)
     }
 
-    companion object {
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-                Centros().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
-    }
-=======
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
@@ -164,5 +96,4 @@ class Centros : Fragment() {
 
 
 
->>>>>>> main
 }
