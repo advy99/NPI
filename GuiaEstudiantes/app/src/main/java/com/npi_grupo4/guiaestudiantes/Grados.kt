@@ -1,10 +1,8 @@
 package com.npi_grupo4.guiaestudiantes
 
 
-import android.graphics.Bitmap
 import android.location.Location
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.webkit.WebChromeClient
 import android.webkit.WebResourceRequest
@@ -14,7 +12,6 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.LatLng
 import java.lang.Float.POSITIVE_INFINITY
 
@@ -38,12 +35,12 @@ class Grados : Fragment() {
 
         retainInstance = true;
 
-        posiciones.add(LatLng(37.1962126,-3.6246538)) // informatica
-        posiciones.add(LatLng(37.1948506, -3.6256143) )// bellas artes
-        posiciones.add(LatLng(37.1743285,-3.5926879)) // arquitectura
-        posiciones.add(LatLng(37.1930924,-3.6019477)) // educacion
-        posiciones.add(LatLng(37.1949702,-3.598714)) // farmacia
-        posiciones.add(LatLng(37.1493728,-3.606892) ) // medicina
+        posiciones.add(LatLng(37.1962126, -3.6246538)) // informatica
+        posiciones.add(LatLng(37.1948506, -3.6256143))// bellas artes
+        posiciones.add(LatLng(37.1743285, -3.5926879)) // arquitectura
+        posiciones.add(LatLng(37.1930924, -3.6019477)) // educacion
+        posiciones.add(LatLng(37.1949702, -3.598714)) // farmacia
+        posiciones.add(LatLng(37.1493728, -3.606892)) // medicina
 
 
         webs.add("https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/guiasdocentes_curso_actual")
@@ -162,8 +159,8 @@ class Grados : Fragment() {
         webView.settings.setJavaScriptEnabled(true)
         webView.settings.setSupportZoom(true)
         webView.settings.builtInZoomControls = true
-        webView.getSettings().setLoadWithOverviewMode(true)
-        webView.getSettings().setUseWideViewPort(true);
+        webView.settings.loadWithOverviewMode = true
+        webView.settings.useWideViewPort = true;
 
         //Para mostrar la barra el iniciar el fragment
         webView.visibility = View.GONE
@@ -207,7 +204,6 @@ class Grados : Fragment() {
     }
 
 
-
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -218,4 +214,6 @@ class Grados : Fragment() {
          * @return A new instance of fragment Grados.
          */
     }
+
+
 }

@@ -78,6 +78,15 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
         }
 
     }
+
+    override fun onBackPressed() {
+        if (webView.canGoBack()){
+            webView.goBack()
+        }
+        else {
+            super.onBackPressed()
+        }
+    }
     
     // PANTALLA
 
@@ -183,8 +192,8 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
 
         when(event.sensor.type) {
             Sensor.TYPE_ACCELEROMETER -> {
-                if ( event.values[2] - gravedad > 10 ){
-                    if ( current_fragment == "fragment_pagina_inicio") {
+                if (event.values[2] - gravedad > 10) {
+                    if (current_fragment == "fragment_pagina_inicio") {
                         navigation.navigate(R.id.action_paginaInicio_to_centros)
                     }
                 }
