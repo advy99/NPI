@@ -71,7 +71,6 @@ class Grados : Fragment() {
 
                     for (pos in 0..posiciones.size-1) {
                         Location.distanceBetween(posiciones[pos].latitude, posiciones[pos].longitude, position.latitude, position.longitude, resultado)
-                        Log.i("Distancia", " " + resultado[0] + " ")
                         if ( minimo > resultado[0]){
                             minimo = resultado[0]
                             indice = pos
@@ -82,7 +81,6 @@ class Grados : Fragment() {
                     Toast.makeText(requireActivity(), "Si activas la ubicación, te saldrá el grado de la facultad más cercana", Toast.LENGTH_LONG).show()
                 }
 
-                Log.i("----", " " + indice + " ")
                 cambiarWeb()
             }
         }
@@ -106,38 +104,9 @@ class Grados : Fragment() {
         // ponemos los indices por separado, por si actualizamos la web en otro sitio con otra accion
         when (item.toString()) {
             "E.T.S. de Ingenierías Informática y de Telecomunicación" -> {
-
-                web = "https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/guiasdocentes_curso_actual"
-                webView.loadUrl(web)
-            }
-
-            "Facultad de Bellas Artes" -> {
-                web = "https://grados.ugr.es/bellasartes/pages/infoacademica/guias-docentes"
-                webView.loadUrl(web)
-            }
-
-            "E.T.S. de Arquitectura" -> {
-                web = "https://grados.ugr.es/arquitectura/pages/infoacademica/guias"
-                webView.loadUrl(web)
-            }
-
-            "Facultad de Ciencias de la Educación" -> {
-                web = "https://grados.ugr.es/primaria/pages/infoacademica/estudios"
-                webView.loadUrl(web)
-            }
-
-            "Facultad de Farmacia" -> {
-                web = "https://grados.ugr.es/farmacia/pages/guiasdocentes/gd2019"
-                webView.loadUrl(web)
-            }
-
-            "Facultad de Medicina" -> {
-                web = "https://grados.ugr.es/medicina/pages/infoacademica/estudios"
-                webView.loadUrl(web)
-
                 indice = 0
-
             }
+
 
             "Facultad de Bellas Artes" -> {
                 indice = 1
@@ -219,7 +188,7 @@ class Grados : Fragment() {
                 if (request.url.toString().endsWith("/!") or request.url.toString().endsWith(".pdf")){
                     webView.stopLoading();
 
-        cargarMasCercano()
+
 
                     var pdfUrl : String = "https://drive.google.com/viewerng/viewer?embedded=true&url=" + request.url.toString();
                     webView.loadUrl(pdfUrl)
@@ -231,8 +200,8 @@ class Grados : Fragment() {
                 return false
             }
         }
-
-        webView.loadUrl(web)
+        cargarMasCercano()
+        cambiarWeb()
 
         return view
     }
