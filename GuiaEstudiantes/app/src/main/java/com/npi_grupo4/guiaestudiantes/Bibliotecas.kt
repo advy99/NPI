@@ -3,12 +3,15 @@ package com.npi_grupo4.guiaestudiantes
 import android.location.Location
 import android.os.Bundle
 import android.view.*
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.fragment_bibliotecas.view.*
+import kotlinx.android.synthetic.main.fragment_pagina_inicio.*
 import java.lang.Float
 
 /**
@@ -17,6 +20,8 @@ import java.lang.Float
  * create an instance of this fragment.
  */
 class Bibliotecas : Fragment() {
+
+
 
     private var posiciones = ArrayList<LatLng>()
     private var informacion = ArrayList<ArrayList<String>>()
@@ -27,11 +32,13 @@ class Bibliotecas : Fragment() {
     private lateinit var texto_direccion: TextView
     private lateinit var texto_prestamos: TextView
     private lateinit var texto_horario: TextView
+    private lateinit var catalogo: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+
 
 
         var infoETSIIT = ArrayList<String>()
@@ -76,6 +83,16 @@ class Bibliotecas : Fragment() {
         posiciones.add(LatLng(37.1930924,-3.6019477)) // educacion
         posiciones.add(LatLng(37.1949702,-3.598714)) // farmacia
         posiciones.add(LatLng(37.1493728,-3.606892) ) // medicina
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        catalogo.setOnClickListener { view ->
+            val navigation = Navigation.findNavController(view)
+            navigation.navigate(R.id.action_bibliotecas_to_catalogoBiblioteca)
+        }
 
     }
 
@@ -167,6 +184,7 @@ class Bibliotecas : Fragment() {
         texto_direccion = view.direccion
         texto_prestamos = view.correo_prestamos
         texto_horario = view.horario
+        catalogo = view.button
 
         cargarMasCercano()
 
