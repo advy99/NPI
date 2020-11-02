@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
     private var recorridoX: Float = 0f
     private var recorridoY: Float = 0f
 
+    var tiempoAnterior = System.currentTimeMillis()
+
     private var accion: Accion = Accion.NINGUNA
 
     private lateinit var acelerometro: Sensor
@@ -40,6 +42,7 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
     private lateinit var giroscopio: Sensor
     private lateinit var aceleracionLineal: Sensor
     private lateinit var rotacion: Sensor
+    private lateinit var proximidad: Sensor
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,17 +80,13 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
             sensorManager.registerListener(this, rotacion, SensorManager.SENSOR_DELAY_NORMAL, SensorManager.SENSOR_DELAY_UI)
         }
 
+        sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)?.let {
+            proximidad = it
+            sensorManager.registerListener(this, proximidad, SensorManager.SENSOR_DELAY_NORMAL, SensorManager.SENSOR_DELAY_UI)
+        }
+
     }
 
-    override fun onBackPressed() {
-        if (webView.canGoBack()){
-            webView.goBack()
-        }
-        else {
-            super.onBackPressed()
-        }
-    }
-    
     // PANTALLA
 
     override fun onDoubleTap(e: MotionEvent?): Boolean {
@@ -186,17 +185,28 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
     override fun onSensorChanged(event: SensorEvent){
 
         val navigation = findNavController(this, R.id.nav_frag)
-        val gravedad = 9.83f
+
+        val tiempoActual = System.currentTimeMillis()
 
         val current_fragment = (navigation.currentDestination?.label ?:"" )
 
         when(event.sensor.type) {
-            Sensor.TYPE_ACCELEROMETER -> {
-                if (event.values[2] - gravedad > 10) {
+            Sensor.TYPE_LINEAR_ACCELERATION -> {
+
+                if (event.values[2] < -9 && tiempoActual - tiempoAnterior > 1000) {
                     if (current_fragment == "fragment_pagina_inicio") {
                         navigation.navigate(R.id.action_paginaInicio_to_centros)
+                        tiempoAnterior = tiempoActual
+
                     }
+                } else if ( event.values[2] > 9 && tiempoActual - tiempoAnterior > 1000) {
+                    // si detectamos el gesto y han pasado mas de 100ms
+                    navigation.navigateUp()
+                    tiempoAnterior = tiempoActual
+
+
                 }
+
             }
 
             Sensor.TYPE_GRAVITY -> {
@@ -207,15 +217,31 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
 
             }
 
-            Sensor.TYPE_LINEAR_ACCELERATION -> {
+            Sensor.TYPE_ACCELEROMETER -> {
 
             }
 
             Sensor.TYPE_ROTATION_VECTOR -> {
 
+
+            }
+
+            Sensor.TYPE_PROXIMITY -> {
+                if (event.values[0] < 4 && tiempoActual - tiempoAnterior > 1000) {
+                    if (current_fragment == "fragment_pagina_inicio") {
+                        navigation.navigate(R.id.action_paginaInicio_to_bibliotecas)
+                        tiempoAnterior = tiempoActual
+
+                    }
+                }
+
             }
 
         }
+
+
+
+
 
 
     }
