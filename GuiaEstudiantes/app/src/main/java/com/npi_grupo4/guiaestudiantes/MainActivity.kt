@@ -12,10 +12,10 @@ import android.view.MotionEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
-import androidx.core.view.MotionEventCompat
-import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
+import kotlinx.android.synthetic.main.fragment_grados.*
 import kotlin.math.abs
+
 
 private const val DEBUG_TAG = "Gestures"
 
@@ -42,12 +42,11 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
     private lateinit var rotacion: Sensor
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mDetector = GestureDetectorCompat(this,this)
+        mDetector = GestureDetectorCompat(this, this)
         mDetector.setOnDoubleTapListener(this)
 
 
@@ -79,12 +78,11 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
         }
 
     }
-
-
+    
     // PANTALLA
 
     override fun onDoubleTap(e: MotionEvent?): Boolean {
-        Toast.makeText(this, "Doble toque",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Doble toque", Toast.LENGTH_SHORT).show()
         return true
     }
 
