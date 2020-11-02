@@ -1,28 +1,93 @@
 package com.npi_grupo4.guiaestudiantes
 
 
+import android.graphics.Bitmap
+import android.location.Location
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.webkit.WebChromeClient
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.model.LatLng
+import java.lang.Float.POSITIVE_INFINITY
 
 
 class Grados : Fragment() {
 
-    var web : String = "https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/guiasdocentes_curso_actual"
+    private var posiciones = ArrayList<LatLng>()
+    private var webs = ArrayList<String>()
+    private var indice = 0
+
+
+
     lateinit var webView : WebView
     lateinit var barra : ProgressBar
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+
+        retainInstance = true;
+
+        posiciones.add(LatLng(37.1962126,-3.6246538)) // informatica
+        posiciones.add(LatLng(37.1948506, -3.6256143) )// bellas artes
+        posiciones.add(LatLng(37.1743285,-3.5926879)) // arquitectura
+        posiciones.add(LatLng(37.1930924,-3.6019477)) // educacion
+        posiciones.add(LatLng(37.1949702,-3.598714)) // farmacia
+        posiciones.add(LatLng(37.1493728,-3.606892) ) // medicina
+
+
+        webs.add("https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/guiasdocentes_curso_actual")
+        webs.add("https://grados.ugr.es/bellasartes/pages/infoacademica/guias-docentes")
+        webs.add("https://grados.ugr.es/arquitectura/pages/infoacademica/guias")
+        webs.add("https://grados.ugr.es/primaria/pages/infoacademica/estudios")
+        webs.add("https://grados.ugr.es/farmacia/pages/guiasdocentes/gd2019")
+        webs.add("https://grados.ugr.es/medicina/pages/infoacademica/estudios")
+
     }
 
+
+    private fun cargarMasCercano() {
+        GestorPermisos.getLocationPermission(requireContext(), requireActivity())
+        var location = LocationServices.getFusedLocationProviderClient(requireContext())
+
+        if (GestorPermisos.locationPermissionGranted()) {
+            location.lastLocation.addOnSuccessListener { loc: Location? ->
+
+                if ( loc != null){
+                    var position = LatLng(loc!!.latitude, loc!!.longitude)
+
+                    var minimo = POSITIVE_INFINITY
+                    var resultado = FloatArray(3)
+
+                    for (pos in 0..posiciones.size-1) {
+                        Location.distanceBetween(posiciones[pos].latitude, posiciones[pos].longitude, position.latitude, position.longitude, resultado)
+                        Log.i("Distancia", " " + resultado[0] + " ")
+                        if ( minimo > resultado[0]){
+                            minimo = resultado[0]
+                            indice = pos
+                        }
+                    }
+
+                } else {
+                    Toast.makeText(requireActivity(), "Si activas la ubicación, te saldrá el grado de la facultad más cercana", Toast.LENGTH_LONG).show()
+                }
+
+                Log.i("----", " " + indice + " ")
+                cambiarWeb()
+            }
+        }
+
+    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_sample, menu)
@@ -38,8 +103,10 @@ class Grados : Fragment() {
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // ponemos los indices por separado, por si actualizamos la web en otro sitio con otra accion
         when (item.toString()) {
             "E.T.S. de Ingenierías Informática y de Telecomunicación" -> {
+
                 web = "https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/guiasdocentes_curso_actual"
                 webView.loadUrl(web)
             }
@@ -67,11 +134,49 @@ class Grados : Fragment() {
             "Facultad de Medicina" -> {
                 web = "https://grados.ugr.es/medicina/pages/infoacademica/estudios"
                 webView.loadUrl(web)
+
+                indice = 0
+
+            }
+
+            "Facultad de Bellas Artes" -> {
+                indice = 1
+
+            }
+
+            "E.T.S. de Arquitectura" -> {
+                indice = 2
+
+            }
+
+            "Facultad de Ciencias de la Educación" -> {
+                indice = 3
+
+            }
+
+            "Facultad de Farmacia" -> {
+                indice = 4
+
+            }
+
+            "Facultad de Medicina" -> {
+                indice = 5
+
             }
         }
+
+        cambiarWeb()
+
+
         return true
     }
 
+    private fun cambiarWeb() {
+        webView.loadUrl(webs[indice])
+        webView.settings.setJavaScriptEnabled(true);
+        webView.settings.setSupportZoom(true);
+        webView.settings.builtInZoomControls = true;
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -113,6 +218,8 @@ class Grados : Fragment() {
             override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
                 if (request.url.toString().endsWith("/!") or request.url.toString().endsWith(".pdf")){
                     webView.stopLoading();
+
+        cargarMasCercano()
 
                     var pdfUrl : String = "https://drive.google.com/viewerng/viewer?embedded=true&url=" + request.url.toString();
                     webView.loadUrl(pdfUrl)
