@@ -1,15 +1,15 @@
 package com.npi_grupo4.guiaestudiantes
 
+import android.location.Location
 import android.os.Bundle
+import android.view.*
+import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.model.LatLng
+import kotlinx.android.synthetic.main.fragment_bibliotecas.view.*
+import java.lang.Float
 
 /**
  * A simple [Fragment] subclass.
@@ -17,16 +17,143 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class Bibliotecas : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private var posiciones = ArrayList<LatLng>()
+    private var informacion = ArrayList<ArrayList<String>>()
+
+    private var indice = 0
+
+    private lateinit var texto_centro: TextView
+    private lateinit var texto_direccion: TextView
+    private lateinit var texto_prestamos: TextView
+    private lateinit var texto_horario: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        setHasOptionsMenu(true)
+
+
+        var infoETSIIT = ArrayList<String>()
+        infoETSIIT.add("E.T.S.I.I.T")
+        infoETSIIT.add("C/ Periodista Daniel Saucedo Aranda s/n")
+        infoETSIIT.add("bibcirinformatica@ugr.es")
+        infoETSIIT.add("8:30/9:00 h. a 20:30/21:00 h")
+
+        var infoBellas = ArrayList<String>()
+        infoBellas.add("Facultad de Bellas Artes")
+        infoBellas.add("Avenida de Andalucía, s/n")
+        infoBellas.add("mbolivar@ugr.es")
+        infoBellas.add("8:30/9:00 h. a 20:30/21:00 h")
+
+        var infoEducacion = ArrayList<String>()
+        infoEducacion.add("Facultad de Educacion")
+        infoEducacion.add("Campus Universitario de Cartuja")
+        infoEducacion.add("bibgeseducacion@ugr.es")
+        infoEducacion.add("8:30/9:00 h. a 20:30/21:00 h")
+
+        var infoFarmacia = ArrayList<String>()
+        infoFarmacia.add("Facultad de Farmacia")
+        infoFarmacia.add("Campus Universitario de Cartuja")
+        infoFarmacia.add("laguaza@ugr.es")
+        infoFarmacia.add("8:30/9:00 h. a 20:30/21:00 h")
+
+        var infoMedicina = ArrayList<String>()
+        infoMedicina.add("Facultad de Medicina")
+        infoMedicina.add("Parque Tecnológico de CC. de la Salud")
+        infoMedicina.add("bibcirbiosanitaria@ugr.es")
+        infoMedicina.add("8:30/9:00 h. a 20:30/21:00 h")
+
+        informacion.add(infoETSIIT)
+        informacion.add(infoBellas)
+        informacion.add(infoEducacion)
+        informacion.add(infoFarmacia)
+        informacion.add(infoMedicina)
+
+
+        posiciones.add(LatLng(37.1962126,-3.6246538)) // informatica
+        posiciones.add(LatLng(37.1948506, -3.6256143) )// bellas artes
+        posiciones.add(LatLng(37.1930924,-3.6019477)) // educacion
+        posiciones.add(LatLng(37.1949702,-3.598714)) // farmacia
+        posiciones.add(LatLng(37.1493728,-3.606892) ) // medicina
+
+    }
+
+    private fun cargarMasCercano() {
+        GestorPermisos.getLocationPermission(requireContext(), requireActivity())
+        var location = LocationServices.getFusedLocationProviderClient(requireContext())
+
+        if (GestorPermisos.locationPermissionGranted()) {
+            location.lastLocation.addOnSuccessListener { loc: Location? ->
+
+                if ( loc != null){
+                    var position = LatLng(loc!!.latitude, loc!!.longitude)
+
+                    var minimo = Float.POSITIVE_INFINITY
+                    var resultado = FloatArray(3)
+
+                    for (pos in 0..posiciones.size-1) {
+                        Location.distanceBetween(posiciones[pos].latitude, posiciones[pos].longitude, position.latitude, position.longitude, resultado)
+                        if ( minimo > resultado[0]){
+                            minimo = resultado[0]
+                            indice = pos
+                        }
+                    }
+
+                } else {
+                    Toast.makeText(requireActivity(), "Si activas la ubicación, te saldrá el grado de la facultad más cercana", Toast.LENGTH_LONG).show()
+                }
+
+                actualizarBiblioteca()
+            }
         }
+
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_sample, menu)
+        menu.add("Facultad de Bellas Artes")
+        menu.add("Facultad de Ciencias de la Educación")
+        menu.add("Facultad de Farmacia")
+        menu.add("Facultad de Medicina")
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // ponemos los indices por separado, por si actualizamos la web en otro sitio con otra accion
+        when (item.toString()) {
+            "E.T.S. de Ingenierías Informática y de Telecomunicación" -> {
+                indice = 0
+            }
+
+
+            "Facultad de Bellas Artes" -> {
+                indice = 1
+
+            }
+
+
+            "Facultad de Ciencias de la Educación" -> {
+                indice = 2
+
+            }
+
+            "Facultad de Farmacia" -> {
+                indice = 3
+
+            }
+
+            "Facultad de Medicina" -> {
+                indice = 4
+
+            }
+        }
+
+        actualizarBiblioteca()
+
+        return true
     }
 
     override fun onCreateView(
@@ -34,26 +161,24 @@ class Bibliotecas : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bibliotecas, container, false)
+        val view = inflater.inflate(R.layout.fragment_bibliotecas, container, false)
+
+        texto_centro = view.centro
+        texto_direccion = view.direccion
+        texto_prestamos = view.correo_prestamos
+        texto_horario = view.horario
+
+        cargarMasCercano()
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Bibliotecas.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Bibliotecas().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+
+    private fun actualizarBiblioteca(){
+        texto_centro.text = informacion[indice][0]
+        texto_direccion.text = informacion[indice][1]
+        texto_prestamos.text = informacion[indice][2]
+        texto_horario.text = informacion[indice][3]
     }
+
 }
