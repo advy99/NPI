@@ -3,18 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Grados">
+    tools:context=".CatalogoBiblioteca">
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/barra_progreso"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <WebView
-        android:id="@+id/webView"
+        android:id="@+id/pagina_web"
         android:layout_width="match_parent"
-        android:layout_height="736dp" >
-
-    </WebView>
+        android:layout_height="match_parent" />
 </FrameLayout>

@@ -20,4 +20,17 @@
     <string name="sitios_interes">sitios_interes</string>
     <string name="continuar">Continuar</string>
     <string name="nombre_usuario">Nombre usuario</string>
+
+    <string-array name="facultades">
+        <item>Seleccione Facultad</item>
+        <item>Arquitectura</item>
+        <item>Bellas Artes</item>
+        <item>Ciencias</item>
+        <item>Educación</item>
+        <item>ETSIIT</item>
+        <item>Farmacia</item>
+        <item>Medicina</item>
+    </string-array>
+
+
 </resources>

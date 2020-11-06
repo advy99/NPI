@@ -37,7 +37,11 @@
         android:id="@+id/bibliotecas"
         android:name="com.npi_grupo4.guiaestudiantes.Bibliotecas"
         android:label="fragment_bibliotecas"
-        tools:layout="@layout/fragment_bibliotecas" />
+        tools:layout="@layout/fragment_bibliotecas" >
+        <action
+            android:id="@+id/action_bibliotecas_to_catalogoBiblioteca"
+            app:destination="@id/catalogoBiblioteca" />
+    </fragment>
     <fragment
         android:id="@+id/inicioSesion"
         android:name="com.npi_grupo4.guiaestudiantes.InicioSesion"
@@ -67,4 +71,9 @@
         android:name="com.npi_grupo4.guiaestudiantes.SitiosInteres"
         android:label="fragment_sitios_interes"
         tools:layout="@layout/fragment_sitios_interes" />
+    <fragment
+        android:id="@+id/catalogoBiblioteca"
+        android:name="com.npi_grupo4.guiaestudiantes.CatalogoBiblioteca"
+        android:label="fragment_catalogo_biblioteca"
+        tools:layout="@layout/fragment_catalogo_biblioteca" />
 </navigation>

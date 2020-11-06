@@ -1,14 +1,14 @@
 package com.npi_grupo4.guiaestudiantes
 
-import android.net.http.SslError
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.SslErrorHandler
+import android.webkit.WebChromeClient
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 
 
@@ -24,7 +24,9 @@ private const val ARG_PARAM2 = "param2"
  */
 class Comedores : Fragment() {
     // TODO: Rename and change types of parameters
-    private var pdf: WebView? = null
+    lateinit var webview: WebView
+    lateinit var pdf: String
+    lateinit var barra: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,35 +36,43 @@ class Comedores : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         val view: View = inflater.inflate(R.layout.fragment_comedores, container, false)
-        val webview = view.findViewById(R.id.pdf_comedores) as WebView
+        webview = view.findViewById(R.id.pdf_comedores) as WebView
+        barra = view.findViewById(R.id.progressBar2) as ProgressBar
         webview.getSettings().setJavaScriptEnabled(true)
-        val pdf = "http://scu.ugr.es/?theme=pdf"
+        pdf = "http://scu.ugr.es/?theme=pdf"
 
         webview.settings.javaScriptEnabled = true
+        webview.settings.setSupportZoom(true)
+        webview.settings.builtInZoomControls = true
         webview.clearCache(true)
+
+        //Para que salga la barra al iniciar el fragment
+        webview.visibility = View.GONE
+        barra.visibility = View.VISIBLE
+
+        webview.webChromeClient = object : WebChromeClient() {
+
+            override fun onProgressChanged(view: WebView, progress: Int) {
+                if (progress < 100 && barra.visibility == ProgressBar.GONE) {
+                    barra.visibility = ProgressBar.VISIBLE
+                    webview.visibility = View.GONE
+                }
+                barra.progress = progress
+                if (progress == 100) {
+                    barra.visibility = ProgressBar.GONE
+                    webview.visibility = View.VISIBLE
+                }
+            }
+        }
+
         webview.webViewClient = object : WebViewClient() {
-
-            override fun onPageFinished(view: WebView, url: String?) {
-                if (view.title == "") view.reload()
-            }
-
-            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
-                webview.loadUrl("https://drive.google.com/viewerng/viewer?embedded=true&url=" + pdf)
-                return true
-            }
-
-            override fun onReceivedSslError(
-                view: WebView,
-                handler: SslErrorHandler,
-                error: SslError
-            ) {
-                println("before handler")
-                handler.proceed()
-                println("after handler")
+            override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
+                webview.loadUrl(request.url.toString())
+                return false
             }
         }
 
