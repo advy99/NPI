@@ -17,11 +17,13 @@ import kotlinx.android.synthetic.main.fragment_grados.*
 import kotlin.math.abs
 
 
+
 private const val DEBUG_TAG = "Gestures"
 
 enum class Accion{
     ATRAS, NINGUNA, COMEDORES, CENTROS
 }
+
 
 class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener, SensorEventListener {
 
@@ -44,14 +46,12 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
     private lateinit var rotacion: Sensor
     private lateinit var proximidad: Sensor
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         mDetector = GestureDetectorCompat(this, this)
         mDetector.setOnDoubleTapListener(this)
-
 
         this.sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
 
