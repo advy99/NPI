@@ -21,6 +21,7 @@ import java.lang.Float
  */
 class Bibliotecas : Fragment() {
 
+    var gestorPosicion = GestorPosicion()
 
 
     private var posiciones = ArrayList<LatLng>()
@@ -96,37 +97,6 @@ class Bibliotecas : Fragment() {
 
     }
 
-    private fun cargarMasCercano() {
-        GestorPermisos.getLocationPermission(requireContext(), requireActivity())
-        var location = LocationServices.getFusedLocationProviderClient(requireContext())
-
-        if (GestorPermisos.locationPermissionGranted()) {
-            location.lastLocation.addOnSuccessListener { loc: Location? ->
-
-                if ( loc != null){
-                    var position = LatLng(loc!!.latitude, loc!!.longitude)
-
-                    var minimo = Float.POSITIVE_INFINITY
-                    var resultado = FloatArray(3)
-
-                    for (pos in 0..posiciones.size-1) {
-                        Location.distanceBetween(posiciones[pos].latitude, posiciones[pos].longitude, position.latitude, position.longitude, resultado)
-                        if ( minimo > resultado[0]){
-                            minimo = resultado[0]
-                            indice = pos
-                        }
-                    }
-
-                } else {
-                    Toast.makeText(requireActivity(), "Si activas la ubicación, te saldrá el grado de la facultad más cercana", Toast.LENGTH_LONG).show()
-                }
-
-                actualizarBiblioteca()
-            }
-        }
-
-    }
-
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_sample, menu)
@@ -186,7 +156,15 @@ class Bibliotecas : Fragment() {
         texto_horario = view.horario
         catalogo = view.button
 
-        cargarMasCercano()
+        var pos = gestorPosicion.posicionMasCercana(posiciones, requireContext(), requireActivity())
+
+        if ( pos != null) {
+            indice = pos
+        } else {
+            indice = 0
+        }
+
+        actualizarBiblioteca()
 
         return view
     }

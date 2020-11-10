@@ -38,7 +38,6 @@ class InicioSesion : Fragment(), AdapterView.OnItemSelectedListener {
 
     override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
         val texto: String = parent.getItemAtPosition(pos).toString()
-        Toast.makeText(requireContext(),texto,Toast.LENGTH_SHORT).show()
     }
 
     override fun onNothingSelected(parent: AdapterView<*>) {
