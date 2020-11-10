@@ -12,6 +12,8 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.fragment_bibliotecas.view.*
 import kotlinx.android.synthetic.main.fragment_pagina_inicio.*
+import kotlinx.android.synthetic.main.fragment_inicio_sesion.*
+
 import java.lang.Float
 
 /**
@@ -158,7 +160,14 @@ class Bibliotecas : Fragment() {
 
         var pos = gestorPosicion.posicionMasCercana(posiciones, requireContext(), requireActivity())
 
-        if ( pos != null) {
+        if ( InicioSesion.indice_facultad != -1 && InicioSesion.indice_facultad != 2) {
+            indice = InicioSesion.indice_facultad
+
+            // para ajustar arquitectura que no tiene biblioteca
+            if (indice >= 2) {
+                indice -= 1
+            }
+        } else if ( pos != null) {
             indice = pos
         } else {
             indice = 0
