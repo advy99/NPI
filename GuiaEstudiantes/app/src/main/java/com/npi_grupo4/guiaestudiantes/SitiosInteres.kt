@@ -20,6 +20,7 @@ import com.google.maps.android.data.kml.KmlLayer
 
 class SitiosInteres : Fragment() {
 
+    var gestorPosicion = GestorPosicion()
 
 
     private val callback = OnMapReadyCallback { googleMap ->
@@ -39,29 +40,19 @@ class SitiosInteres : Fragment() {
 //        val latitude: Double = location.getLatitude()
 
 
-        GestorPermisos.getLocationPermission(requireContext(), requireActivity())
-        var location = LocationServices.getFusedLocationProviderClient(requireContext())
+        val pos = gestorPosicion.getPosicionActual(requireContext(), requireActivity())
 
-        var position = LatLng(37.1886273, -3.5907775 )
+        if ( pos != null ) {
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, 16.0F))
 
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
+        } else {
+            var position = LatLng(37.1886273, -3.5907775 )
 
-        if (GestorPermisos.locationPermissionGranted()) {
-            location.lastLocation.addOnSuccessListener { loc: Location? ->
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
+            Toast.makeText(activity, "Ativa la ubicacion. Centrando en Granada", Toast.LENGTH_LONG).show()
 
-                if ( loc != null){
-                    var position = LatLng(loc!!.latitude, loc!!.longitude)
-
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
-                } else {
-                    Toast.makeText(requireActivity(), "Activa la ubicacion. Centrando en Granada", Toast.LENGTH_LONG).show()
-
-                }
-
-
-            }
         }
 
 
