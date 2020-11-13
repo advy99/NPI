@@ -1,18 +1,14 @@
 package com.npi_grupo4.guiaestudiantes
 
-import android.location.Location
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.*
 
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import com.google.maps.android.data.kml.KmlLayer
 
 class SitiosInteres : Fragment() {
@@ -69,7 +65,7 @@ class SitiosInteres : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+        val mapFragment = childFragmentManager.findFragmentById(R.id.map_sitios_interes) as SupportMapFragment?
         GestorPermisos.getLocationPermission(requireContext(), requireActivity())
         mapFragment?.getMapAsync(callback)
     }

@@ -11,11 +11,11 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.GestureDetectorCompat
 import androidx.navigation.Navigation.findNavController
-import kotlinx.android.synthetic.main.fragment_grados.*
+import java.lang.Math.toDegrees
 import kotlin.math.abs
-
 
 
 private const val DEBUG_TAG = "Gestures"
@@ -34,19 +34,33 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
     private var previousY: Float = 0f
     private var recorridoX: Float = 0f
     private var recorridoY: Float = 0f
+    private var rotacionAnterior: Float = 0f
 
     var dedosEnPantalla = 0
 
+    var tiempoRotacionAnterior = System.currentTimeMillis()
     var tiempoAnterior = System.currentTimeMillis()
 
     private var accion: Accion = Accion.NINGUNA
 
+    private lateinit var campo_magnetico: Sensor
     private lateinit var acelerometro: Sensor
     private lateinit var gravedad: Sensor
     private lateinit var giroscopio: Sensor
     private lateinit var aceleracionLineal: Sensor
     private lateinit var rotacion: Sensor
     private lateinit var proximidad: Sensor
+
+    // para la brujula y la orientacion
+    private val mGravity = FloatArray(3)
+    private val mGeomagnetic = FloatArray(3)
+    private val matriz_R = FloatArray(9)
+    private val I = FloatArray(9)
+    private var azimuth = 0f
+    private val azimuthFix = 0f
+
+    private var gestorPos = GestorPosicion()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,6 +74,11 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
         sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)?.let {
             acelerometro = it
             sensorManager.registerListener(this, acelerometro, SensorManager.SENSOR_DELAY_NORMAL, SensorManager.SENSOR_DELAY_UI)
+        }
+
+        sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)?.let {
+            campo_magnetico = it
+            sensorManager.registerListener(this, campo_magnetico, SensorManager.SENSOR_DELAY_NORMAL, SensorManager.SENSOR_DELAY_UI)
         }
 
         sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY)?.let {
@@ -86,6 +105,7 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
             proximidad = it
             sensorManager.registerListener(this, proximidad, SensorManager.SENSOR_DELAY_NORMAL, SensorManager.SENSOR_DELAY_UI)
         }
+
 
     }
 
@@ -197,6 +217,8 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
 
         val current_fragment = (navigation.currentDestination?.label ?:"" )
 
+        val alpha = 0.97f;
+
         when(event.sensor.type) {
             Sensor.TYPE_LINEAR_ACCELERATION -> {
 
@@ -225,7 +247,9 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
             }
 
             Sensor.TYPE_ACCELEROMETER -> {
-
+                mGravity[0] = alpha * mGravity[0] + (1 - alpha) * event.values[0]
+                mGravity[1] = alpha * mGravity[1] + (1 - alpha) * event.values[1]
+                mGravity[2] = alpha * mGravity[2] + (1 - alpha) * event.values[2]
             }
 
             Sensor.TYPE_ROTATION_VECTOR -> {
@@ -244,7 +268,36 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
 
             }
 
+            Sensor.TYPE_MAGNETIC_FIELD -> {
+                mGeomagnetic[0] = alpha * mGeomagnetic[0] + (1 - alpha) * event.values[0]
+                mGeomagnetic[1] = alpha * mGeomagnetic[1] + (1 - alpha) * event.values[1]
+                mGeomagnetic[2] = alpha * mGeomagnetic[2] + (1 - alpha) * event.values[2]
+
+            }
+
+
         }
+
+        if ( current_fragment == "fragment_centros" && abs(tiempoRotacionAnterior - System.currentTimeMillis()) > 1000) {
+
+            val epsilon = 5f
+            val success = SensorManager.getRotationMatrix(matriz_R, I, mGravity, mGeomagnetic);
+            if (success) {
+                var orientation = FloatArray(3)
+                SensorManager.getOrientation(matriz_R, orientation);
+                // Log.d(TAG, "azimuth (rad): " + azimuth);
+                azimuth = toDegrees(orientation[0].toDouble()).toFloat(); // orientation
+                azimuth = (azimuth + azimuthFix + 360) % 360;
+
+                if ( abs(rotacionAnterior - azimuth) > epsilon || (azimuth + epsilon) % 360 > abs(rotacionAnterior - azimuth) ) {
+                    Centros.mapa?.let { gestorPos.rotarMapa(it, azimuth) }
+                    rotacionAnterior = azimuth
+                    tiempoRotacionAnterior = System.currentTimeMillis()
+                }
+
+            }
+        }
+
 
 
 
