@@ -10,13 +10,17 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.Tasks.await
 import java.lang.Float
 
 class GestorPosicion {
 
     private var puedoAccederLoc = false
+    private var marcadorPosActual: Marker? = null
 
     fun actualizarPosActual(context: Context, activity : Activity, map: GoogleMap) {
         GestorPermisos.getLocationPermission(context, activity)
@@ -31,11 +35,19 @@ class GestorPosicion {
             location.lastLocation.addOnSuccessListener { loc: Location? ->
 
                 if ( loc != null){
+
+                    marcadorPosActual?.remove()
+
                     position =  LatLng(loc!!.latitude, loc!!.longitude)
                     map.moveCamera(CameraUpdateFactory.newLatLng(position))
                     map.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
                     puedoAccederLoc = true
 
+                    var marcador = MarkerOptions()
+                    marcador.position(position!!)
+                    marcador.title("Posición actual")
+                    marcador.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                    map.addMarker(marcador)
 
                 } else {
                     puedoAccederLoc = false
