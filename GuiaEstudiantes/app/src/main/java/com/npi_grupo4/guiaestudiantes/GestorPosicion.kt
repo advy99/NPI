@@ -3,36 +3,64 @@ package com.npi_grupo4.guiaestudiantes
 import android.app.Activity
 import android.content.Context
 import android.location.Location
+import android.util.Log
 import android.widget.Toast
 import androidx.core.content.ContentProviderCompat
 import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.tasks.Tasks.await
 import java.lang.Float
 
 class GestorPosicion {
 
-    fun getPosicionActual(context: Context, activity : Activity) : LatLng? {
+    private var puedoAccederLoc = false
+    private var marcadorPosActual: Marker? = null
+
+    fun actualizarPosActual(context: Context, activity : Activity, map: GoogleMap) {
         GestorPermisos.getLocationPermission(context, activity)
 
         var location = LocationServices.getFusedLocationProviderClient(context)
 
         var position : LatLng? = null
 
+
         if (GestorPermisos.locationPermissionGranted()) {
+
             location.lastLocation.addOnSuccessListener { loc: Location? ->
 
                 if ( loc != null){
+
+                    marcadorPosActual?.remove()
+
                     position =  LatLng(loc!!.latitude, loc!!.longitude)
+                    map.moveCamera(CameraUpdateFactory.newLatLng(position))
+                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
+                    puedoAccederLoc = true
+
+                    var marcador = MarkerOptions()
+                    marcador.position(position!!)
+                    marcador.title("Posición actual")
+                    marcador.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                    map.addMarker(marcador)
+
+                } else {
+                    puedoAccederLoc = false
+                    Toast.makeText(activity, "Activa la ubicación. Centrando en Granada", Toast.LENGTH_LONG).show()
 
                 }
 
-
             }
         }
+    }
 
-        return position
+    fun getPuedoAccederLoc() : Boolean{
+        return puedoAccederLoc
     }
 
 

@@ -171,7 +171,9 @@ class Grados : Fragment() {
 
         val pos = gestorPosicion.posicionMasCercana(posiciones, requireContext(), requireActivity())
 
-        if ( pos != null) {
+        if ( InicioSesion.indice_facultad != -1){
+            indice = InicioSesion.indice_facultad
+        } else if ( pos != null) {
             indice = pos
         } else {
             indice = 0

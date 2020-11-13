@@ -9,11 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.*
 
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.maps.android.data.kml.KmlLayer
@@ -21,6 +18,14 @@ import com.google.maps.android.data.kml.KmlLayer
 class SitiosInteres : Fragment() {
 
     var gestorPosicion = GestorPosicion()
+
+    private lateinit var  mapa : GoogleMap
+
+
+    private val callback_update = LocationSource.OnLocationChangedListener() {
+        gestorPosicion.actualizarPosActual(requireContext(), requireActivity(), mapa)
+    }
+
 
 
     private val callback = OnMapReadyCallback { googleMap ->
@@ -39,19 +44,15 @@ class SitiosInteres : Fragment() {
 //        val longitude: Double = location.getLongitude()
 //        val latitude: Double = location.getLatitude()
 
+        mapa = googleMap
 
-        val pos = gestorPosicion.getPosicionActual(requireContext(), requireActivity())
+        gestorPosicion.actualizarPosActual(requireContext(), requireActivity(), googleMap)
 
-        if ( pos != null ) {
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, 16.0F))
-
-        } else {
+        if ( !gestorPosicion.getPuedoAccederLoc() ) {
             var position = LatLng(37.1886273, -3.5907775 )
 
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
-            Toast.makeText(activity, "Ativa la ubicacion. Centrando en Granada", Toast.LENGTH_LONG).show()
 
         }
 
@@ -65,7 +66,6 @@ class SitiosInteres : Fragment() {
 //        googleMap.addMarker(MarkerOptions().position(ETSIIT).title("Marker in ETSIIT"))
 //        googleMap.moveCamera(CameraUpdateFactory.newLatLng(ETSIIT))
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

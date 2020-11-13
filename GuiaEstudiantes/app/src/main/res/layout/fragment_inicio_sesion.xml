@@ -61,7 +61,7 @@
         android:id="@+id/facultad_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="76dp"
         app:layout_constraintBottom_toTopOf="@+id/botonContinuar"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -69,12 +69,13 @@
         android:id="@+id/imageView"
         android:layout_width="172dp"
         android:layout_height="182dp"
-        android:layout_marginTop="56dp"
         android:src="@drawable/ic_orientar"
         app:layout_constraintBottom_toTopOf="@+id/facultad_spinner"
         app:layout_constraintEnd_toStartOf="@+id/guideline15"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="@+id/guideline14"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.842" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
