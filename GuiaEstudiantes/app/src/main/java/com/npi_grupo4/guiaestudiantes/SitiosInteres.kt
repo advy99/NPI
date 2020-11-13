@@ -9,16 +9,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.*
 
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.maps.android.data.kml.KmlLayer
 
 class SitiosInteres : Fragment() {
+
+    var gestorPosicion = GestorPosicion()
+
+    private lateinit var  mapa : GoogleMap
+
+
+    private val callback_update = LocationSource.OnLocationChangedListener() {
+        gestorPosicion.actualizarPosActual(requireContext(), requireActivity(), mapa)
+    }
 
 
 
@@ -38,30 +44,16 @@ class SitiosInteres : Fragment() {
 //        val longitude: Double = location.getLongitude()
 //        val latitude: Double = location.getLatitude()
 
+        mapa = googleMap
 
-        GestorPermisos.getLocationPermission(requireContext(), requireActivity())
-        var location = LocationServices.getFusedLocationProviderClient(requireContext())
+        gestorPosicion.actualizarPosActual(requireContext(), requireActivity(), googleMap)
 
-        var position = LatLng(37.1886273, -3.5907775 )
+        if ( !gestorPosicion.getPuedoAccederLoc() ) {
+            var position = LatLng(37.1886273, -3.5907775 )
 
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
 
-        if (GestorPermisos.locationPermissionGranted()) {
-            location.lastLocation.addOnSuccessListener { loc: Location? ->
-
-                if ( loc != null){
-                    var position = LatLng(loc!!.latitude, loc!!.longitude)
-
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
-                } else {
-                    Toast.makeText(requireActivity(), "Activa la ubicacion. Centrando en Granada", Toast.LENGTH_LONG).show()
-
-                }
-
-
-            }
         }
 
 
@@ -74,7 +66,6 @@ class SitiosInteres : Fragment() {
 //        googleMap.addMarker(MarkerOptions().position(ETSIIT).title("Marker in ETSIIT"))
 //        googleMap.moveCamera(CameraUpdateFactory.newLatLng(ETSIIT))
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

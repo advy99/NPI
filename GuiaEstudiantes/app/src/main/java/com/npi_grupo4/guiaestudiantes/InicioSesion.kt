@@ -22,6 +22,7 @@ import android.widget.Spinner
 class InicioSesion : Fragment(), AdapterView.OnItemSelectedListener {
     // TODO: Rename and change types of parameters
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,8 +38,8 @@ class InicioSesion : Fragment(), AdapterView.OnItemSelectedListener {
     //SPINNER
 
     override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-        val texto: String = parent.getItemAtPosition(pos).toString()
-        Toast.makeText(requireContext(),texto,Toast.LENGTH_SHORT).show()
+        // -1 ya que la 0 es vacio, y las demas de la 1 en adelante
+        indice_facultad = pos - 1
     }
 
     override fun onNothingSelected(parent: AdapterView<*>) {
@@ -68,5 +69,8 @@ class InicioSesion : Fragment(), AdapterView.OnItemSelectedListener {
         })
     }
 
+    companion object {
+        var indice_facultad = -1
+    }
 
 }
