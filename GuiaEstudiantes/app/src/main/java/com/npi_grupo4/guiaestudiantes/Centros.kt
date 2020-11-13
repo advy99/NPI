@@ -2,9 +2,11 @@ package com.npi_grupo4.guiaestudiantes
 
 import android.Manifest
 import android.accessibilityservice.AccessibilityService
+import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,20 +14,28 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContentProviderCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.*
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.maps.android.data.kml.KmlLayer
+import kotlinx.android.synthetic.main.fragment_centros.*
 
 
 class Centros : Fragment() {
 
     var gestorPosicion = GestorPosicion()
+
+    private lateinit var  mapa : GoogleMap
+
+
+    private val callback_update = LocationSource.OnLocationChangedListener() {
+        gestorPosicion.actualizarPosActual(requireContext(), requireActivity(), mapa)
+    }
+
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -38,24 +48,29 @@ class Centros : Fragment() {
          * user has installed Google Play services and returned to the app.
          */
 
+        mapa = googleMap
 
-        val pos = gestorPosicion.getPosicionActual(requireContext(), requireActivity())
+        gestorPosicion.actualizarPosActual(requireContext(), requireActivity(), googleMap)
 
-        if ( pos != null ) {
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, 16.0F))
-
-        } else {
+        if ( !gestorPosicion.getPuedoAccederLoc() ) {
             var position = LatLng(37.1886273, -3.5907775 )
 
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
-            Toast.makeText(activity, "Activa la ubicación. Centrando en Granada", Toast.LENGTH_LONG).show()
 
         }
 
         val kmlFile = KmlLayer(googleMap, R.raw.mapas_campus_ugr, requireActivity())
         kmlFile.addLayerToMap()
+
+
+
+
+
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
     }
 

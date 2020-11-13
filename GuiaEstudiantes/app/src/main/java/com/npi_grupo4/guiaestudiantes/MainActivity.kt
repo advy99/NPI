@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
 
         val navigation = findNavController(this, R.id.nav_frag)
 
-
+        // usamos pointer down y pointer up ya que son dos dedos
         if ( event.actionMasked == MotionEvent.ACTION_POINTER_DOWN) {
             accion = Accion.ATRAS
             recorridoX = x
