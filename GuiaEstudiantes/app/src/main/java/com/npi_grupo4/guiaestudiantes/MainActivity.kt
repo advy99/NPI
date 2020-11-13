@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
     private var recorridoX: Float = 0f
     private var recorridoY: Float = 0f
 
+    var dedosEnPantalla = 0
+
     var tiempoAnterior = System.currentTimeMillis()
 
     private var accion: Accion = Accion.NINGUNA
@@ -100,13 +102,13 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
 
         val navigation = findNavController(this, R.id.nav_frag)
 
-        if ( event.action == MotionEvent.ACTION_MOVE) {
-            if ( abs(y - previousY) < 50 && previousX < x ) {
-                accion = Accion.ATRAS
-            } else {
-                accion = Accion.NINGUNA
-            }
-        } else if ( event.action == MotionEvent.ACTION_UP) {
+
+        if ( event.actionMasked == MotionEvent.ACTION_POINTER_DOWN) {
+            accion = Accion.ATRAS
+            recorridoX = x
+            recorridoY = y
+            dedosEnPantalla = event.pointerCount
+        } else if ( event.actionMasked == MotionEvent.ACTION_POINTER_UP) {
 
             recorridoX = x - recorridoX
             recorridoY = y - recorridoY
@@ -114,12 +116,17 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
             if (accion == Accion.ATRAS && recorridoX > 20){
                 navigation.navigateUp()
             }
-        } else if ( event.action == MotionEvent.ACTION_DOWN) {
-            if (accion == Accion.ATRAS){
-                recorridoX = x
-                recorridoY = y
+
+        } else if ( event.actionMasked == MotionEvent.ACTION_MOVE) {
+            //Log.i("a", " " + x + " " + dedosEnPantalla)
+            if ( abs(y - previousY) < 100 && previousX < x && dedosEnPantalla == 2) {
+                accion = Accion.ATRAS
+            } else {
+                accion = Accion.NINGUNA
             }
         }
+
+
 
         previousY = y
         previousX = x

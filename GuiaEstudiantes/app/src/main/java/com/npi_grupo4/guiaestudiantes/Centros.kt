@@ -50,7 +50,7 @@ class Centros : Fragment() {
 
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
-            Toast.makeText(activity, "Ativa la ubicacion. Centrando en Granada", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, "Activa la ubicación. Centrando en Granada", Toast.LENGTH_LONG).show()
 
         }
 
