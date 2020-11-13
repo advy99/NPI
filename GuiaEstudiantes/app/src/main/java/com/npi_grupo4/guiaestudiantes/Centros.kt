@@ -1,40 +1,20 @@
 package com.npi_grupo4.guiaestudiantes
 
-import android.Manifest
-import android.accessibilityservice.AccessibilityService
-import android.content.Context
-import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContentProviderCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import com.google.maps.android.data.kml.KmlLayer
-import kotlinx.android.synthetic.main.fragment_centros.*
 
 
-class Centros : Fragment() {
+class Centros : Fragment(), LocationListener {
 
     var gestorPosicion = GestorPosicion()
-
-    private lateinit var  mapa : GoogleMap
-
-
-    private val callback_update = LocationSource.OnLocationChangedListener() {
-        gestorPosicion.actualizarPosActual(requireContext(), requireActivity(), mapa)
-    }
 
 
     private val callback = OnMapReadyCallback { googleMap ->
@@ -74,6 +54,10 @@ class Centros : Fragment() {
 
     }
 
+    override fun onLocationChanged(p0: Location?) {
+        mapa?.let { gestorPosicion.actualizarPosActual(requireContext(), requireActivity(), it) }
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -85,11 +69,13 @@ class Centros : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+        val mapFragment = childFragmentManager.findFragmentById(R.id.map_centros) as SupportMapFragment?
         GestorPermisos.getLocationPermission(requireContext(), requireActivity())
         mapFragment?.getMapAsync(callback)
     }
 
-
+    companion object {
+        var mapa: GoogleMap? = null
+    }
 
 }

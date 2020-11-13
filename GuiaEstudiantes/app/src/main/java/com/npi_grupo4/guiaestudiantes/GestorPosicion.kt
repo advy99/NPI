@@ -3,18 +3,11 @@ package com.npi_grupo4.guiaestudiantes
 import android.app.Activity
 import android.content.Context
 import android.location.Location
-import android.util.Log
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.tasks.Tasks.await
+import com.google.android.gms.maps.model.*
 import java.lang.Float
 
 class GestorPosicion {
@@ -22,13 +15,12 @@ class GestorPosicion {
     private var puedoAccederLoc = false
     private var marcadorPosActual: Marker? = null
 
-    fun actualizarPosActual(context: Context, activity : Activity, map: GoogleMap) {
+    fun actualizarPosActual(context: Context, activity: Activity, map: GoogleMap) {
         GestorPermisos.getLocationPermission(context, activity)
 
         var location = LocationServices.getFusedLocationProviderClient(context)
 
         var position : LatLng? = null
-
 
         if (GestorPermisos.locationPermissionGranted()) {
 
@@ -43,6 +35,8 @@ class GestorPosicion {
                     map.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
                     puedoAccederLoc = true
 
+
+
                     var marcador = MarkerOptions()
                     marcador.position(position!!)
                     marcador.title("Posición actual")
@@ -55,8 +49,31 @@ class GestorPosicion {
 
                 }
 
+
+
+
             }
         }
+
+
+
+
+    }
+
+
+    fun rotarMapa(map: GoogleMap, rotacion: kotlin.Float = 0.0F) {
+        var cam_pos = map.cameraPosition
+        var cam_nueva_pos = CameraPosition.Builder()
+
+
+        cam_nueva_pos.bearing( rotacion )
+        cam_nueva_pos.tilt(cam_pos.tilt)
+        cam_nueva_pos.zoom(cam_pos.zoom)
+        cam_nueva_pos.target(cam_pos.target)
+
+        var cam = cam_nueva_pos.build()
+
+        map.animateCamera(CameraUpdateFactory.newCameraPosition( cam ))
     }
 
     fun getPuedoAccederLoc() : Boolean{
