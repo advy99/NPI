@@ -3,9 +3,7 @@ package com.npi_grupo4.guiaestudiantes
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import com.google.android.gms.maps.*
 
 import com.google.android.gms.maps.model.LatLng
@@ -15,11 +13,8 @@ class SitiosInteres : Fragment() {
 
     var gestorPosicion = GestorPosicion()
 
-    private lateinit var  mapa : GoogleMap
-
-
     private val callback_update = LocationSource.OnLocationChangedListener() {
-        gestorPosicion.actualizarPosActual(requireContext(), requireActivity(), mapa)
+        mapa?.let { it1 -> gestorPosicion.actualizarPosActual(requireContext(), requireActivity(), it1) }
     }
 
 
@@ -63,6 +58,29 @@ class SitiosInteres : Fragment() {
 //        googleMap.moveCamera(CameraUpdateFactory.newLatLng(ETSIIT))
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.opcion_brujula -> {
+                SitiosInteres.brujula = !item.isChecked
+                item.isChecked = Centros.brujula
+                true
+            }
+            else -> false
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_mapas, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map_sitios_interes) as SupportMapFragment?
@@ -77,5 +95,9 @@ class SitiosInteres : Fragment() {
         return inflater.inflate(R.layout.fragment_sitios_interes, container, false)
     }
 
+    companion object {
+        var mapa: GoogleMap? = null
+        var brujula = false
+    }
 
 }

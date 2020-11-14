@@ -2,12 +2,13 @@ package com.npi_grupo4.guiaestudiantes
 
 import android.location.Location
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
-import com.google.android.gms.location.*
-import com.google.android.gms.maps.*
+import com.google.android.gms.location.LocationListener
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.data.kml.KmlLayer
 
@@ -51,7 +52,23 @@ class Centros : Fragment(), LocationListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.opcion_brujula -> {
+                brujula = !item.isChecked
+                item.isChecked = brujula
+                true
+            }
+            else -> false
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_mapas, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onLocationChanged(p0: Location?) {
@@ -76,6 +93,7 @@ class Centros : Fragment(), LocationListener {
 
     companion object {
         var mapa: GoogleMap? = null
+        var brujula = false
     }
 
 }
