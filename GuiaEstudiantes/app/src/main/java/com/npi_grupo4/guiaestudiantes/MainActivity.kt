@@ -42,6 +42,8 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
     var tiempoAnterior = System.currentTimeMillis()
 
     private var accion: Accion = Accion.NINGUNA
+    private var curvaC = false
+    private var dibujandoC = false
 
     private lateinit var campo_magnetico: Sensor
     private lateinit var acelerometro: Sensor
@@ -121,6 +123,8 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
         val y: Float = event.y
 
         val navigation = findNavController(this, R.id.nav_frag)
+        val current_fragment = (navigation.currentDestination?.label ?:"" )
+
 
         // usamos pointer down y pointer up ya que son dos dedos
         if ( event.actionMasked == MotionEvent.ACTION_POINTER_DOWN) {
@@ -137,12 +141,49 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
                 navigation.navigateUp()
             }
 
+        } else if ( event.actionMasked == MotionEvent.ACTION_DOWN) {
+            accion = Accion.COMEDORES
+            recorridoX = x
+            recorridoY = y
+            dedosEnPantalla = event.pointerCount
+            curvaC = false
+            dibujandoC = true
+
+        } else if ( event.actionMasked == MotionEvent.ACTION_UP ) {
+
+
+            if ( accion == Accion.COMEDORES && recorridoX > 100 && curvaC && current_fragment == "fragment_pagina_inicio"){
+                navigation.navigate(R.id.action_paginaInicio_to_comedores)
+                curvaC = false
+                dibujandoC = false
+            }
+
         } else if ( event.actionMasked == MotionEvent.ACTION_MOVE) {
-            //Log.i("a", " " + x + " " + dedosEnPantalla)
+            Log.i("a", " " + x + " " + y)
             if ( abs(y - previousY) < 100 && previousX < x && dedosEnPantalla == 2) {
                 accion = Accion.ATRAS
+
+            } else if ( !curvaC && dedosEnPantalla == 1 && y - previousY >= 0 ) {
+                if ( previousX - x >= 0 ) {
+                    accion = Accion.COMEDORES
+                } else if ( y - recorridoY >= 70 ) {
+                    accion = Accion.COMEDORES
+                    curvaC = true
+
+                } else {
+                    dibujandoC = false
+                }
+
+            } else if ( curvaC && dedosEnPantalla == 1 && y - previousY >= 0 ) {
+                if ( previousX - x <= 0) {
+                    accion = Accion.COMEDORES
+                } else {
+                    accion = Accion.NINGUNA
+                    dibujandoC = false
+                }
             } else {
                 accion = Accion.NINGUNA
+                dibujandoC = false
             }
         }
 
@@ -222,17 +263,21 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
         when(event.sensor.type) {
             Sensor.TYPE_LINEAR_ACCELERATION -> {
 
-                if (event.values[2] < -9 && tiempoActual - tiempoAnterior > 1000) {
+                val epsilon = 10
+
+                val soloEjeZ = abs(event.values[0]) < epsilon && abs(event.values[1]) < epsilon
+
+
+                if (event.values[2] < -11 && tiempoActual - tiempoAnterior > 500 && soloEjeZ) {
                     if (current_fragment == "fragment_pagina_inicio") {
                         navigation.navigate(R.id.action_paginaInicio_to_centros)
                         tiempoAnterior = tiempoActual
 
                     }
-                } else if ( event.values[2] > 9 && tiempoActual - tiempoAnterior > 1000) {
+                } else if ( event.values[2] > 11 && tiempoActual - tiempoAnterior > 500 && soloEjeZ) {
                     // si detectamos el gesto y han pasado mas de 100ms
                     navigation.navigateUp()
                     tiempoAnterior = tiempoActual
-
 
                 }
 
