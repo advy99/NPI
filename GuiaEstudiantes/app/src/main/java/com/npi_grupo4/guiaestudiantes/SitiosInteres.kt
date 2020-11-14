@@ -2,11 +2,7 @@ package com.npi_grupo4.guiaestudiantes
 
 import android.location.Location
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.google.android.gms.location.*
+import android.view.*
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.data.kml.KmlLayer
@@ -15,7 +11,10 @@ import com.google.maps.android.data.kml.KmlLayer
 class SitiosInteres : Fragment(), LocationListener {
 
     var gestorPosicion = GestorPosicion()
-
+    
+    private val callback_update = LocationSource.OnLocationChangedListener() {
+        mapa?.let { it1 -> gestorPosicion.actualizarPosActual(requireContext(), requireActivity(), it1) }
+    }
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -60,6 +59,29 @@ class SitiosInteres : Fragment(), LocationListener {
         return inflater.inflate(R.layout.fragment_sitios_interes, container, false)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.opcion_brujula -> {
+                SitiosInteres.brujula = !item.isChecked
+                item.isChecked = Centros.brujula
+                true
+            }
+            else -> false
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_mapas, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map_sitios_interes) as SupportMapFragment?
@@ -67,7 +89,10 @@ class SitiosInteres : Fragment(), LocationListener {
         mapFragment?.getMapAsync(callback)
     }
 
+
     companion object {
         var mapa: GoogleMap? = null
+        var brujula = false
     }
+
 }
