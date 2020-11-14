@@ -1,51 +1,10 @@
-\documentclass[a4paper,11pt]{article}
-\usepackage[american]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{geometry}
-\usepackage[ruled,vlined]{algorithm2e}
- \usepackage{algpseudocode}
-\usepackage{booktabs}  
-\usepackage{graphicx} 
-\usepackage{listings}
-\usepackage{ragged2e}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{float}
-\usepackage{syntax}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{listings}
-
-\lstdefinelanguage{Kotlin}{
-  comment=[l]{//},
-  commentstyle={\color{gray}\ttfamily},
-  emph={delegate, filter, first, firstOrNull, forEach, lazy, map, mapNotNull, println, return@},
-  emphstyle={\color{OrangeRed}},
-  identifierstyle=\color{black},
-  keywords={abstract, actual, as, as?, break, by, class, companion, continue, data, do, dynamic, else, enum, expect, false, final, for, fun, get, if, import, in, interface, internal, is, null, object, override, package, private, public, return, set, super, suspend, this, throw, true, try, typealias, val, var, vararg, when, where, while},
-  keywordstyle={\color{NavyBlue}\bfseries},
-  morecomment=[s]{/*}{*/},
-  morestring=[b]",
-  morestring=[s]{"""*}{*"""},
-  ndkeywords={@Deprecated, @JvmField, @JvmName, @JvmOverloads, @JvmStatic, @JvmSynthetic, Array, Byte, Double, Float, Int, Integer, Iterable, Long, Runnable, Short, String},
-  ndkeywordstyle={\color{BurntOrange}\bfseries},
-  sensitive=true,
-  stringstyle={\color{ForestGreen}\ttfamily},
-}
-\lstset{%
-backgroundcolor=\color{cyan!10},
-basicstyle=\ttfamily,
-numbers=left,numberstyle=\scriptsize
-}
-
-\usepackage[wby]{callouts}
-\begin{document}
 \section{Fragment Comedores}
 
 \vspace{5 mm}
 
 El objetivo de este fragment es facilitar al usuario que pueda ver el menú semanal que ofrece la UGR en todos sus comedores.
 
-Para ello vamos a hacer uso principalmente de una \textbf{WebView} que va a cargar el pdf \textbf{http://scu.ugr.es/?theme=pdf} apoyándonos en Google Drive. 
+Para ello vamos a hacer uso principalmente de una \textbf{WebView} que va a cargar el pdf \textbf{http://scu.ugr.es/?theme=pdf} apoyándonos en Google Drive.
 
 \vspace{5 mm}
 
@@ -53,7 +12,7 @@ También vamos a hacer uso de una \textbf{ProgressBar} que nos indicará como va
 
 \vspace{5 mm}
 
-A continuación vamos a ver las variables y los métodos que forman este fragment, y que hace cada uno. 
+A continuación vamos a ver las variables y los métodos que forman este fragment, y que hace cada uno.
 
 \vspace{5 mm}
 
@@ -69,7 +28,7 @@ A continuación vamos a ver las variables y los métodos que forman este fragmen
 
 \end{itemize}
 
-Las dos primeras variables son la propia \textbf{WebView} y la \textbf{ProgressBar} de las que he hablado antes. Ambas serán inicializadas en el método \textbf{OnCreateView} usando los id del layout. 
+Las dos primeras variables son la propia \textbf{WebView} y la \textbf{ProgressBar} de las que he hablado antes. Ambas serán inicializadas en el método \textbf{OnCreateView} usando los id del layout.
 La tercera variable corresponde al string que guardará la url de los comedores universitarios y que pasaremos como parámetro al método \textbf{loadUrl} de la WebView.
 
 \newpage
@@ -96,7 +55,7 @@ También le asignamos a \textbf{pdf} la url de los comedores universitarios.
 
 \vspace{5 mm}
 
-Una vez hecho esto, vamos a configurar la \textbf{WebView} de tal forma que pueda usar JavaScript 
+Una vez hecho esto, vamos a configurar la \textbf{WebView} de tal forma que pueda usar JavaScript
 
 \vspace{5 mm}
 
@@ -108,7 +67,7 @@ webview.settings.javaScriptEnabled = true
 \vspace{5 mm}
 
 
-y que el usuario pueda usar gestos para acercar y alejar la WebView a su antojo 
+y que el usuario pueda usar gestos para acercar y alejar la WebView a su antojo
 
 \vspace{5 mm}
 
@@ -140,17 +99,16 @@ Finalmente nos quedaría mostrar la URL de los comedores universitarios mediante
 \begin{subfigure}{0.5\textwidth}
   \centering
   % include first image
-  \includegraphics[width=1\linewidth]{imagenes/progressBar.jpeg}  
+  \includegraphics[width=1\linewidth]{progressBar.jpeg}
   \caption{Barra de progreso}
   \label{fig:sub-first}
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
   \centering
   % include second image
-  \includegraphics[width=1\linewidth]{imagenes/comedores.jpeg}  
+  \includegraphics[width=1\linewidth]{comedores.jpeg}
   \caption{PDF comedores cargado}
   \label{fig:sub-second}
 \end{subfigure}
 \end{figure}
 
-\end{document}
