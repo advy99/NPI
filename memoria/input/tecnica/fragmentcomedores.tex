@@ -1,24 +1,15 @@
 \section{Fragment Comedores}
 
-\vspace{5 mm}
 
 El objetivo de este fragment es facilitar al usuario que pueda ver el menú semanal que ofrece la UGR en todos sus comedores.
 
-Para ello vamos a hacer uso principalmente de una \textbf{WebView} que va a cargar el pdf \textbf{http://scu.ugr.es/?theme=pdf} apoyándonos en Google Drive.
-
-\vspace{5 mm}
+Para ello vamos a hacer uso principalmente de una \textbf{WebView} que va a cargar el pdf \\ \textbf{http://scu.ugr.es/?theme=pdf} apoyándonos en Google Drive.
 
 También vamos a hacer uso de una \textbf{ProgressBar} que nos indicará como va el proceso de carga de la url. Vemos necesario usarla porque si no parece que la pantalla no está cargando y el fragment no funciona bien.
 
-\vspace{5 mm}
-
 A continuación vamos a ver las variables y los métodos que forman este fragment, y que hace cada uno.
 
-\vspace{5 mm}
-
 \subsection{Variables}
-
-\vspace{5 mm}
 
 \begin{itemize}
 
@@ -35,80 +26,54 @@ La tercera variable corresponde al string que guardará la url de los comedores 
 
 \subsection{Métodos}
 
-\vspace{5 mm}
-
 Los métodos que voy a explicar a continuación son:
 
 \begin{itemize}
 \item{onCreateView}
 \end{itemize}
 
-\vspace{5 mm}
-
 \subsubsection{Método OnCreateView}
-
-\vspace{5 mm}
 
 Este método comienza inicializando las variables \textbf{webview} y \textbf{barra} explicadas anteriormente mediante \textbf{findViewById} y pasándole la Id del layout.
 
 También le asignamos a \textbf{pdf} la url de los comedores universitarios.
 
-\vspace{5 mm}
-
 Una vez hecho esto, vamos a configurar la \textbf{WebView} de tal forma que pueda usar JavaScript
-
-\vspace{5 mm}
-
 
 \begin{lstlisting}[language=Kotlin]
 webview.settings.javaScriptEnabled = true
 \end{lstlisting}
 
-\vspace{5 mm}
-
-
 y que el usuario pueda usar gestos para acercar y alejar la WebView a su antojo
-
-\vspace{5 mm}
-
 
 \begin{lstlisting}[language=Kotlin]
 webview.settings.setSupportZoom(true)
 webview.settings.builtInZoomControls = true
 \end{lstlisting}
 
-\vspace{5 mm}
-
 También haremos invisible la webview nada más iniciar el fragment para que lo que se vea sea la \textbf{ProgressBar} cargando.
-
-\vspace{5 mm}
 
 Ahora lo que nos quedaría sería modificar dos objetos internos de nuestra \textbf{WebView}. El primero sería su objeto \textbf{WebChromeClient()}. Este objeto tiene un método llamado \textbf{onProgressChanged} que nos permite ver cómo va el progreso de carga de la WebView, es por esto que lo usaremos para ocultar la webview si el progreso es menor a 100, al mismo tiempo que vamos mostrando como avanza la progressBar. Cuando el progreso llegue a 100, mostraremos la WebView y ocultaremos la ProgressBar.
 
-\vspace{5 mm}
-
 El otro objeto es el \textbf{WebViewClient()}, el cual tiene un método llamado \textbf{shouldOverrideUrlLoading} y que tiene como parámetro una \textbf{request} que le pasaremos a \textbf{webView.loadUrl(request)}. De esta forma, cada vez que hagamos \textit{"tap"} sobre algún enlace, se recargará la WebView mostrando el enlace.
-
-\vspace{5 mm}
 
 Finalmente nos quedaría mostrar la URL de los comedores universitarios mediante el método \textbf{loadUrl} de nuestra WebView.
 
-\newpage
-
 \begin{figure}[H]
-\begin{subfigure}{0.5\textwidth}
-  \centering
-  % include first image
-  \includegraphics[width=1\linewidth]{progressBar.jpeg}
-  \caption{Barra de progreso}
-  \label{fig:sub-first}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}
-  \centering
-  % include second image
-  \includegraphics[width=1\linewidth]{comedores.jpeg}
-  \caption{PDF comedores cargado}
-  \label{fig:sub-second}
-\end{subfigure}
+
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    % include first image
+    \includegraphics[width=1\linewidth]{progressBar.jpeg}
+    \caption{Barra de progreso}
+    \label{fig:sub-first}
+  \end{subfigure}
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    % include second image
+    \includegraphics[width=1\linewidth]{comedores.jpeg}
+    \caption{PDF comedores cargado}
+    \label{fig:sub-second}
+  \end{subfigure}
 \end{figure}
 
