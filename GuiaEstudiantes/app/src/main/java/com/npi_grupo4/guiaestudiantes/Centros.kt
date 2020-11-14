@@ -43,11 +43,6 @@ class Centros : Fragment(), LocationListener {
 
         val kmlFile = KmlLayer(googleMap, R.raw.mapas_campus_ugr, requireActivity())
         kmlFile.addLayerToMap()
-
-
-
-
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,7 +69,6 @@ class Centros : Fragment(), LocationListener {
     override fun onLocationChanged(p0: Location?) {
         mapa?.let { gestorPosicion.actualizarPosActual(requireContext(), requireActivity(), it) }
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
