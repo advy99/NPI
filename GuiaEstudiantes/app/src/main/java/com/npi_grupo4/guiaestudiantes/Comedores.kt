@@ -12,21 +12,15 @@ import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Comedores.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Comedores : Fragment() {
-    // TODO: Rename and change types of parameters
+    //Declaramos las instancias de nuestro layout
     lateinit var webview: WebView
-    lateinit var pdf: String
     lateinit var barra: ProgressBar
+
+    //Declaramos la variable pdf, que contendrá la url que
+    //estamos cargando en todo momento
+    lateinit var pdf: String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,16 +29,30 @@ class Comedores : Fragment() {
         }
     }
 
+
+    //El método onCreateView es el que nos va a interesar, porque es el
+    //que mostrará por pantalla lo que le digamos al iniciar el fragment
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+        
+        //Inicializamos la vista al fragment_comedores
         val view: View = inflater.inflate(R.layout.fragment_comedores, container, false)
+
+        //Inicializamos las instancias del layout usando findViewById
         webview = view.findViewById(R.id.pdf_comedores) as WebView
         barra = view.findViewById(R.id.progressBar2) as ProgressBar
-        webview.getSettings().setJavaScriptEnabled(true)
+
+        //Inicializamos la variable pdf a la página que contiene el menú semanal
+        //de los comedores de la UGR
         pdf = "http://scu.ugr.es/?theme=pdf"
 
+        //Le damos permisos a la webview para poder usar javaScript, para que la webview
+        //se inicie en modo zoom out, y para poder hacer acercar y alejar el pdf con
+        //gestos
+
+        webview.getSettings().setJavaScriptEnabled(true)
         webview.settings.javaScriptEnabled = true
         webview.settings.setSupportZoom(true)
         webview.settings.builtInZoomControls = true
@@ -54,6 +62,11 @@ class Comedores : Fragment() {
         webview.visibility = View.GONE
         barra.visibility = View.VISIBLE
 
+        //Modificamos el objeto webChromeClient de nuestra instancia webview
+        //para que cada vez que accedamos a una nueva pestaña, esta quede
+        //invisible mientras carga y podamos ver la progressBar.
+        //Una vez la pagina ha cargado, la haremos visible y pondremos la 
+        //progressBar en invisible.
         webview.webChromeClient = object : WebChromeClient() {
 
             override fun onProgressChanged(view: WebView, progress: Int) {
@@ -69,6 +82,8 @@ class Comedores : Fragment() {
             }
         }
 
+        //Modificamos el objeto webViewClient de nuestra WebView para que se nos permita ir 
+        //accediendo a diferentes pestañas desde la webview inicial
         webview.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
                 webview.loadUrl(request.url.toString())
@@ -76,28 +91,12 @@ class Comedores : Fragment() {
             }
         }
 
+        //Usamos las facilidades que nos ofrece Google Drive para poder visualizar pdf's
+        //online
         webview.loadUrl("https://drive.google.com/viewerng/viewer?embedded=true&url=" + pdf)
 
+        //Devolvemos la vista
         return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Comedores.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Comedores().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

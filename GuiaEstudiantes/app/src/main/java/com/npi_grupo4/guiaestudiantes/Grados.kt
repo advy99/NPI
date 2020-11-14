@@ -18,23 +18,32 @@ import java.lang.Float.POSITIVE_INFINITY
 
 class Grados : Fragment() {
 
+    //Declaramos los ArrayList que usaremos en este fragment
     private var posiciones = ArrayList<LatLng>()
     private var webs = ArrayList<String>()
     private var indice = 0
 
-
+    //Declaramos una instancia de nuestra clase GestorPosicion()
+    //que nos ayudará a saber cual es nuestra geolocalización en 
+    //el momento de iniciar el fragment
     var gestorPosicion = GestorPosicion()
 
+    //Declaramos las instancias de nuestro layout
     lateinit var webView : WebView
     lateinit var barra : ProgressBar
 
 
-
+   
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        //Indicamos que este fragment va a disponer de un menú desplegable        
         setHasOptionsMenu(true)
 
         retainInstance = true;
+
+        //Añadimos al ArrayList de posiciones, las posiciones geográficas
+        //de las diferentes facultades que tendrá nuestro menú desplegable
 
         posiciones.add(LatLng(37.1962126, -3.6246538)) // informatica
         posiciones.add(LatLng(37.1948506, -3.6256143))// bellas artes
@@ -43,6 +52,8 @@ class Grados : Fragment() {
         posiciones.add(LatLng(37.1949702, -3.598714)) // farmacia
         posiciones.add(LatLng(37.1493728, -3.606892)) // medicina
 
+        //Añadimos al ArrayList de webs, las webs de las guias docentes de cada una de 
+        //las facultades que aparecerán en nuestro menú desplegable
 
         webs.add("https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/guiasdocentes_curso_actual")
         webs.add("https://grados.ugr.es/bellasartes/pages/infoacademica/guias-docentes")
@@ -54,6 +65,8 @@ class Grados : Fragment() {
     }
 
 
+    //Añadimos a nuestro menú desplegable el nombre de unas cuantas facultades de la UGR.
+    //(En la app final deberían aparecer todas las facultades de la UGR)
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_sample, menu)
@@ -67,7 +80,8 @@ class Grados : Fragment() {
 
 
 
-
+    //Cada vez que seleccionemos una facultad en el menú, cambiará el valor de indice, el cual
+    //usaremos para acceder a la guia docente del ArrayList de webs que hemos creado en el onCreate
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // ponemos los indices por separado, por si actualizamos la web en otro sitio con otra accion
         when (item.toString()) {
@@ -108,6 +122,8 @@ class Grados : Fragment() {
         return true
     }
 
+    //Le damos permiso a la webView para poder acercar y alejar
+    //el PDF usando gestos y cargamos la nueva URL.
     private fun cambiarWeb() {
         webView.loadUrl(webs[indice])
         webView.settings.setJavaScriptEnabled(true);
@@ -120,13 +136,18 @@ class Grados : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
 
+        //Inicializamos la vista de fragment_grados
         val view: View = inflater.inflate(R.layout.fragment_grados, container, false)
 
+        //Inicializamos las instancias del layout
         webView = view.findViewById(R.id.webView)
         barra = view.findViewById(R.id.progressBar)
 
         barra.max = 100
 
+        //Le damos permisos a la webview para poder usar javaScript, para que la webview
+        //se inicie en modo zoom out, y para poder hacer acercar y alejar el pdf con
+        //gestos
         webView.settings.setJavaScriptEnabled(true)
         webView.settings.setSupportZoom(true)
         webView.settings.builtInZoomControls = true
@@ -137,6 +158,11 @@ class Grados : Fragment() {
         webView.visibility = View.GONE
         barra.visibility = View.VISIBLE
 
+        //Modificamos el objeto webChromeClient de nuestra instancia webview
+        //para que cada vez que accedamos a una nueva pestaña, esta quede
+        //invisible mientras carga y podamos ver la progressBar.
+        //Una vez la pagina ha cargado, la haremos visible y pondremos la 
+        //progressBar en invisible.
         webView.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView, progress: Int) {
                 if (progress < 100 && barra.visibility == ProgressBar.GONE) {
@@ -151,6 +177,8 @@ class Grados : Fragment() {
             }
         }
 
+        //Modificamos el objeto webViewClient de nuestra WebView para que se nos permita ir 
+        //accediendo a diferentes pestañas desde la webview inicial
         webView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
                 if (request.url.toString().endsWith("/!") or request.url.toString().endsWith(".pdf")){
@@ -169,6 +197,9 @@ class Grados : Fragment() {
             }
         }
 
+
+        //La primera vez que iniciamos el fragment, cargará la url de la facultad que esté más cerca
+        //de nosotros usando la clase GestorPosicion(), donde se hace uso de nuestra geolocalización
         val pos = gestorPosicion.posicionMasCercana(posiciones, requireContext(), requireActivity())
 
         if ( InicioSesion.indice_facultad != -1){
@@ -180,20 +211,11 @@ class Grados : Fragment() {
         }
         cambiarWeb()
 
+        //Devolvemos la vista
         return view
     }
 
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Grados.
-         */
-    }
 
 
 }
