@@ -48,11 +48,9 @@ class Comedores : Fragment() {
         //de los comedores de la UGR
         pdf = "http://scu.ugr.es/?theme=pdf"
 
-        //Le damos permisos a la webview para poder usar javaScript, para que la webview
-        //se inicie en modo zoom out, y para poder hacer acercar y alejar el pdf con
-        //gestos
+        //Le damos permisos a la webview para poder usar javaScript, para poder 
+        //acercar y alejar el pdf con gestos
 
-        webview.getSettings().setJavaScriptEnabled(true)
         webview.settings.javaScriptEnabled = true
         webview.settings.setSupportZoom(true)
         webview.settings.builtInZoomControls = true
