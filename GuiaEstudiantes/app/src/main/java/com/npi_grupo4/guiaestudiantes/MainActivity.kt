@@ -222,13 +222,19 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
         when(event.sensor.type) {
             Sensor.TYPE_LINEAR_ACCELERATION -> {
 
-                if (event.values[2] < -9 && tiempoActual - tiempoAnterior > 1000) {
+                val epsilon = 10
+
+                val soloEjeZ = abs(event.values[0]) < epsilon && abs(event.values[1]) < epsilon
+
+                Log.i("aa", " " + event.values[0] +" " + event.values[1] + " " + event.values[2])
+
+                if (event.values[2] < -11 && tiempoActual - tiempoAnterior > 500 && soloEjeZ) {
                     if (current_fragment == "fragment_pagina_inicio") {
                         navigation.navigate(R.id.action_paginaInicio_to_centros)
                         tiempoAnterior = tiempoActual
 
                     }
-                } else if ( event.values[2] > 9 && tiempoActual - tiempoAnterior > 1000) {
+                } else if ( event.values[2] > 11 && tiempoActual - tiempoAnterior > 500 && soloEjeZ) {
                     // si detectamos el gesto y han pasado mas de 100ms
                     navigation.navigateUp()
                     tiempoAnterior = tiempoActual
