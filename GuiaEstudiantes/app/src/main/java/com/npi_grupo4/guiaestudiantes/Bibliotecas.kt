@@ -16,11 +16,6 @@ import kotlinx.android.synthetic.main.fragment_inicio_sesion.*
 
 import java.lang.Float
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Bibliotecas.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Bibliotecas : Fragment() {
 
     var gestorPosicion = GestorPosicion()
@@ -117,26 +112,20 @@ class Bibliotecas : Fragment() {
                 indice = 0
             }
 
-
             "Facultad de Bellas Artes" -> {
                 indice = 1
-
             }
-
 
             "Facultad de Ciencias de la Educación" -> {
                 indice = 2
-
             }
 
             "Facultad de Farmacia" -> {
                 indice = 3
-
             }
 
             "Facultad de Medicina" -> {
                 indice = 4
-
             }
         }
 
@@ -177,7 +166,6 @@ class Bibliotecas : Fragment() {
 
         return view
     }
-
 
     private fun actualizarBiblioteca(){
         texto_centro.text = informacion[indice][0]
