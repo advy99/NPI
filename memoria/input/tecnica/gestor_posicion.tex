@@ -15,12 +15,12 @@ Esta clase cuenta con cuatro métodos que son los que hemos utilizado en todo el
 
 \subsubsection{Método actualizarPosActual}
 
-Este método simplmente utiliza la clase \texttt{LocationServices} para obtener la posición del dispositivo, y si puede acceder, centra el mapa dado a dicha posición, además de añadir un marcador de la posición actual.
+Este método simplmente utiliza la clase \texttt{LocationServices}\cite{locationServices} para obtener la posición del dispositivo, y si puede acceder, centra el mapa dado a dicha posición, además de añadir un marcador de la posición actual.
 
 
 \subsubsection{Método rotarMapa}
 
-Haciendo uso de la clase \texttt{CameraPosition} de la API de Google Maps, clona los valores de la posición de la camara actual, pero cambiando el atributo \texttt{bearing}, el cual corresponde a la rotación.
+Haciendo uso de la clase \texttt{CameraPosition}\cite{cameraPosition} de la API de Google Maps, clona los valores de la posición de la camara actual, pero cambiando el atributo \texttt{bearing}, el cual corresponde a la rotación.
 
 Aplica los cambios utilizando el método \texttt{animateCamara}, de forma que si el cambio es brusco aparece como una animación.
 
@@ -30,7 +30,7 @@ Simplemente devuelve si puede acceder a la ubicación del dispositivo. Verdadero
 
 \subsubsection{Método posicionMasCercana}
 
-Este método obtiene la posición actual, e itera sobre el vector de posiciones dado para encontrar la posición dada más cercana utilizando el método \texttt{distanceBetween} de la clase \texttt{Location} de la API de Google Maps
+Este método obtiene la posición actual, e itera sobre el vector de posiciones dado para encontrar la posición dada más cercana utilizando el método \texttt{distanceBetween} de la clase \texttt{Location}\cite{locationAndroid} de Android.
 
 
 

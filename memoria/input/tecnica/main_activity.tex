@@ -1,6 +1,6 @@
 \section{Main Activity}
 
-Nuestro proyecto constará de una única actividad que gestionará toda la navegación por los distintos fragments, así como la interacción con los sensores del dispositivo.
+Nuestro proyecto constará de una única actividad\cite{activityAndroid} que gestionará toda la navegación por los distintos fragments, así como la interacción con los sensores del dispositivo.
 
 Esta actividad tendrá asociada una clase con el mismo nombre, que se encargará de inicializar todo lo necesario para gestionar la aplicación.
 
@@ -14,7 +14,7 @@ Este método será ejecutado al crear la actividad, que como vimos en el manifie
 
 Lo primero que haremos será asociar el grafo de navegación que utilizaremos a esta actividad, utilizando el método \texttt{setContentView(R.layout.activity\_main)}, y dentro del XML de este activity solo existe un elemento que es el grafo de navegación.
 
-Una vez asociado el grafo de navegación este método se encarga de asociar esta actividad a los distintos eventos de los sensores del teléfono, utilizando un objeto de la clase \texttt{SensorManager}, y el respectivo sensor, algunos de los que usaremos serán:
+Una vez asociado el grafo de navegación este método se encarga de asociar esta actividad a los distintos eventos de los sensores del teléfono\cite{tiposSensoresAndroid}, utilizando un objeto de la clase \texttt{SensorManager}\cite{sensorAndroid}, y el respectivo sensor, algunos de los que usaremos serán:
 
 \begin{itemize}
 	\item \texttt{Sensor.TYPE\_ACCELEROMETER}
