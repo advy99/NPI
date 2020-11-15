@@ -114,7 +114,7 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
     // PANTALLA
 
     override fun onDoubleTap(e: MotionEvent?): Boolean {
-        Toast.makeText(this, "Doble toque", Toast.LENGTH_SHORT).show()
+        
         return true
     }
 
