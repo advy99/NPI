@@ -1,0 +1,137 @@
+\section{Fragment Grados}
+
+El objetivo de este fragment es facilitar al usuario que pueda ver las guías docentes de todas las facultades de la UGR.
+
+Para ello vamos a hacer uso principalmente de una \textbf{WebView} que va a cargar las guías docentes apoyándonos en un menú desplegable.
+
+También vamos a hacer uso de una \textbf{ProgressBar} que nos indicará como va el proceso de carga de la url. Vemos necesario usarla porque si no parece que la pantalla no está cargando y el fragment no funciona bien.
+
+A continuación vamos a ver las variables, métodos y funciones que forman este fragment, y que hace cada uno.
+
+\subsection{Variables}
+
+\begin{itemize}
+
+\item{lateinit var webView: WebView}
+\item{lateinit var barra: ProgressBar}
+\item{private var posiciones = ArrayList$<$LatLng$>$()}
+\item{private var webs = ArrayList$<$String$>$()}
+\item{private var indice = 0}
+\item{var gestorPosicion = GestorPosicion()}
+
+\end{itemize}
+
+Las dos primeras variables son la propia \textbf{WebView} y la \textbf{ProgressBar} de las que he hablado antes. Ambas serán inicializadas en el método \textbf{OnCreateView} usando los id del layout.
+La tercera variable corresponde a un ArrayList que guardará las posiciones geográficas de las diferentes facultades de la UGR. La cuarta variable es otro ArrayList que guardará las url de las guías docentes de dichas facultades. La quinta variable es un entero que usaremos para indexar en el ArrayList de url. La última variable es una instancia de la clase \textbf{GestorPosicion()}, la cual usaremos más adelante para calcular la posición geográfica del usuario.
+
+\newpage
+
+\subsection{Métodos}
+
+Los métodos y funciones que voy a explicar a continuación son:
+
+\begin{itemize}
+\item{onCreate}
+\item{onCreateOptionsMenu}
+\item{onOptionsItemSelected}
+\item{cambiarWeb}
+\item{onCreateView}
+\end{itemize}
+
+\subsubsection{Método onCreate}
+
+Esté método empezará indicando que el fragment va a disponer de un menú desplegable usando la orden:
+
+\begin{lstlisting}[language=Kotlin]
+setHasOptionsMenu(true)
+\end{lstlisting}
+
+Después rellenaremos los ArrayList \textbf{posiciones} y \textbf{webs} con las posiciones geográficas y las url de las guias docentes de las facultades, respectivamente.
+
+\subsubsection{Método onCreateOptionsMenu}
+
+Este método recibe un \textbf{menu} como parámetro y nos encargaremos de añadir a dicho menú las secciones que nos interesen. En este caso, lo rellenaremos con el nombre de las facultades de la UGR. Lo rellenamos de la siguiente forma:
+
+\begin{lstlisting}[language=Kotlin]
+menu.add("Facultad de Bellas Artes")
+menu.add("E.T.S. de Arquitectura")
+menu.add("Facultad de Ciencias de la Educacion")
+menu.add("Facultad de Farmacia")
+menu.add("Facultad de Medicina")
+\end{lstlisting}
+
+\newpage
+
+\subsubsection{Método onOptionsItemSelected}
+
+Este método sirve para indicar que queremos que pase cada vez que el usuario seleccione uno de los elementos del menú desplegable. En nuestro caso vamos a dar un valor u otro a la variable \textbf{indice} dependiendo de la facultad que se seleccione. El indice tendrá el valor necesario para que al indexar en el ArrayList de webs, obtengamos la url de las guias docentes de la facultad que hemos seleccionado.
+
+Después, siempre llamaremos a la función \textbf{cambiarWeb()} que explicaré a continuación.
+
+\subsubsection{Función cambiarWeb}
+
+Cada vez que se llame a esta función, se cargará en la WebView la url correspondiente al valor que tenga \textbf{indice} en ese momento.
+Además, se le darán una serie de permisos a la WebView para poder usar JavaScript y acercar/alejar la WebView.
+
+\subsubsection{Método onCreateView}
+
+Este método comienza inicializando las variables \textbf{webview} y \textbf{barra} explicadas anteriormente mediante \textbf{findViewById} y pasándole la Id del layout.
+
+Una vez hecho esto, vamos a configurar la \textbf{WebView} de tal forma que pueda usar JavaScript
+
+\begin{lstlisting}[language=Kotlin]
+webview.settings.javaScriptEnabled = true
+\end{lstlisting}
+
+y que el usuario pueda usar gestos para acercar y alejar la WebView a su antojo
+
+\begin{lstlisting}[language=Kotlin]
+webview.settings.setSupportZoom(true)
+webview.settings.builtInZoomControls = true
+\end{lstlisting}
+
+También haremos invisible la webview nada más iniciar el fragment para que lo que se vea sea la \textbf{ProgressBar} cargando.
+
+Ahora lo que nos quedaría sería modificar dos objetos internos de nuestra \textbf{WebView}. El primero sería su objeto \textbf{WebChromeClient()}. Este objeto tiene un método llamado \textbf{onProgressChanged} que nos permite ver cómo va el progreso de carga de la WebView, es por esto que lo usaremos para ocultar la webview si el progreso es menor a 100, al mismo tiempo que vamos mostrando como avanza la progressBar. Cuando el progreso llegue a 100, mostraremos la WebView y ocultaremos la ProgressBar.
+
+El otro objeto es el \textbf{WebViewClient()}, el cual tiene un método llamado \textbf{shouldOverrideUrlLoading} y que tiene como parámetro una \textbf{request} que le pasaremos a \textbf{webView.loadUrl(request)}. De esta forma, cada vez que hagamos \textit{"tap"} sobre algún enlace, se recargará la WebView mostrando el enlace. En el caso de intentar cargar un PDF, se hará de manera diferente, ya que nos apoyaremos en la herramienta de visualización de PDF online de Google Drive.
+
+Para terminar, este método calcula cuál es la facultad más cercana al usuario usando la instancia de la clase \textbf{GestorPosicion()}. Así puede cambiar el valor de \textbf{indice} para que las primeras guias docentes que veamos al iniciar el fragment sean las de la facultad más cercana.
+
+\begin{lstlisting}[language=Kotlin]
+
+val pos = gestorPosicion.posicionMasCercana(posiciones,
+ requireContext(), requireActivity())
+
+if ( InicioSesion.indice_facultad != -1){
+	indice = InicioSesion.indice_facultad
+} else if ( pos != null) {
+	indice = pos
+} else {
+	indice = 0
+}
+cambiarWeb()
+
+\end{lstlisting}
+
+Finalmente nos quedaría mostrar la URL de la guía docente mediante el método \textbf{loadUrl} de nuestra WebView.
+
+\newpage
+
+\begin{figure}[H]
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  % include first image
+  \includegraphics[width=1\linewidth]{imagenes/menu.jpeg}
+  \caption{Menú desplegable}
+  \label{fig:sub-first}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  % include second image
+  \includegraphics[width=1\linewidth]{imagenes/guiadocente.jpeg}
+  \caption{Guía docente}
+  \label{fig:sub-second}
+\end{subfigure}
+\end{figure}
+
