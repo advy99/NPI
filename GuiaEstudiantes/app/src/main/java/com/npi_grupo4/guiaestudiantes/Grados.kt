@@ -31,8 +31,6 @@ class Grados : Fragment() {
     //Declaramos las instancias de nuestro layout
     lateinit var webView : WebView
     lateinit var barra : ProgressBar
-
-
    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,7 +62,6 @@ class Grados : Fragment() {
 
     }
 
-
     //Añadimos a nuestro menú desplegable el nombre de unas cuantas facultades de la UGR.
     //(En la app final deberían aparecer todas las facultades de la UGR)
 
@@ -77,8 +74,6 @@ class Grados : Fragment() {
         menu.add("Facultad de Medicina")
         super.onCreateOptionsMenu(menu, inflater)
     }
-
-
 
     //Cada vez que seleccionemos una facultad en el menú, cambiará el valor de indice, el cual
     //usaremos para acceder a la guia docente del ArrayList de webs que hemos creado en el onCreate
@@ -183,20 +178,15 @@ class Grados : Fragment() {
             override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
                 if (request.url.toString().endsWith("/!") or request.url.toString().endsWith(".pdf")){
                     webView.stopLoading();
-
-
-
                     var pdfUrl : String = "https://drive.google.com/viewerng/viewer?embedded=true&url=" + request.url.toString();
                     webView.loadUrl(pdfUrl)
                 }
                 else {
                     webView.loadUrl(request.url.toString())
                 }
-
                 return false
             }
         }
-
 
         //La primera vez que iniciamos el fragment, cargará la url de la facultad que esté más cerca
         //de nosotros usando la clase GestorPosicion(), donde se hace uso de nuestra geolocalización

@@ -24,7 +24,6 @@ enum class Accion{
     ATRAS, NINGUNA, COMEDORES, CENTROS
 }
 
-
 class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener, SensorEventListener {
 
     private lateinit var mDetector: GestureDetectorCompat;
@@ -108,7 +107,6 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
             sensorManager.registerListener(this, proximidad, SensorManager.SENSOR_DELAY_NORMAL, SensorManager.SENSOR_DELAY_UI)
         }
 
-
     }
 
     // PANTALLA
@@ -125,7 +123,6 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
         val navigation = findNavController(this, R.id.nav_frag)
         val current_fragment = (navigation.currentDestination?.label ?:"" )
 
-
         // usamos pointer down y pointer up ya que son dos dedos
         if ( event.actionMasked == MotionEvent.ACTION_POINTER_DOWN) {
             accion = Accion.ATRAS
@@ -133,7 +130,6 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
             recorridoY = y
             dedosEnPantalla = event.pointerCount
         } else if ( event.actionMasked == MotionEvent.ACTION_POINTER_UP) {
-
             recorridoX = x - recorridoX
             recorridoY = y - recorridoY
 
@@ -150,7 +146,6 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
             dibujandoC = true
 
         } else if ( event.actionMasked == MotionEvent.ACTION_UP ) {
-
 
             if ( accion == Accion.COMEDORES && recorridoX > 100 && curvaC && current_fragment == "fragment_pagina_inicio"){
                 navigation.navigate(R.id.action_paginaInicio_to_comedores)
@@ -187,13 +182,10 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
             }
         }
 
-
-
         previousY = y
         previousX = x
 
         return true
-
     }
 
     override fun onDown(event: MotionEvent): Boolean {
@@ -243,10 +235,6 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
         Log.d(DEBUG_TAG, "onSingleTapConfirmed: $event")
         return true
     }
-
-
-
-
 
     // SENSORES HARDWARE
 
@@ -299,7 +287,6 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
 
             Sensor.TYPE_ROTATION_VECTOR -> {
 
-
             }
 
             Sensor.TYPE_PROXIMITY -> {
@@ -310,19 +297,14 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
 
                     }
                 }
-
             }
 
             Sensor.TYPE_MAGNETIC_FIELD -> {
                 mGeomagnetic[0] = alpha * mGeomagnetic[0] + (1 - alpha) * event.values[0]
                 mGeomagnetic[1] = alpha * mGeomagnetic[1] + (1 - alpha) * event.values[1]
                 mGeomagnetic[2] = alpha * mGeomagnetic[2] + (1 - alpha) * event.values[2]
-
             }
-
-
         }
-
 
         if ( (Centros.brujula && current_fragment == "fragment_centros") ||
              (SitiosInteres.brujula && current_fragment == "fragment_sitios_interes") && abs(tiempoRotacionAnterior - System.currentTimeMillis()) > 1000) {
@@ -345,7 +327,6 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
                     rotacionAnterior = azimuth
                     tiempoRotacionAnterior = System.currentTimeMillis()
                 }
-
             }
         }
 
