@@ -1,0 +1,125 @@
+\section{Main Activity}
+
+Nuestro proyecto constará de una única actividad que gestionará toda la navegación por los distintos fragments, así como la interacción con los sensores del dispositivo.
+
+Esta actividad tendrá asociada una clase con el mismo nombre, que se encargará de inicializar todo lo necesario para gestionar la aplicación.
+
+A continuación explicaremos el objetivo de cada método.
+
+\subsection{Método onCreate}
+
+Este método será ejecutado al crear la actividad, que como vimos en el manifiesto del proyecto, al lanzar la aplicación se lanzará esta actividad, por lo tanto será el primer método que se ejecutará.
+
+
+
+Lo primero que haremos será asociar el grafo de navegación que utilizaremos a esta actividad, utilizando el método \texttt{setContentView(R.layout.activity\_main)}, y dentro del XML de este activity solo existe un elemento que es el grafo de navegación.
+
+Una vez asociado el grafo de navegación este método se encarga de asociar esta actividad a los distintos eventos de los sensores del teléfono, utilizando un objeto de la clase \texttt{SensorManager}, y el respectivo sensor, algunos de los que usaremos serán:
+
+\begin{itemize}
+	\item \texttt{Sensor.TYPE\_ACCELEROMETER}
+	\item \texttt{Sensor.TYPE\_MAGNETIC\_FIELD}
+	\item \texttt{Sensor.TYPE\_LINEAR\_ACCELERATION}
+	\item \texttt{Sensor.TYPE\_PROXIMITY}
+
+\end{itemize}
+
+Todos estos sensores los utilizaremos para interaccionar con la aplicación.
+
+
+\subsection{Interacción con los sensores}
+
+Para implementar la interacción con sensores, además de la inicialización comentada en el apartado anterior, utilizaremos el método \texttt{onSensorChanged(event: SensorEvent)}
+
+Este método será llamado cada vez que el dispositivo detecte un cambio en sus sensores, y recibirá como parámetro el evento que ha activado la llamada a la función.
+
+
+Los gestos implementados con estos sensores son los siguientes:
+
+\begin{itemize}
+	\item Gestos al mover el teléfono. Para detectar este gesto se usará el sensor de tipo acelerador lineal.
+	\item Evento al activarse el sensor de proximidad.
+\end{itemize}
+
+Además también se usará el sensor de campo magnético y el acelerómetro para gestionar la orientación de la brújula en los fragmentos de mapas.
+
+\subsubsection{Acelerador lineal}
+
+Cuando recibamos un evento de tipo acelerador lineal, comprobaremos los valores asociados al evento. Los posibles valores son:
+
+\begin{itemize}
+	\item \texttt{event.values[0]}: Aceleración en el eje X.
+	\item \texttt{event.values[1]}: Aceleración en el eje Y.
+	\item \texttt{event.values[2]}: Aceleración en el eje Z.
+\end{itemize}
+
+En este apartado detectaremos dos gestos, si movemos el movil hacia atras o hacia adelante en el eje Z. Para comprobar que solo es en ese eje, nos aseguraremos que en los otros dos ejes el movimiento es menor que cierto $\epsilon$, y en caso de que el movimiento en los otros ejes sea notable, no se realizarán las acciones.
+
+Las acciones son, si movemos el dispositivo en positivo en el eje Z, iremos hacia atrás en el grafo de navegación. Si movemos el dispositivo en negativo en el eje Z, aplicaremos la acción del grafo de navegación de ir al fragment de centros. Como esta acción solo está disponible en el fragment de página de inicio, comprobaremos que actualmente se encuentra en ese fragment, y si no es el caso, no se realizará ninguna acción.
+
+Además, a ambas acciones hemos añadido un temporizador, para que no detecte dos acciones seguidas, debido a que los sensores están capturando valores constantemente.
+
+\subsubsection{Proximidad}
+
+Este sensor varía entre dispositivos, ya que algunos dispositivos unicamente cuentan con dos posiciones (cerca y lejos), mientras que otros dispositivos si que miden realmente la distancia. Por lo tanto, se ha implementado de forma que funcione como cerca/lejos de cara a dar una mayor compatibilidad.
+
+Este evento solo puede tomar un valor, \texttt{event.values[0]}, que será la distancia en centímetros del objeto al sensor. Si el dispositivo solo soporta cerca/lejos, el valor será 0 si cerca y 5 si lejos.
+
+Este sensor, cuando se detecta algún objeto cercano al teléfono y estamos en el fragment inicio, aplicará la acción del grafo de navegación de pasar al fragment de bibliotecas.
+
+\subsubsection{Acelerómetro y campo magnético}
+
+Estos eventos los utilizaremos para calcular el valor de la gravedad y el campo magnético de cara a conocer la orientación de la brújula del dispositivo.
+
+Al final de este método tendremos una comprobación de si estamos en los fragments que utilizan el mapa, y si dichos fragments tienen activado la opción de brújula, para calcular la rotación del dispositivo y actualizar el mapa, de forma que apunte a donde apunta la brújula.
+
+
+\subsection{Interacción con la pantalla}
+
+La interacción con la pantalla la realizaremos utilizando la interfaz \texttt{GestureDetector}. Esta interfaz nos obliga a tener distintos métodos en la clase, como \texttt{onFling}, \texttt{onScroll}, \texttt{onShowPress} entre otros, sin embargo nosotros solo utilizaremos el método \texttt{onTouchEvent} ya que desde ahí podremos gestionar todas las acciones en pantalla.
+
+Las acciones que tendremos en cuenta serán:
+
+\begin{enumerate}
+	\item \texttt{MotionEvent.ACTION\_POINTER\_DOWN}
+	\item \texttt{MotionEvent.ACTION\_POINTER\_UP}
+	\item \texttt{MotionEvent.ACTION\_DOWN}
+	\item \texttt{MotionEvent.ACTION\_UP}
+	\item \texttt{MotionEvent.ACTION\_MOVE}
+\end{enumerate}
+
+Las dos primeras acciones serán para detectar cuando se ha pulsado o dejado de pulsar en pantalla con varios dedos (más de uno), las dos siguientes acciones serán cuando se pulsa o deja de pulsar la pantalla con un único dedo, y la última acción para cuando se mueve por pantalla, ya sea con uno o con varios dedos.
+
+Hemos decidido implementar dos gestos:
+
+\begin{enumerate}
+	\item Ir hacia atrás al desplazar horizontalmente dos dedos.
+	\item Abrir el fragment de comedores si se dibuja una C en la pantalla.
+\end{enumerate}
+
+\subsubsection{Acción ACTION\_POINTER\_DOWN}
+
+Al detectar esta acción guardaremos los valores iniciales de la posición donde se detecta la acción, así como el número de dedos en pantalla.
+
+\subsubsection{Acción ACTION\_POINTER\_UP}
+
+Al detectar esta acción, si la acción detectada es ir hacia atrás, y el recorrido en X es mayor que cierto epsilon, se realiza la acción en el grafo de navegación.
+
+\subsubsection{Acción ACTION\_DOWN}
+
+Si detectamos esta acción, preparamos las distintas variables para detectar si se dibuja el símbolo C en la pantalla, en la acción \texttt{ACTION\_MOVE}.
+
+\subsubsection{Acción ACTION\_UP}
+
+Al detectar esta acción, si en \texttt{ACTION\_MOVE} se ha detectado el patrón correcto, se realizará la acción de ir hacia el fragment de comedores si estamos en la página de inicio.
+
+\subsubsection{Acción ACTION\_MOVE}
+
+Esta acción es la que detecta como se mueve el dedo (o dedos) en pantalla, de forma que podamos detectar gestos.
+
+Si detectamos dos dedos, tenemos dos opciones, siempre con el valor en el eje Y decreciendo, primero tenemos que detectar que el valor en el eje X decrece, y si llegado un punto comienza a crecer, comprobaremos que no vuelve a decrecer, y el valor en Y sigue bajando. Si se cumple esta condición cuando levantemos los dedos, se aplicará la acción de \texttt{ACTION\_POINTER\_UP}
+
+Si detectamos un dedo, comprobaremos que el valor en X crece, para el gesto de ir hacia atras.
+
+
+
