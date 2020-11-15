@@ -11,7 +11,6 @@ import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 
-
 class Comedores : Fragment() {
     //Declaramos las instancias de nuestro layout
     lateinit var webview: WebView
@@ -21,14 +20,12 @@ class Comedores : Fragment() {
     //estamos cargando en todo momento
     lateinit var pdf: String
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
 
         }
     }
-
 
     //El método onCreateView es el que nos va a interesar, porque es el
     //que mostrará por pantalla lo que le digamos al iniciar el fragment

@@ -12,12 +12,6 @@ import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import kotlinx.android.synthetic.main.fragment_catalogo_biblioteca.view.*
 
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CatalogoBiblioteca.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CatalogoBiblioteca : Fragment() {
 
     lateinit var webView : WebView
@@ -25,16 +19,12 @@ class CatalogoBiblioteca : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_catalogo_biblioteca, container, false)
-
 
         webView = view.pagina_web
         barra = view.barra_progreso

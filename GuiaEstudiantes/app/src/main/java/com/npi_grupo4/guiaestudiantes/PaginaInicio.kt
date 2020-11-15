@@ -8,11 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_pagina_inicio.*
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PaginaInicio.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PaginaInicio : Fragment() {
 
     override fun onCreateView(
@@ -56,8 +51,7 @@ class PaginaInicio : Fragment() {
             navigation.navigate(R.id.action_paginaInicio_to_sitiosInteres)
         }
 
-
-
+        
         text_centros.setOnClickListener { view ->
             val navigation = Navigation.findNavController(view)
             navigation.navigate(R.id.action_paginaInicio_to_centros)

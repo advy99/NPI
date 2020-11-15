@@ -48,23 +48,13 @@ class GestorPosicion {
                     Toast.makeText(activity, "Activa la ubicación. Centrando en Granada", Toast.LENGTH_LONG).show()
 
                 }
-
-
-
-
             }
         }
-
-
-
-
     }
-
 
     fun rotarMapa(map: GoogleMap, rotacion: kotlin.Float = 0.0F) {
         var cam_pos = map.cameraPosition
         var cam_nueva_pos = CameraPosition.Builder()
-
 
         cam_nueva_pos.bearing( rotacion )
         cam_nueva_pos.tilt(cam_pos.tilt)
@@ -79,7 +69,6 @@ class GestorPosicion {
     fun getPuedoAccederLoc() : Boolean{
         return puedoAccederLoc
     }
-
 
     fun posicionMasCercana(posiciones: ArrayList<LatLng>, context: Context, activity : Activity ): Int? {
 
@@ -110,7 +99,6 @@ class GestorPosicion {
         }
 
         return indice
-
     }
 
 }
