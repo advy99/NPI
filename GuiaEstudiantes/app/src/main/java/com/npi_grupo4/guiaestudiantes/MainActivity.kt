@@ -323,7 +323,9 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
 
         }
 
-        if ( current_fragment == "fragment_centros" && abs(tiempoRotacionAnterior - System.currentTimeMillis()) > 1000) {
+
+        if ( (Centros.brujula && current_fragment == "fragment_centros") ||
+             (SitiosInteres.brujula && current_fragment == "fragment_sitios_interes") && abs(tiempoRotacionAnterior - System.currentTimeMillis()) > 1000) {
 
             val epsilon = 5f
             val success = SensorManager.getRotationMatrix(matriz_R, I, mGravity, mGeomagnetic);
@@ -335,7 +337,11 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
                 azimuth = (azimuth + azimuthFix + 360) % 360;
 
                 if ( abs(rotacionAnterior - azimuth) > epsilon || (azimuth + epsilon) % 360 > abs(rotacionAnterior - azimuth) ) {
-                    Centros.mapa?.let { gestorPos.rotarMapa(it, azimuth) }
+                    if ( current_fragment == "fragment_centros") {
+                        Centros.mapa?.let { gestorPos.rotarMapa(it, azimuth) }
+                    } else {
+                        SitiosInteres.mapa?.let { gestorPos.rotarMapa(it, azimuth) }
+                    }
                     rotacionAnterior = azimuth
                     tiempoRotacionAnterior = System.currentTimeMillis()
                 }
