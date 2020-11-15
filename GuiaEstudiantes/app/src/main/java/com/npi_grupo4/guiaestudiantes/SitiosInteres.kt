@@ -1,23 +1,20 @@
 package com.npi_grupo4.guiaestudiantes
 
-import androidx.fragment.app.Fragment
-
+import android.location.Location
 import android.os.Bundle
 import android.view.*
 import com.google.android.gms.maps.*
-
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.data.kml.KmlLayer
 
-class SitiosInteres : Fragment() {
+
+class SitiosInteres : Fragment(), LocationListener {
 
     var gestorPosicion = GestorPosicion()
-
+    
     private val callback_update = LocationSource.OnLocationChangedListener() {
         mapa?.let { it1 -> gestorPosicion.actualizarPosActual(requireContext(), requireActivity(), it1) }
     }
-
-
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -30,32 +27,36 @@ class SitiosInteres : Fragment() {
          * user has installed Google Play services and returned to the app.
          */
 
-//        var lm: LocationManager? = getSystemService(Context.LOCATION_SERVICE) as LocationManager?
-//        val location: Location? = lm!!.getLastKnownLocation(LocationManager.GPS_PROVIDER)
-//        val longitude: Double = location.getLongitude()
-//        val latitude: Double = location.getLatitude()
-
         mapa = googleMap
 
         gestorPosicion.actualizarPosActual(requireContext(), requireActivity(), googleMap)
 
-        if ( !gestorPosicion.getPuedoAccederLoc() ) {
-            var position = LatLng(37.1886273, -3.5907775 )
+        if (!gestorPosicion.getPuedoAccederLoc()) {
+            var position = LatLng(37.1886273, -3.5907775)
 
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 16.0F))
 
         }
 
-
         val kmlFile = KmlLayer(googleMap, R.raw.sitios_interes, requireActivity())
         kmlFile.addLayerToMap()
-        //Toast.makeText(requireActivity(), "HOLASF", Toast.LENGTH_LONG).show()
+    }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
-//        val ETSIIT = LatLng(37.197055556, -3.624111111)
-//        googleMap.addMarker(MarkerOptions().position(ETSIIT).title("Marker in ETSIIT"))
-//        googleMap.moveCamera(CameraUpdateFactory.newLatLng(ETSIIT))
+    override fun onLocationChanged(p0: Location?) {
+        mapa?.let { gestorPosicion.actualizarPosActual(requireContext(), requireActivity(), it) }
+    }
+
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_sitios_interes, container, false)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -88,12 +89,6 @@ class SitiosInteres : Fragment() {
         mapFragment?.getMapAsync(callback)
     }
 
-
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_sitios_interes, container, false)
-    }
 
     companion object {
         var mapa: GoogleMap? = null
