@@ -35,10 +35,11 @@ class Bibliotecas : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // le decimos que este fragment tiene menu
         setHasOptionsMenu(true)
 
 
-
+        // cargamos la informacion de los centros, en un futuro con dinero esto será una BD
         var infoETSIIT = ArrayList<String>()
         infoETSIIT.add("E.T.S.I.I.T")
         infoETSIIT.add("C/ Periodista Daniel Saucedo Aranda s/n")
@@ -87,6 +88,7 @@ class Bibliotecas : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // al crear la vista, asociamos al boton la acción de irse al catálogo
         catalogo.setOnClickListener { view ->
             val navigation = Navigation.findNavController(view)
             navigation.navigate(R.id.action_bibliotecas_to_catalogoBiblioteca)
@@ -97,6 +99,7 @@ class Bibliotecas : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_sample, menu)
+        // rellenamos los valores del menu
         menu.add("Facultad de Bellas Artes")
         menu.add("Facultad de Ciencias de la Educación")
         menu.add("Facultad de Farmacia")
@@ -129,6 +132,7 @@ class Bibliotecas : Fragment() {
             }
         }
 
+        // actualizamos la biblioteca que aparece, dependiendo del indice seleccionado
         actualizarBiblioteca()
 
         return true
@@ -149,6 +153,7 @@ class Bibliotecas : Fragment() {
 
         var pos = gestorPosicion.posicionMasCercana(posiciones, requireContext(), requireActivity())
 
+        // si en inicio sesion hemos seleccionado algo, cargamos esa facultad
         if ( InicioSesion.indice_facultad != -1 && InicioSesion.indice_facultad != 2) {
             indice = InicioSesion.indice_facultad
 
@@ -157,16 +162,20 @@ class Bibliotecas : Fragment() {
                 indice -= 1
             }
         } else if ( pos != null) {
+            // si no, cargamos la facultad más cercana
             indice = pos
         } else {
+            // si no podemos acceder, accedemos a la por defecto
             indice = 0
         }
 
+        // actualizamos la informacion que mostramos
         actualizarBiblioteca()
 
         return view
     }
 
+    // actualizamos la información
     private fun actualizarBiblioteca(){
         texto_centro.text = informacion[indice][0]
         texto_direccion.text = informacion[indice][1]
