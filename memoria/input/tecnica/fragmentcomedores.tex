@@ -1,13 +1,19 @@
-\section{Fragment Comedores}
+\section{Fragment Comedores, Calendario y Catálogo Biblioteca}
 
 
-El objetivo de este fragment es facilitar al usuario que pueda ver el menú semanal que ofrece la UGR en todos sus comedores.
+El objetivo de estos fragment es facilitar al usuario que pueda ver el contenido de diferentes docuemntos web y paginas que le proporcionaran información de utilidad
 
-Para ello vamos a hacer uso principalmente de una \textbf{WebView} que va a cargar el pdf \\ \textbf{http://scu.ugr.es/?theme=pdf} apoyándonos en Google Drive.
+El fragment Comedores mostrará el menú semanal que ofrece la UGR en todos sus comedores.
+
+El fragment Calendario mostrará el calendario academico de la UGR.
+
+El fragment Catálogo Biblioteca simplemente muestra la pagina web de la biblioteca de la UGR que nos permite consultar su catálogo de libros y obtener información útil de los mismos.
+
+Para ello vamos a hacer uso principalmente de una \textbf{WebView} que va a cargar el pdf \\ \textbf{http://scu.ugr.es/?theme=pdf} apoyándonos en Google Drive o la pagina web necesaria.
 
 También vamos a hacer uso de una \textbf{ProgressBar} que nos indicará como va el proceso de carga de la url. Vemos necesario usarla porque si no parece que la pantalla no está cargando y el fragment no funciona bien.
 
-A continuación vamos a ver las variables y los métodos que forman este fragment, y que hace cada uno.
+A continuación vamos a ver las variables y los métodos que forman estos fragments, y que hace cada uno.
 
 \subsection{Variables}
 
@@ -20,7 +26,7 @@ A continuación vamos a ver las variables y los métodos que forman este fragmen
 \end{itemize}
 
 Las dos primeras variables son la propia \textbf{WebView} y la \textbf{ProgressBar} de las que he hablado antes. Ambas serán inicializadas en el método \textbf{OnCreateView} usando los id del layout.
-La tercera variable corresponde al string que guardará la url de los comedores universitarios y que pasaremos como parámetro al método \textbf{loadUrl} de la WebView.
+La tercera variable corresponde al string que guardará la url del contenido a mostrar y que pasaremos como parámetro al método \textbf{loadUrl} de la WebView.
 
 \newpage
 
@@ -36,7 +42,7 @@ Los métodos que voy a explicar a continuación son:
 
 Este método comienza inicializando las variables \textbf{webview} y \textbf{barra} explicadas anteriormente mediante \textbf{findViewById} y pasándole la Id del layout.
 
-También le asignamos a \textbf{pdf} la url de los comedores universitarios.
+También le asignamos a \textbf{pdf} la url del pdf que queramos mostrar. Esto no es necesario para el fragment catálogo ya que no muestra la información a través de un pdf.
 
 Una vez hecho esto, vamos a configurar la \textbf{WebView} de tal forma que pueda usar JavaScript
 
@@ -57,10 +63,9 @@ Ahora lo que nos quedaría sería modificar dos objetos internos de nuestra \tex
 
 El otro objeto es el \textbf{WebViewClient()}, el cual tiene un método llamado \textbf{shouldOverrideUrlLoading} y que tiene como parámetro una \textbf{request} que le pasaremos a \textbf{webView.loadUrl(request)}. De esta forma, cada vez que hagamos \textit{"tap"} sobre algún enlace, se recargará la WebView mostrando el enlace.
 
-Finalmente nos quedaría mostrar la URL de los comedores universitarios mediante el método \textbf{loadUrl} de nuestra WebView.
+Finalmente nos quedaría mostrar la URL del contenido correspondiente  mediante el método \textbf{loadUrl} de nuestra WebView.
 
 \begin{figure}[H]
-
   \begin{subfigure}{0.5\textwidth}
     \centering
     % include first image
@@ -73,6 +78,23 @@ Finalmente nos quedaría mostrar la URL de los comedores universitarios mediante
     % include second image
     \includegraphics[width=1\linewidth]{comedores.jpeg}
     \caption{PDF comedores cargado}
+    \label{fig:sub-second}
+  \end{subfigure}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    % include first image
+    \includegraphics[width=1\linewidth]{calendario.jpg}
+    \caption{Calendario}
+    \label{fig:sub-first}
+  \end{subfigure}
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    % include second image
+    \includegraphics[width=1\linewidth]{catalogo.jpg}
+    \caption{Catálogo Biblioteca}
     \label{fig:sub-second}
   \end{subfigure}
 \end{figure}

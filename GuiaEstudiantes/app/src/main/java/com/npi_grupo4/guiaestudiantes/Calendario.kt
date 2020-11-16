@@ -39,7 +39,6 @@ class Calendario : Fragment() {
         //Inicializamos las instancias del layout usando findViewById
         webview = view.findViewById(R.id.pdf_comedores) as WebView
         barra = view.findViewById(R.id.progressBar2) as ProgressBar
-        webview.getSettings().setJavaScriptEnabled(true)
 
         //Inicializamos la variable pdf a la página que contiene el menú semanal
         //de los comedores de la UGR
