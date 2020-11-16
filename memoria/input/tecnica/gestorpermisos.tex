@@ -1,0 +1,34 @@
+\section{Gestor Permisos}
+Utilizamos un objeto en kotlin llamado GestorPermisos con el fin de poder centralizar todos aquellos métodos que necesiten solicitar permisos al usuarios. Los objetos en kotlin son el equivalente a las clases singleton en Java, es decir, objetos que solo pueden instanciarse una sola vez.
+
+\subsection{Variables}
+Contamos con dos unicas variables:
+
+\begin{itemize}
+	\item mLocationPermissionGranted
+	\item LOCATION\_PERMISSION\_REQUEST\_CODE
+\end{itemize}
+
+La variable \textbf{mLocationPermissionGranted} simplemente funciona como un flag que indica si los permisos han sido otorgados por el usuario o no. La variable \textbf{LOCATION\_PERMISSION\_REQUEST\_CODE} simplemente es el codigo que le damos a la solucitud de los permisos de ubicación.
+
+\subsection{Métodos}
+
+Este gestor de permisos posee los siguientes métodos:
+
+\begin{itemize}
+	\item locationPermissionGranted
+	\item getLocationPermission
+	\item onRequestPermissionResult
+\end{itemize}
+
+
+\subsubsection{locationPermissionGranted}
+Este método simplemente funciona como consultor del valor de la variable \textbf{mLocationPermissionGranted}.
+
+\subsubsection{llocationPermission}
+Este es el método que se encarga de solicitar los permisos. Simplemente comprueba uno a uno que los permisos necesarios hayan sido obtenidos correctamente y actualiza el valor de \textbf{mLocationPermissionGranted}.
+
+\subsubsection{onRequestPermissionResult}
+Este método se encarga de comprobar que los permisos han sido otorgados y actualizar \textbf{mLocationPermissionGranted} en caso de que no sea asi.
+
+
