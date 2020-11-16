@@ -13,7 +13,7 @@ import android.widget.ProgressBar
 import kotlinx.android.synthetic.main.fragment_catalogo_biblioteca.view.*
 
 class CatalogoBiblioteca : Fragment() {
-
+    //Declaramos las instancias de nuestro layout
     lateinit var webView : WebView
     lateinit var barra : ProgressBar
 
@@ -29,18 +29,23 @@ class CatalogoBiblioteca : Fragment() {
         webView = view.pagina_web
         barra = view.barra_progreso
 
-        barra.max = 100
+        //Le damos permisos a la webview para poder usar javaScript, para poder
+        //acercar y alejar el pdf con gestos
 
-        webView.settings.setJavaScriptEnabled(true)
+        webView.settings.javaScriptEnabled = true
         webView.settings.setSupportZoom(true)
         webView.settings.builtInZoomControls = true
-        webView.getSettings().setLoadWithOverviewMode(true)
-        webView.getSettings().setUseWideViewPort(true);
+        webView.clearCache(true)
 
         //Para mostrar la barra el iniciar el fragment
         webView.visibility = View.GONE
         barra.visibility = View.VISIBLE
 
+        //Modificamos el objeto webChromeClient de nuestra instancia webview
+        //para que cada vez que accedamos a una nueva pestaña, esta quede
+        //invisible mientras carga y podamos ver la progressBar.
+        //Una vez la pagina ha cargado, la haremos visible y pondremos la
+        //progressBar en invisible.
         webView.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView, progress: Int) {
                 if (progress < 100 && barra.visibility == ProgressBar.GONE) {
@@ -55,28 +60,17 @@ class CatalogoBiblioteca : Fragment() {
             }
         }
 
+        //Modificamos el objeto webViewClient de nuestra WebView para que se nos permita ir
+        //accediendo a diferentes pestañas desde la webview inicial
         webView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
-                if (request.url.toString().endsWith("/!") or request.url.toString().endsWith(".pdf")){
-                    webView.stopLoading();
-
-
-
-                    var url : String = "https://drive.google.com/viewerng/viewer?embedded=true&url=" + request.url.toString();
-                    webView.loadUrl(url)
-                }
-                else {
-                    webView.loadUrl(request.url.toString())
-                }
-
+                webView.loadUrl(request.url.toString())
                 return false
             }
         }
 
         webView.loadUrl("https://granatensis.ugr.es/discovery/search?vid=34CBUA_UGR:VU1")
-        webView.settings.setJavaScriptEnabled(true);
-        webView.settings.setSupportZoom(true);
-        webView.settings.builtInZoomControls = true;
+
 
         return view
     }
