@@ -3,11 +3,34 @@ export default (request, response) => {
     var entradaDialogFlow = JSON.parse(bodyString);
     console.log("Entrada DialogFlow: "+entradaDialogFlow);
     var menu=entradaDialogFlow['queryResult']['parameters'].menus;
+    var centros=entradaDialogFlow['queryResult']['parameters'].centro;
+    var lugar=entradaDialogFlow['queryResult']['parameters'].lugar_intent;
     var mensaje;
     
-    
-    if ( menu !== "" ){
+    if (lugar === "comedores_localizacion"){
         
+        if (centros === "Facultad de Bellas Artes"){
+            mensaje = "La Facultad de Bellas Artes no tiene comedor universitario pero puedes ir al comedor de la ETSIIT, que es el más cercano, mediante el siguiente link https://goo.gl/maps/LuukFQGWFVr4NsRr5"
+        }
+        else if (centros === "Facultad de Ciencias de la Educación"){
+            mensaje = "Para ir al comedor universitario de Ciencias de la Educación usa el siguiente enlace: https://goo.gl/maps/ozjVfBUWjnxSv7HW8"
+        }
+        else if (centros === "Escuela Técnica Superior de Ingeniería de Caminos, Canales y Puertos"){
+            mensaje = "El comedor universitario de la ETSICCP es el de Fuentenueva, aquí tiene el enlace para llegar: https://goo.gl/maps/HwMmwWBQYt2MMXM1A"
+        }
+        else if (centros === "Facultad de ciencias"){
+            mensaje = "El comedor universitario de la Facultad de Ciencias es el de Fuentenueva, aquí tiene el enlace para llegar: https://goo.gl/maps/HwMmwWBQYt2MMXM1A"
+        }
+        else if (centros === "Escuela Técnica Superior de Ingenierías Informática y de Telecomunicación"){
+            mensaje = "Puede ir al comedor universitario de la ETSIIT mediante el siguiente link https://goo.gl/maps/LuukFQGWFVr4NsRr5"
+        }
+        
+    }
+    else if (lugar === "comedores_sin_centro"){
+        mensaje = "Veo que no me has proporcionado el centro, te recomiendo que vayas a los comedores universitarios de Fuentenueva mediante el siguiente link: https://goo.gl/maps/HwMmwWBQYt2MMXM1A"
+    }
+    else if (lugar === "comedores_menu"){
+
         //Lo ideal seria hacer scraping, pero PubNub no ofrece la posibilidad
         //de usar los modulos que necesitamos
             
