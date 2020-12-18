@@ -6,10 +6,10 @@ export default (request, response) => {
     var centros=entradaDialogFlow['queryResult']['parameters'].centro;
     var lugar=entradaDialogFlow['queryResult']['parameters'].lugar_intent;
     var informacion=entradaDialogFlow['queryResult']['parameters'].informacion;
-    var preguntagrados=entradaDialogFlow['queryResult']['parameters'].preguntagrado;
+    var infogrado=entradaDialogFlow['queryResult']['parameters'].infogrados;
     var grado=entradaDialogFlow['queryResult']['parameters'].grados;
     var mensaje;
-
+	
     if (lugar === "comedores_localizacion"){
 
         if (centros === "Facultad de Bellas Artes"){
@@ -185,6 +185,13 @@ export default (request, response) => {
         }
 
 	 }
+    else if (lugar === "grados_pregunta_compleja"){
+	if(infogrado === "Guías docentes"){
+		if(grado === "Matemáticas"){
+			mensaje = "Estas son las guías guías docentes de matemáticas \n https://grados.ugr.es/matematicas/pages/infoacademica/estudios"
+		}
+	}
+    }
     else{
         mensaje = "Otro"
     }
