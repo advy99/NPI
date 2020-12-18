@@ -6,6 +6,7 @@ export default (request, response) => {
     var centros=entradaDialogFlow['queryResult']['parameters'].centro;
     var lugar=entradaDialogFlow['queryResult']['parameters'].lugar_intent;
     var informacion=entradaDialogFlow['queryResult']['parameters'].informacion;
+    var informacion=entradaDialogFlow['queryResult']['parameters'].preguntagrado;
     var mensaje;
 
     if (lugar === "comedores_localizacion"){
