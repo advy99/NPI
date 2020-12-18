@@ -132,6 +132,23 @@ export default (request, response) => {
             }
         }
     }
+    // El siguiente trozo de código no hemos conseguid ejecutarlo en pubnub.
+    /*else if (lugar === "ubicacion"){
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else {
+            mensaje = "Geolocation is not supported by this browser.";
+          }
+        }
+
+        function showPosition(position) {
+            mensaje = "Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude;
+        }
+
+        getLocation();
+
+    }*/
     else{
         mensaje = "Otro"
     }
@@ -152,4 +169,5 @@ export default (request, response) => {
 return response.send("Malformed JSON body.");
 });
 };
+
 
