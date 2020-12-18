@@ -149,6 +149,42 @@ export default (request, response) => {
         getLocation();
 
     }*/
+	 else if ( lugar === "bibliotecas" ) {
+        if (centros === "Facultad de Bellas Artes"){
+            mensaje = "La biblioteca de la Facultad de Bellas Artes se encuentra en la planta -1 de la Facultad. Además de distintos libros sobre bellas artes encontrarás también una mediateca con gran contenido audiovisual."
+        }
+        else if (centros === "Facultad de Ciencias de la Educación"){
+            mensaje = "La biblioteca de la Facultad de Ciencias de la Educación se encuentra en el Campus de Cartuja."
+        }
+        else if (centros === "Escuela Técnica Superior de Ingeniería de Caminos, Canales y Puertos"){
+            mensaje = "La biblioteca de la ETSICCP se encuentra en la tercera planta de la Escuela."
+        }
+        else if (centros === "Facultad de ciencias"){
+            mensaje = "La biblioteca de la Facultad de Ciencias se encuentra en la planta baja del edificio principal y cuenta con gran cantidad de libros de todas las materias, así como aulas de estudio que podrás reservar."
+        }
+        else if (centros === "Escuela Técnica Superior de Ingenierías Informática y de Telecomunicación"){
+            mensaje = "La biblioteca de la ETSIIT se encuentra en la primera planta del edificio A de la Escuela. Además de la biblioteca encontrarás una tecnoteca, con material informático disponible."
+        }
+
+	 }
+	 else if ( lugar === "contacto_bibliotecas" ) {
+        if (centros === "Facultad de Bellas Artes"){
+			   mensaje = "Puedes ponerte en contacto con la biblioteca de la Facultad de Bellas Artes mandando un mail a la siguiente dirección: mbolivar@ugr.es o llamarles al número 958 242 968 "
+        }
+        else if (centros === "Facultad de Ciencias de la Educación"){
+			   mensaje = "Puedes ponerte en contacto con la biblioteca de la Facultad de Ciencias de la Educación mandando un mail a la siguiente dirección: bibgeseducacion@ugr.es o llamarles al número 958 243 995 "
+        }
+        else if (centros === "Escuela Técnica Superior de Ingeniería de Caminos, Canales y Puertos"){
+			   mensaje = "Puedes ponerte en contacto con la biblioteca de la ETSICCP mandando un mail a la siguiente dirección: antonioarias@ugr.es o llamarles al número 958 249 472 "
+        }
+        else if (centros === "Facultad de ciencias"){
+			   mensaje = "Puedes ponerte en contacto con la biblioteca de la Facultad de Ciencias mandando un mail a la siguiente dirección: bibgesciencias@ugr.es o llamarles al número 958 249 064 "
+        }
+        else if (centros === "Escuela Técnica Superior de Ingenierías Informática y de Telecomunicación"){
+			   mensaje = "Puedes ponerte en contacto con la biblioteca de la ETSIIT mandando un mail a la siguiente dirección: bibcirinformatica@ugr.es o llamarles al número 958 242 806 "
+        }
+
+	 }
     else{
         mensaje = "Otro"
     }
