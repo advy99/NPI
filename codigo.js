@@ -186,9 +186,9 @@ export default (request, response) => {
 
 	 }
     else if (lugar === "grados_pregunta_compleja"){
-	if(infogrado === "Guías docentes"){
-		if(grado === "Matemáticas"){
-			mensaje = "Estas son las guías guías docentes de matemáticas \n https://grados.ugr.es/matematicas/pages/infoacademica/estudios"
+	if(infogrado === "Guia docente"){
+		if(grado === "matematicas"){
+			mensaje = "Estas son las guías docentes de matemáticas \n https://grados.ugr.es/matematicas/pages/infoacademica/estudios"
 		}
 	}
     }
