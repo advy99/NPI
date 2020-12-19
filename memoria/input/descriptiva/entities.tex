@@ -1,0 +1,70 @@
+\section{Entities}
+
+Para la correcta captación de la información proporcionada por el usuario a través de dialogflow hemos creado las siguientes entities:
+\begin{itemize}
+	\item centros
+	\item grados
+	\item infogrados
+	\item informacion
+	\item menus
+\end{itemize}
+
+La ventaja que nos proporciona el uso de las entities es que podemos estandarizar la información captada por parte del usuario.
+
+\subsection{centros}
+La entidad centros representa los centros sobre los que el bot es capaz de proporcionar información. En nuestro caso son los siguientes:
+
+\begin{itemize}
+	\item Facultad de Bellas Artes.
+	\item Escuela Técnica Superior de Ingenierías Informática y de Telecomunicación.
+	\item Facultad de ciencias
+	\item Escuela Técnica Superior de Ingeniería de Caminos, Canales y Puertos.
+	\item Facultad de Ciencias de la Educación.
+\end{itemize}
+
+\subsection{grados}
+La entidad grados representa los grados sobre los que el bot es capaz de proporcionar información. Nosotros hemos optado por añadir:
+
+\begin{itemize}
+	\item magisterio
+	\item informática
+	\item BBAA
+	\item Farmacia
+	\item telecomunicaciones
+	\item matematicas
+	\item Arqueologia
+	\item fisica
+	\item quimica
+	\item Derecho
+	\item turismo
+	\item edificación
+\end{itemize}
+
+\subsection{infogrados}
+La entidad infogrados representa que información dispone el bot sobre un grado en concreto. En nuestro caso proporcionamos la siguiente info:
+
+\begin{itemize}
+	\item Guia docente - Las guias docentes del grado.
+	\item facultad - La facultad o centro en el que se imparte el grado.
+\end{itemize}
+
+\subsection{informacion}
+La entidad informacion representa lo que sabe nuestro bot sobre el centro que se le ha proporcionado. Concretamente puede proporcionar la siguiente información:
+
+\begin{itemize}
+	\item Lugar - Donde esta el centro.
+	\item Contacto - Cual es su información de contacto.
+	\item Decano - Información sobre el decanato o dirección del centro.
+	\item Delegacion - Información sobre la delegación de centro.
+\end{itemize}
+
+\subsection{menus}
+La entidad menus representa los distintos menus de los que dispone la UGR.
+
+\begin{itemize}
+	\item Almuerzo
+	\item Cena
+	\item Ovolacteovegetariano
+	\item Vegano
+	\item T-celiaco
+\end{itemize}
