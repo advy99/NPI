@@ -1,0 +1,36 @@
+
+\section{Fulfillment: Pubnub}
+
+De cara a completar nuestro asistente conversacional hemos utilizado Pubnub para tener una forma de realizar respuestas dinámicas y con las que poder realizar un procesamiento correcto de la entrada y responder de acuerdo a la información pedida por el usuario.
+
+\subsection{Implementación}
+
+Para implementar este apartado hemos utilizado la plataforma Pubnub, como vimos en las clases.
+
+En esta plataforma hemos creado un módulo con una función asociada, que será la función a la que llame el webhook de Dialogflow. Esta función, escrita en JavaScript, recibe la petición de Dialogflow como un fichero JSON, el cual será interpretado para poder acceder a los parámetros dados por Dialogflow.
+
+Una vez leido y procesada la petición usaremos los parámetros de Dialogflow para conocer desde que intent se ha realizado la petición y que información es solicitada por el usuario.
+
+\subsection{Tratamiento de la información}
+
+Tras conocer los valores de los parámetros de Dialogflow, hemos establecido un flujo de control para reconocer desde que intent se ha realizado la petición, y así poder responder utilizando las distintas variables usadas, como el centro, el grado, menú de comedores, etc para saber que petición concreta nos está realizando el usuario.
+
+Hemos utilizado distintas funciones de JavaScript de cara a completar la información que se nos pedía, ya sea para gestionar fechas, como días de la semana, entre otros, aunque la plataforma de Pubnub no nos permitía una gran variedad de posibilidades.
+
+
+\subsection{Mejoras no implementadas a causa de Pubnub}
+
+Como hemos comentado, esta plataforma no nos permitía obtener todo el potencial que nos hubiera gustado para completar la práctica, ya que muchas de las bibliotecas comunes de JavaScript no eran accesibles de forma gratuita. Nuestras dos principales sin implementar son las siguientes.
+
+\subsubsection{Obtener información: Web scraping}
+
+De cara a obtener información sobre el menú de comedores, contacto e información de centros, bibliotecas, etc, así como información de grados, ya seán horarios, guías docentes, entre otros, teníamos pensado utilizar web scraping para obtener información actualizada de las propias páginas de la Universidad de Granada, sin embargo al no contar con las bibliotecas necesarias para hacerlo nos ha sido imposible.
+
+\subsubsection{Posición concreta y distancia entre lugares: Geoposición}
+
+Otra de las funciones que queríamos gestionar es la posición del usuario y la distancia entre los distintos lugares, función que si pudimos implementar en la práctica 1, sin embargo en esta práctica, a pesar de existir la biblioteca \texttt{Geolocation} en JavaScript, Pubnub no nos permitía utilizarla en tiempo real.
+
+
+En definitiva, son cosas que son posibles realizar y de gran interes, pero al no disponer de una plataforma sobre los que realizarla no hemos podido implementar, aunque si plantear en el código del proyecto.
+
+
