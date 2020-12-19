@@ -276,7 +276,7 @@ export default (request, response) => {
 	    }
     }
     else{
-        mensaje = "Otro"
+        mensaje = "Lo siento, no te he entendido"
     }
 
 
