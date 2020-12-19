@@ -184,13 +184,84 @@ export default (request, response) => {
 			   mensaje = "Puedes ponerte en contacto con la biblioteca de la ETSIIT mandando un mail a la siguiente dirección: bibcirinformatica@ugr.es o llamarles al número 958 242 806 "
         }
 
-	 }
-    else if (lugar === "grados_pregunta_compleja"){
-	if(infogrado === "Guia docente"){
-		if(grado === "matematicas"){
-			mensaje = "Estas son las guías docentes de matemáticas \n https://grados.ugr.es/matematicas/pages/infoacademica/estudios"
-		}
-	}
+  }
+  else if ( lugar === "grados_pregunta_compleja"){
+    	if(infogrado === "Guia docente"){
+	    	if(grado === "matematicas"){
+		    	mensaje = "Estas son las guías docentes de matemáticas \n https://grados.ugr.es/matematicas/pages/infoacademica/estudios"
+		    }
+		    else if(grado === "informática"){
+		    	mensaje = "Estas son las guías docentes de informática \n https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/guiasdocentes_curso_actual"
+		    }
+		    else if(grado === "BBAA"){
+		    	mensaje = "Estas son las guías docentes de BBAA \n https://grados.ugr.es/bellasartes/pages/infoacademica/guias-docentes"
+		    }
+		     else if(grado === "magisterio"){
+		    	mensaje = "Estas son las guías docentes de educación primaria \n https://grados.ugr.es/primaria/pages/infoacademica/estudios"
+		    }
+		     else if(grado === "Farmacia"){
+		    	mensaje = "Estas son las guías docentes de farmacia \n https://farmacia.ugr.es/cont_nobanners.php?sec=0&pag=18"
+		    }
+		     else if(grado === "telecomunicaciones"){
+		    	mensaje = "Estas son las guías docentes de telecomunicaciones \n https://grados.ugr.es/telecomunicacion/pages/infoacademica/guias_docentes/guiasdocentes"
+		    }
+		     else if(grado === "Arqueología"){
+		    	mensaje = "Estas son las guías docentes de arqueología \n https://grados.ugr.es/arqueologia/pages/guias-docentes"
+		    }
+		    else if(grado === "física"){
+		    	mensaje = "Estas son las guías docentes de física \n https://grados.ugr.es/fisica/pages/infoacademica/curso1920/asignaturas-y-guias-docentes-20192020"
+		    }
+		    else if(grado === "química"){
+		    	mensaje = "Estas son las guías docentes de química \n https://grados.ugr.es/quimica/pages/infoacademica/guias-docentes/curso-2021"
+		    }
+		    else if(grado === "Derecho"){
+		    	mensaje = "Estas son las guías docentes de derecho \n https://grados.ugr.es/derecho/static/GuiasDocentesManager"
+		    }
+		    else if(grado === "turismo"){
+		    	mensaje = "Estas son las guías docentes de turismo \n https://grados.ugr.es/turismo/pages/infoacademica/estudios"
+		    }
+		    else if(grado === "edificación"){
+		    	mensaje = "Estas son las guías docentes de edificación \n https://etsie.ugr.es/estudiantes/asignaturas-horarios-y-examenes "
+		    }
+	    }
+	    else if(infogrado === "facultad"){
+	    	if(grado === "matematicas"){
+		    	mensaje = "La facultad de matemáticas es la de Ciencias, Avenida de Fuente Nueva, s/n, 18071 Granada"
+		    }
+		    else if(grado === "informática"){
+		    	mensaje = "La facultad de informática es la ETSIIT. Calle Periodista Daniel Saucedo Aranda, s/n, 18014 Granada"
+		    }
+		    else if(grado === "BBAA"){
+		    	mensaje = "La facultad de BBAA es la facultad de Bellas Artes, Calle Periodista Eugenio Selles, s/n, 18014 Granada "
+		    }
+		     else if(grado === "magisterio"){
+		    	mensaje = "La facultad de magisterio es la facultad de ciencias de la educación, Prof. Vicente Callao - Fte Ciencias Educación, 18011, 18011, Granada"
+		    }
+		     else if(grado === "Farmacia"){
+		    	mensaje = "La facultad de farmacia se encuentra en el campus de cartuja, Facultad de Farmacia, 18011 Granada"
+		    }
+		     else if(grado === "telecomunicaciones"){
+		    	mensaje = "La facultad de telecomunicaciones es la ETSIIT, Calle Periodista Daniel Saucedo Aranda, s/n, 18014 Granada"
+		    }
+		     else if(grado === "Arqueología"){
+		    	mensaje = "La facultad de arqueología es la de filosofía y letras, Campus de la Cartuja, Universidad de Granada, Calle del Prof. Clavera, s/n, 18011 Granada"
+		    }
+		    else if(grado === "física"){
+		    	mensaje = "La facultad de física es la de ciencias, Avenida de Fuente Nueva, s/n, 18071 Granada"
+		    }
+		    else if(grado === "química"){
+		    	mensaje = "La facultad de química es la de Ciencias, Avenida de Fuente Nueva, s/n, 18071 Granada"
+		    }
+		    else if(grado === "Derecho"){
+		    	mensaje = "La facultad de Derecho está en: Plaza de la Universidad, 1, 18001 Granada"
+		    }
+		    else if(grado === "turismo"){
+		    	mensaje = "La facultad de turismo en la de Ciencias, Avenida de Fuente Nueva, s/n, 18071 Granada"
+		    }
+		    else if(grado === "edificación"){
+		    	mensaje = "La escuela de edificación es la ETSIE, Calle Dr. Severo Ochoa, s/n, 18001 Granada "
+		    }
+	    }
     }
     else{
         mensaje = "Otro"
