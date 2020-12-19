@@ -55,11 +55,23 @@ export default (request, response) => {
         else if (n == 4){
             dia = "Jueves"
         }
-        else{
+        else if (n == 5){
             dia = "Viernes"
         }
+        else if (n == 6){
+            dia = "Sábado"
+        }
+        else{
+            dia = "Domingo"
+        }
 
-        mensaje = "Hoy es " + dia + " y el menu correspondiente a " + menu + " es:" + "\n"
+        if (dia === "Sábado" || dia === "Domingo"){
+            mensaje = "Lo siento pero hoy es " + dia + " y el servicio de comedores no está disponible. Si quiere puede consultar el horario. El menú " + menu + " del último día fue:" + "\n"
+        }
+        else{
+
+            mensaje = "Hoy es " + dia + " y el menu correspondiente a " + menu + " es:" + "\n"
+        }
 
         if ( menu === "Almuerzo") {
             mensaje = mensaje + "Primero: Espaguetis a la napolitana, Segundo: Aguja encebollada, Acompañamiento: Menestra, Postre: Melocotón\n"
