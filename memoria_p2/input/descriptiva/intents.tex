@@ -1,0 +1,206 @@
+\section{Intents}
+
+\vspace{5 mm}
+
+En este apartado vamos a tratar que \textbf{intents} se han usado en la práctica, cuáles pertenecen a qué apartado, cúal es su propósito general, y si necesitan de fulfillment o no.
+
+\vspace{5 mm}
+
+\subsection{Intents generales}
+
+\vspace{5 mm}
+
+A continuación veremos los \textbf{intents} que no pertenecen a ninguno de los ámbitos que trata nuestro asistente. Es decir, los \textbf{intents} de proposito general que ayudan a hacer el sistema más cercano al usuario y más coloquial.
+
+\vspace{5 mm}
+
+\subsubsection{Intent ayuda}
+
+\vspace{5 mm}
+
+Este intent existe por si el usuario necesita que se le recuerde cuál es el proposito general de nuestro asistente. Reconoce cualquier patrón con el que las personas pedimos ayuda usualmente. Este intent solo tiene una respuesta donde muestra los ámbitos de la UGR sobre los que nos puede proporcionar ayuda. No necesita de Fulfillment.
+
+\vspace{5 mm}
+
+\subsubsection{Intent de_nada}
+
+\vspace{5 mm}
+
+Este intent se usa para hacer el sistema más cercano al usuario y proporcionar un feedback cuando el usuario tenga a bien darnos las gracias por algo. Reconoce cualquier patrón con el que las personas damos las gracias usualmente. Este intent solo tiene una respuesta. No necesita de Fulfillment.
+
+\vspace{5 mm}
+
+\subsubsection{Intent preguntar_nombre}
+
+\vspace{5 mm}
+
+Este intent permite saber el nombre del asistente para que la conversación sea mas coloquial y cercana. El asistente responderá en todo caso "Me llamo Arandita y soy el asistente conversacional de la UGR. ¿Qué puedo hacer por ti?". No se utiliza el servicio de fulfillment.
+
+\vspace{5 mm}
+
+\subsubsection{Fallback Intent}
+
+\vspace{5 mm}
+
+En este caso hemos distinguido dos situaciones: si hemos proporcionado el centro sobre el que queremos información o no. En el caso de que no hayamos proporcionado el centro nos dirá siempre "No me ha proporcionado el centro" ya que es posible que lo que nos esté preguntando el usuario tenga sentido, pero no estamos en el contexto adecuado. En el caso de que nos haya proporcionado el centro y entremos en este intent nos devolverá las respuestas que usa DialogFlow por defecto.
+
+\vspace{5 mm}
+
+\subsubsection{Welcome Intent}
+
+\vspace{5 mm}
+
+Intent que usa DialogFlow por defecto cuando comenzamos a conversar con el asistente y que reconoce cualquier tipo de expresión de saludo. Nos devuelve un "¡Buenas!, ¿en qué quieres que te ayude?".
+
+\vspace{5 mm}
+
+\subsection{Intents biblioteca}
+
+\vspace{5 mm}
+
+A continuación veremos todos los intents que tienen que ver con el servicio de biblioteca de la UGR.
+
+\vspace{5 mm}
+
+\subsubsection{Intent bibliotecas}
+
+\vspace{5 mm}
+
+Una vez sabemos a qué centro pertenece el usuario, se activa este intent preguntando por la biblioteca, responde informacion de la biblioteca y la conversación pasa a saber que se está hablando sobre bibliotecas. Se usa la opción fulfillment donde se devuelve la posición extacta de la biblioteca en concreto.
+
+\vspace{5 mm}
+
+
+\subsubsection{Intent bibliotecas_sin_centro}
+
+Este intent tiene la misma funcionalidad que el anterior pero se activa cuando no sabemos el centro al que pertenece el usuario, y nos lo proporcionan en la propia frase de entrada.
+
+
+\vspace{5 mm}
+
+\subsubsection{Intent biblioteca_contacto}
+
+\vspace{5 mm}
+
+Una vez sabemos a qué centro pertenece el usuario y habiendo preguntado información acerca de una biblioteca, sirve para preguntar por el contacto de la biblioteca que estabamos hablando en la conversacion anterior. Se utiliza la opción fulfillment donde se devuelve el contacto de la biblioteca en concreto.
+
+\vspace{5 mm}
+
+\subsubsection{Intent bibliotecas_contacto_sin_centro}
+
+\vspace{5 mm}
+
+Este intent tiene la misma funcionalidad que el anterior pero se activa cuando no sabemos el centro al que pertenece el usuario, y nos lo proporcionan en la propia frase de entrada.
+
+\vspace{5 mm}
+
+
+\subsection{Intents grados}
+
+\vspace{5 mm}
+
+A continuación veremos el intent que tiene que ver con los diferentes grados que se imparten en la UGR.
+
+\vspace{5 mm}
+
+\subsubsection{Intent grados_pregunta_compleja}
+
+\vspace{5 mm}
+
+Este intent nos devuelve la facultad en la que se imparte un grado concreto o un enlace a la web donde están las guías docentes de dicho grado. En este intent se utiliza la funcionalidad de fulfillment para devolver dicha información.
+
+\vspace{5 mm}
+
+\subsection{Intents centros}
+
+\vspace{5 mm}
+
+A continuación veremos todos los intents que tienen que ver con los centros de la UGR.
+
+\vspace{5 mm}
+
+\subsubsection{Intent centro_pedir_info}
+
+\vspace{5 mm}
+
+Sin conocer previamente el centro, el usuario solicita información sobre un centro en especifico y el bot detecta el centro y añade el contexto solicitudinformacion para que sepa que le han pedido información sobre un centro. En este intent no se utiliza la funcionalidad fulfillment.
+
+\vspace{5 mm}
+ 
+\subsubsection{Intent centros_info} 
+
+\vspace{5 mm}
+
+Este intent se encarga de reconocer la información que el usuario desea que se le proporcione, implementa un parametro de tipo entidad información y responde en consecuencia a la información solicitada. Añade al contexto solicitudinformacion para que el usuario pueda realizar varias consultas. Se utiliza la herramienta fulfillment para proporcionar dicha información.
+
+\vspace{5 mm}
+
+\subsection{Intents comedores}
+
+\vspace{5 mm}
+ 
+A continuación veremos todos los intents que tienen que ver con el servicio de comedores de la UGR.
+
+\vspace{5 mm}
+
+\subsubsection{Intent comedores}
+
+\vspace{5 mm}
+
+Este intent añade el contexto contextoComedores cuando se detecta que el usuario está preguntando algo con respecto al servicio de comedores de la UGR. No se utiliza el servicio de fulfillment.
+
+\vspace{5 mm}
+
+\subsubsection{Intent contacto_comedores}
+
+\vspace{5 mm}
+
+Una vez esté activado el contexto contextoComedores, el usuario puede preguntar los teléfonos de contacto de los comedores universitarios. No se utiliza el servicio de fulfillment.
+
+\vspace{5 mm}
+
+\subsubsection{Intent horario_comedores}
+
+\vspace{5 mm}
+
+Una vez esté activado el contexto contextoComedores, el usuario puede preguntar el horario de los comedores universitarios. No se utiliza el servicio de fulfillment.
+
+\vspace{5 mm}
+
+\subsubsection{Intent precio_comedores}
+
+\vspace{5 mm}
+
+Una vez esté activado el contexto contextoComedores, el usuario puede preguntar el precio de los comedores universitarios. No se utiliza el servicio de fulfillment.
+
+\vspace{5 mm}
+
+\subsubsection{Intent localizacion_comedores_con_centro}
+
+\vspace{5 mm}
+
+Una vez esté activado el contexto contextoComedores y se le haya proporcionado al asistente el centro al que pertenece el usuario, se utiliza la herramienta fulfillment para obtener la localización de los comedores de dicho centro.
+
+\vspace{5 mm}
+
+\subsubsection{Intent localizacion_comedores_sin_centro}
+
+\vspace{5 mm}
+
+Una vez esté activado el contexto contextoComedores, si no se le ha proporcionado centro al asistente, recomienda por defecto al usuario que vaya a los comedores de fuentenueva. Se utiliza la herramienta fulfillment para obtener dicha respuesta.
+
+\vspace{5 mm}
+
+\subsubsection{Intent localizacion_comedores_sin_centro_proporcionado}
+
+\vspace{5 mm}
+
+Este intent hace lo mismo que el anterior pero le podemos proporcionar el centro en la pregunta, por lo tanto podemos obtener la respuesta de la localización de dicho centro aunque el asistente no sepa a que centro pertenece el usuario. Este intent también utiliza la herramienta fulfillment.
+
+\vspace{5 mm}
+
+\subsubsection{Intent menus_comedores}
+
+\vspace{5 mm}
+
+Una vez esté activado el contexto contextoComedores, este intent devuelve información acerca del tipo de menú que pregunte el usuario. El servicio de comedores de la UGR ofrece cinco tipo de menús. Este intent utiliza la herramienta fulfillment para devolver información del día de la semana en el que estamos y el menú correspondiente al tipo elegido y el día de la semana.
