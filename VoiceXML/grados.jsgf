@@ -1,0 +1,5 @@
+#JSGF V1.0;
+
+grammar grados;
+
+public <grados>= magisterio | informatica | matematicas | telecomunicaciones;

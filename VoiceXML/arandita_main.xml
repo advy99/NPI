@@ -9,7 +9,7 @@
 		<prompt bargein="false">
 			Hola. Me llamo Arandita y soy el asistente conversacional de la UGR.
 		</prompt>
-		<goto next = "#EscogerSeccion"/>
+		<goto next="#EscogerSeccion"/>
 	</block>
 </form>
 
@@ -19,7 +19,7 @@
 		<prompt>
 			Que puedo hacer por ti?
 		</prompt>
-		<grammar src = "secciones.jsgf"/>
+		<grammar src="secciones.jsgf"/>
 	</field>
 
 	<filled>
@@ -27,6 +27,8 @@
 			<goto next="#escogidoBiblio"/>
 		<elseif cond="seccion_escogida == 'centros'"/>
 			<goto next="#escogidoCentros"/>
+		<elseif cond="seccion_escogida == 'grados'"/>
+			<goto next="grados.xml"/>
 		<elseif cond="seccion_escogida == 'salir'"/>
 			<goto next="#quieroSalir"/>
 		</if>
@@ -61,4 +63,3 @@
 </form>
 
 </vxml>
-
