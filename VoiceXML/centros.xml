@@ -1,0 +1,51 @@
+<vxml version="2.1" xml:lang="es-ES">
+
+<link next="\centrosMenu">
+</link>
+
+<menu id="centrosMenu">
+		<prompt bargein="false">
+			De que centros necesitas informacion?
+		</prompt>
+		<choice next="#etsiit">
+			ETSIIT
+		</choice>
+		<choice next="#etsccp">
+			ETSCCP
+		</choice>
+		<choice next="#ciencias">
+			Ciencias
+		</choice>
+		<enumerate/>
+
+</menu>
+
+<form id="ciencias">
+	<block>
+		<prompt bargein="false">
+			Has dicho ciencias
+		</prompt>
+		<goto next="arandita_main.xml#EscogerSeccion"/>
+	</block>
+</form>
+
+
+<form id="etsiit">
+	<block>
+		<prompt bargein="false">
+			Has dicho etsiit
+		</prompt>
+		<goto next="arandita_main.xml#EscogerSeccion"/>
+	</block>
+</form>
+
+<form id="etsccp">
+	<block>
+		<prompt bargein="false">
+			Has dicho etsccp
+		</prompt>
+		<goto next="arandita_main.xml#EscogerSeccion"/>
+	</block>
+</form>
+
+</vxml>
