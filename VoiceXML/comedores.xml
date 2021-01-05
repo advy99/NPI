@@ -11,6 +11,7 @@
 		<grammar src="grados.jsgf"/>
 	</field>
 	<filled>
+		<assign name = "he_estado_grados" expr = "si"/>
 		<if cond="grado == 'informatica'">
 			<goto next="#INFORMATICA"/>
 		<elseif cond="grado == 'telecomunicaciones'"/>

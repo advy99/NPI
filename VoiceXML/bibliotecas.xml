@@ -1,23 +1,25 @@
 <vxml version="2.1" xml:lang="es-ES">
 
-<link next="\gradoMenu">
+<link next="\bibliotecasMenu">
 </link>
 
-<form id="gradoMenu">
-	<field name="grado">
+<form id="bibliotecasMenu">
+	<field name="biblioteca">
 		<prompt>
 			De que grado necesitas informacion?
 		</prompt>
 		<grammar src="grados.jsgf"/>
 	</field>
 	<filled>
-		<if cond="grado == 'informatica'">
+		<if cond="biblioteca == 'informatica'">
 			<goto next="#INFORMATICA"/>
-		<elseif cond="grado == 'telecomunicaciones'"/>
+		<elseif cond="biblioteca == 'telecomunicaciones'"/>
+			<goto next="#TELECOMUNICACIONESGRADOS"/>
+		<elseif cond="biblioteca == 'telecomunicaciones'"/>
 			<goto next="#TELECOMUNICACIONES"/>
-		<elseif cond="grado == 'magisterio'"/>
+		<elseif cond="biblioteca == 'magisterio'"/>
 			<goto next="#MAGISTERIO"/>
-		<elseif cond="grado == 'matematicas'"/>
+		<elseif cond="biblioteca == 'matematicas'"/>
 			<goto next="#MATEMATICAS"/>
 		</if>
 	</filled>
@@ -27,6 +29,16 @@
 	<block>
 		<prompt bargein="false">
 			Has dicho informatica
+		</prompt>
+		<goto next="arandita_main.xml#EscogerSeccion"/>
+	</block>
+</form>
+
+
+<form id="TELECOMUNICACIONESGRADOS">
+	<block>
+		<prompt bargein="false">
+			Has dicho teleco y has estado en grados
 		</prompt>
 		<goto next="arandita_main.xml#EscogerSeccion"/>
 	</block>
