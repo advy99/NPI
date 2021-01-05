@@ -3,54 +3,37 @@
 <link next="\MainMenu">
 </link>
 
-
 <form id="MainMenu">
 	<block>
 		<prompt bargein="false">
 			Hola. Me llamo Arandita y soy el asistente conversacional de la UGR.
 		</prompt>
-		<goto next = "#EscogerSeccion"/>
-	</block>
-</form>
-
-<form id="EscogerSeccion">
-
-	<field name="seccion_escogida">
-		<prompt>
-			Que puedo hacer por ti?
-		</prompt>
-		<grammar src = "secciones.jsgf"/>
-	</field>
-
-	<filled>
-		<if cond="seccion_escogida == 'bibliotecas'">
-			<goto next="#escogidoBiblio"/>
-		<elseif cond="seccion_escogida == 'centros'"/>
-			<goto next="#escogidoCentros"/>
-		<elseif cond="seccion_escogida == 'salir'"/>
-			<goto next="#quieroSalir"/>
-		</if>
-	</filled>
-</form>
-
-<form id="escogidoBiblio">
-	<block>
-		<prompt bargein="false">
-			Has preguntado sobre las bibliotecas
-		</prompt>
 		<goto next="#EscogerSeccion"/>
 	</block>
 </form>
 
-<form id="escogidoCentros">
-	<block>
+<menu id="EscogerSeccion">
 		<prompt bargein="false">
-			Has preguntado sobre centros
+			Dime una de las siguientes opciones para que te de informacion:
 		</prompt>
-		<goto next="#EscogerSeccion"/>
-	</block>
+		<choice next="bibliotecas.xml">
+			Bibliotecas
+		</choice>
+		<choice next="grados.xml">
+			Grados
+		</choice>
+		<choice next="comedores.xml">
+			Comedores
+		</choice>
+		<choice next="centros.xml">
+			Centros
+		</choice>
+		<choice next="#quieroSalir">
+			Quiero salir
+		</choice>
+		<enumerate/>
 
-</form>
+</menu>
 
 <form id="quieroSalir">
 	<block>
@@ -61,4 +44,3 @@
 </form>
 
 </vxml>
-
