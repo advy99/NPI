@@ -1,0 +1,16 @@
+#JSGF V1.0;
+
+grammar info_bibliotecas;
+
+public <info_bibliotecas> =
+			[<deseo>]
+			[<info>]
+			[<biblio> {this.biblioteca=$biblio}];
+
+<deseo> = quiero | me gustaria | [yo] necesito | [yo] queria;
+
+<info> = informacion [sobre | de];
+
+<biblio> = ETSIIT | ciencias | bellas artes;
+
+
