@@ -2,4 +2,4 @@
 
 grammar opciones_grados;
 
-public <opciones_grados>= guias docentes | presentacion;
+public <opciones_grados>= facultad | presentacion;
