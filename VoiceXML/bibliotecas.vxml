@@ -1,0 +1,46 @@
+<vxml version="2.1" xml:lang="es-ES" application="arandita_main.vxml">
+
+<link next="\bibliotecasMenu">
+</link>
+
+<var name="tipo_informacion"/>
+
+<form id="bibliotecasMenu">
+	<grammar src="bibliotecas.jsfg"/>
+	<initial>
+		<prompt>
+			De que biblioteca necesitas informacion?
+		</prompt>
+		<help>Te puedo dar información sobre la biblioteca de la ETSIIT, Ciencias, o Bellas Artes.</help>
+	</initial>
+
+	<field name="informacion">
+		<prompt>
+			Que tipo de información necesitas?
+		</prompt>
+		<grammar src="info_bibliotecas.jsgf"/>
+		<help>Puedes preguntarme por información sobre su horario, su contacto, o donde se encuentra.</help>
+	</field>
+
+
+	<filled mode="all">
+		<assign name="tipo_informacion" expr="informacion"/>
+
+		<if cond="biblioteca == 'ETSIIT'">
+			<goto next="#preguntaETSIIT"/>
+		<elif cond="biblioteca == 'ciencias'"/>
+			<goto next="#preguntaCiencias"/>
+		<elif cond="biblioteca == 'bellas artes'"/>
+			<goto next="#preguntaBellas"/>
+		</if>
+
+	</filled>
+</form>
+
+
+<form>
+
+</form>
+
+
+</vxml>
