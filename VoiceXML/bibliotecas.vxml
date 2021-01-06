@@ -38,9 +38,43 @@
 </form>
 
 
-<form>
+<form id="preguntaETSIIT">
+	<block>
+		<if cond="tipo_informacion == 'horario'">
+			<prompt>
+				El horario de la biblioteca de la ETSIIT es de 8:00 a 20:00.
+			</prompt>
+		<elif cond="tipo_informacion == 'contacto'"/>
+			<prompt>
+				Para contactar con la biblioteca de la ETSIIT puedes llamar al 9 5 8 2 4 0 5 9 1 o mandar un correo a bibcirinformatica@ugr.es .
+			</prompt>
+		<elif cond="tipo_informacion == 'lugar' || tipo_informacion == 'donde se encuentra'"/>
+			<prompt>
+				La biblioteca de la ETSIIT se encuentra en la primera planta del edificio principal de la Escuela.
+			</prompt>
+		</if>
 
+		<goto next="#preguntarMasBiblio"/>
+	</block>
 </form>
 
+
+<form id="preguntarMasBiblio">
+	<field name="repetir">
+		<prompt>
+			Necesitas mas informacion sobre las bibliotecas?
+		</prompt>
+		<grammar>si|no</grammar>
+		<help>No te he entendido, responde si o no.</help>
+
+		<filled>
+			<if cond="repetir == 'si'">
+				<goto next="#bibliotecasMenu"/>
+			<else/>
+				<goto next="arandita.vxml#EscogerSeccion"/>
+			</if>
+		</filled>
+	</field>
+</form>
 
 </vxml>
