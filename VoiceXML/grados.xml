@@ -1,15 +1,11 @@
 <vxml version="2.1" xml:lang="es-ES">
+<link next="\GRADOMENU"> </link>
 
-<link next="\gradoMenu">
-</link>
-
-<form id="gradoMenu">
-	<field name="grado">
-		<prompt>
-			De que grado necesitas informacion?
-		</prompt>
-		<grammar src="grados.jsgf"/>
-	</field>
+<form id="GRADOMENU">
+		<field name="grado">
+			<prompt> De que grado necesitas informacion? </prompt>
+			<grammar src="grados.jsgf"/>
+		</field>
 	<filled>
 		<if cond="grado == 'informatica'">
 			<goto next="#INFORMATICA"/>
@@ -23,40 +19,151 @@
 	</filled>
 </form>
 
+<!-- Informática -->
+
 <form id="INFORMATICA">
+	<field name="pregunta">
+		<prompt bargein="false"> Has dicho informatica, quieres su facultad o presentacion </prompt>
+			<grammar src="opciones_grados.jsgf"/>
+	</field>
+	<filled>
+		<if cond="pregunta == 'presentacion'">
+			<goto next="#INFOPRE"/>
+		<elseif cond="pregunta == 'facultad'"/>
+			<goto next="#INFOFACUL"/>
+		</if>
+	</filled>
+</form>
+
+<form id="INFOPRE">
 	<block>
-		<prompt bargein="false">
-			Has dicho informatica
-		</prompt>
-		<goto next="arandita_main.xml#EscogerSeccion"/>
+		<prompt bargein="false"> Los Graduados en Ingenieria Informatica de la Universidad de Granada seran profesionales con una solida formacion en todas las ramas fundamentales de la informatica. </prompt>
+		<goto next="#CONTINUAR"/>
 	</block>
 </form>
+
+<form id="INFOFACUL">
+	<block>
+		<prompt bargein="false"> La facultad de informatica es la de la ETSIIT </prompt>
+		<goto next="#CONTINUAR"/>
+	</block>
+</form>
+
+<!-- Telecomunicaciones -->
 
 <form id="TELECOMUNICACIONES">
+	<field name="pregunta">
+		<prompt bargein="false"> Has dicho telecomunicaciones, quieres su facultad o presentacion </prompt>
+			<grammar src="opciones_grados.jsgf"/>
+	</field>
+	<filled>
+		<if cond="pregunta == 'presentacion'">
+			<goto next="#TELECOPRE"/>
+		<elseif cond="pregunta == 'facultad'"/>
+			<goto next="#TELECOFACUL"/>
+		</if>
+	</filled>
+</form>
+
+<form id="TELECOPRE">
 	<block>
-		<prompt bargein="false">
-			Has dicho teleco
-		</prompt>
-		<goto next="arandita_main.xml#EscogerSeccion"/>
+		<prompt bargein="false">  El Grado en Ingenieria de Tecnologias de Telecomunicacion persigue que los graduados adquieran una formacion cientifica, tecnologica y socio-economica, que capacite para el ejercicio de la profesion de Ingeniero Tecnico de Telecomunicacion.</prompt>
+		<goto next="#CONTINUAR"/>
 	</block>
 </form>
+
+<form id="TELECOFACUL">
+	<block>
+		<prompt bargein="false"> La facultad de telecomunicaciones es la de la ETSIIT </prompt>
+		<goto next="#CONTINUAR"/>
+	</block>
+</form>
+
+<!-- Matematicas -->
 
 <form id="MATEMATICAS">
+	<field name="pregunta">
+		<prompt bargein="false"> Has dicho matematicas, quieres su facultad o presentacion </prompt>
+			<grammar src="opciones_grados.jsgf"/>
+	</field>
+	<filled>
+		<if cond="pregunta == 'presentacion'">
+			<goto next="#MATEPRE"/>
+		<elseif cond="pregunta == 'facultad'"/>
+			<goto next="#MATEFACUL"/>
+		</if>
+	</filled>
+</form>
+
+<form id="MATEPRE">
 	<block>
-		<prompt bargein="false">
-			Has dicho mates
-		</prompt>
-		<goto next="arandita_main.xml#EscogerSeccion"/>
+		<prompt bargein="false"> La presente titulacion del Grado en Matematicas por la Universidad de Granada constituye una adaptacion al Espacio Europeo de Educacion Superior de los estudios conducentes al titulo de Licenciado en Matematicas que se han venido impartiendo con anterioridad.</prompt>
+		<goto next="#CONTINUAR"/>
 	</block>
 </form>
 
-<form id="MAGISTERIO">
+<form id="MATEFACUL">
 	<block>
-		<prompt bargein="false">
-			Has dicho magisterio
-		</prompt>
-		<goto next="arandita_main.xml#EscogerSeccion"/>
+		<prompt bargein="false"> La facultad de matematicas es la de ciencias </prompt>
+		<goto next="#CONTINUAR"/>
 	</block>
+</form>
+
+<!-- Magisterio -->
+
+<form id="MAGISTERIO">
+	<field name="pregunta">
+		<prompt bargein="false"> Has dicho magisterio, quieres su facultad o presentacion </prompt>
+			<grammar src="opciones_grados.jsgf"/>
+	</field>
+	<filled>
+		<if cond="pregunta == 'presentacion'">
+			<goto next="#MAGEPRE"/>
+		<elseif cond="pregunta == 'facultad'"/>
+			<goto next="#MAGFACUL"/>
+		</if>
+	</filled>
+</form>
+
+<form id="MAGPRE">
+	<block>
+		<prompt bargein="false"> El grado en Educacion Primaria tiene como finalidad la formacion de Maestros de Educacion Primaria, especialistas en la etapa educativa que va desde los seis a los doce años en las areas de Lengua, Matematicas, Conocimiento del Medio Natural, Social y Cultural, Artes Visuales y Plastica</prompt>
+		<goto next="#CONTINUAR"/>
+	</block>
+</form>
+
+<form id="MAGFACUL">
+	<block>
+		<prompt bargein="false"> La facultad de magisterio es la facultad de ciencias de la educaciones </prompt>
+		<goto next="#CONTINUAR"/>
+	</block>
+</form>
+
+<!--Formulario para preguntar si se desea realizar una nueva cuestion sobre los grados o volver al menu principal-->
+
+<form id="CONTINUAR">
+	<field name="respuesta">
+		<prompt>
+			Deseas preguntar algo mas sobre los grados o volver al menu principal
+		</prompt>
+
+		<grammar xml:lang="es-ES" root = "RESOPCIONES">
+			<rule id="RESOPCIONES" scope="public">
+				<one-of>
+					<item>menu principal</item>
+					<item>grados</item>
+				</one-of>
+			</rule>
+		</grammar>
+	</field>
+
+	<filled>
+		<if cond="respuesta == 'menu principal'">
+			<goto next="arandita_main.xml#EscogerSeccion"/>
+		<elseif cond="respuesta == 'grados'"/>
+			<goto next="#GRADOMENU"/>
+		</if>
+	</filled>
 </form>
 
 </vxml>
