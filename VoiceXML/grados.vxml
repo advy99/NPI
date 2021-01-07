@@ -159,7 +159,7 @@
 
 	<filled>
 		<if cond="respuesta == 'menu principal'">
-			<goto next="arandita_main.xml#EscogerSeccion"/>
+			<goto next="arandita_main.vxml#EscogerSeccion"/>
 		<elseif cond="respuesta == 'grados'"/>
 			<goto next="#GRADOMENU"/>
 		</if>
