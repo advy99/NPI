@@ -1,8 +1,6 @@
 <vxml version="2.1" xml:lang="es-ES" application="arandita_main.vxml">
 <link next="\comedoresMenu"> </link>
 
-<var name="tipo_informacion"/>
-<var name="tipo_menu"/>
 
 <form id="comedoresMenu">
 	<field name="informacion">
@@ -12,21 +10,16 @@
 		<grammar src="comedores.jsgf"/>
 		<help>Te puedo dar información sobre el horario, contacto, los tipos de menús, el precio y su localización</help>
 	</field>
-
-
-	<filled mode="all">
-		<assign name="tipo_informacion" expr="informacion"/>
-
-		<if cond="asunto == 'horario'">
+	<filled>
+		<if cond="informacion == 'horario'">
 			<goto next="#preguntaHorario"/>
-		<elif cond="asunto == 'contacto'"/>
+		<elseif cond="informacion == 'contacto'"/>
 			<goto next="#preguntaContacto"/>
-		<elif cond="asunto == 'menus'"/>
+		<elseif cond="informacion == 'menus'"/>
 			<goto next="#preguntaMenus"/>
-		<elif cond="asunto == 'precio'"/>
+		<elseif cond="informacion == 'precio'"/>
 			<goto next="#preguntaPrecio"/>
 		</if>
-
 	</filled>
 </form>
 
@@ -62,23 +55,18 @@
 		<grammar src="menus.jsgf"/>
 		<help>Disponemos de los siguientes menús. Estándar de comida, estándar de cena, celiaco, vegano y vegetariano. </help>
 	</field>
-
-
-	<filled mode="all">
-		<assign name="tipo_menu" expr="tipo_menu"/>
-
-		<if cond="elegido == 'estandar de comida' || elegido == 'comida' || elegido == 'comer'">
+	<filled>
+		<if cond="tipo_menu == 'estandar de comida' || tipo_menu == 'comida' || tipo_menu == 'comer'">
 			<goto next="#menuEstandar"/>
-		<elif cond="elegido == 'estandar de cena' || elegido == 'cena' || elegido == 'cenar'"/>
+		<elseif cond="tipo_menu == 'estandar de cena' || tipo_menu == 'cena' || tipo_menu == 'cenar'"/>
 			<goto next="#menuCena"/>
-		<elif cond="elegido == 'vegetariano'"/>
+		<elseif cond="tipo_menu == 'vegetariano'"/>
 			<goto next="#menuVegetariano"/>
-		<elif cond="elegido == 'vegano'"/>
+		<elseif cond="tipo_menu == 'vegano'"/>
 			<goto next="#menuVegano"/>
-		<elif cond="elegido == 'celiaco'"/>
+		<elseif cond="tipo_menu == 'celiaco'"/>
 			<goto next="#menuCeliaco"/>
 		</if>
-
 	</filled>
 </form>
 
@@ -131,7 +119,7 @@
 			<if cond="repetir == 'si'">
 				<goto next="#comedoresMenu"/>
 			<else/>
-				<goto next="arandita.vxml#EscogerSeccion"/>
+				<goto next="arandita_main.vxml#EscogerSeccion"/>
 			</if>
 		</filled>
 	</field>
