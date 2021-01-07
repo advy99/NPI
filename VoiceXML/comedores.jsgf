@@ -11,4 +11,4 @@ public <info_comedores> =
 
 <info> = informacion [sobre | de];
 
-<info_comedores> = horario | contacto | menus | precio | lugar | localizacion | donde se encuentran;
+<info_comedores> = horario | contacto | menus | precio;

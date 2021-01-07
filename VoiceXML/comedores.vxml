@@ -27,8 +27,6 @@
 			<goto next="#preguntaMenus"/>
 		<elif cond="asunto == 'precio'"/>
 			<goto next="#preguntaPrecio"/>
-		<elif cond="asunto == 'lugar' || asunto == 'localizacion' || asunto == 'donde se encuentra'"/>
-			<goto next="#preguntaLugar"/>
 		</if>
 
 	</filled>
