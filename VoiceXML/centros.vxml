@@ -1,51 +1,134 @@
-<vxml version="2.1" xml:lang="es-ES">
+<vxml version="2.1" xml:lang="es-ES" application="arandita_main.vxml">
 
 <link next="\centrosMenu">
 </link>
 
-<menu id="centrosMenu">
-		<prompt bargein="false">
-			De que centros necesitas informacion?
-		</prompt>
-		<choice next="#etsiit">
-			ETSIIT
-		</choice>
-		<choice next="#etsccp">
-			ETSCCP
-		</choice>
-		<choice next="#ciencias">
-			Ciencias
-		</choice>
-		<enumerate/>
+<var name="tipo_informacion"/>
 
-</menu>
-
-<form id="ciencias">
-	<block>
-		<prompt bargein="false">
-			Has dicho ciencias
+<form id="centrosMenu">
+	<field name="centro">
+		<prompt>
+			De que centro necesitas informacion?
+			<help> Escuela de informatica, Facultad de ciencias, Facultad de Bellas Artes</help>
 		</prompt>
-		<goto next="arandita_main.xml#EscogerSeccion"/>
-	</block>
+		<grammar src="centros.jsgf"/>
+	</field>
+
+	<field name="informacion">
+		<prompt>
+			Que necesitas saber?
+			<help> Puedes preguntarme sobre su dirección, su telefono y su delegación de centro </help>
+		</prompt>
+		<grammar src="info_centros.jsgf"/>
+	</field>
+
+	<filled mode="all">
+		<assign name="tipo" expr="informacion"/>
+
+		<if cond="centro == 'escuela de informatica'">
+			<goto next="#etsiit"/>
+		<elif cond="centro == 'facultad de educacion'"/>
+			<goto next="#ciencias"/>
+		<elif cond="centro == 'facultad de educacion'"/>
+			<goto next="#bellas"/>
+		</if>
+	</filled>
 </form>
-
 
 <form id="etsiit">
 	<block>
 		<prompt bargein="false">
-			Has dicho etsiit
+			Has preguntado por la ETSIIT
 		</prompt>
-		<goto next="arandita_main.xml#EscogerSeccion"/>
+	</block>
+	<block>
+		<if cond="tipo_informacion == 'direccion'">
+			<prompt>
+				La direccion de la ETSIIT es Calle Periodista Daniel Saucedo Aranda, s/n, 18014 Granada
+			</prompt>
+		<elif cond="tipo_informacion == 'contacto'"/>
+			<prompt>
+				El telefono de la ETSIIT es 958 24 28 02
+			</prompt>
+		<elif cond="tipo_informacion == 'delegacion'"/>
+			<prompt>
+				La delegacion de la ETSIIT es la DEIIT
+			</prompt>
+		</if>
+
+		<goto next="#preguntarOtraCosa"/>
+
 	</block>
 </form>
 
-<form id="etsccp">
+<form id="ciencias">
 	<block>
 		<prompt bargein="false">
-			Has dicho etsccp
+			Has preguntado por la Facultad de Ciencias
 		</prompt>
-		<goto next="arandita_main.xml#EscogerSeccion"/>
 	</block>
+	<block>
+		<if cond="tipo_informacion == 'direccion'">
+			<prompt>
+					La direccion de la Facultad de ciencias es Avenida de Fuente Nueva, s/n, 18071 Granada
+			</prompt>
+		<elif cond="tipo_informacion == 'contacto'"/>
+			<prompt>
+				El telefono de la Facultad de ciencias es 958 24 33 80
+			</prompt>
+		<elif cond="tipo_informacion == 'delegacion'"/>
+			<prompt>
+				La delegacion de la Facultad de ciencias es la DEFC
+			</prompt>
+		</if>
+
+		<goto next="#preguntarOtraCosa"/>
+
+	</block>
+</form>
+
+<form id="bellas">
+	<block>
+		<prompt bargein="false">
+			Has preguntado por la Facultad de Bellas Artes
+		</prompt>
+	</block>
+	<block>
+		<if cond="tipo_informacion == 'direccion'">
+			<prompt>
+					La direccion de la Facultad de bellas artes es Calle Periodista Eugenio Selles, s/n, 18014 Granada
+			</prompt>
+		<elif cond="tipo_informacion == 'contacto'"/>
+			<prompt>
+				El telefono de la Facultad de bellas artes 958 24 38 19
+			</prompt>
+		<elif cond="tipo_informacion == 'delegacion'"/>
+			<prompt>
+				La delegacion de la Facultad de bellas artes es la DEBBAA
+			</prompt>
+		</if>
+
+		<goto next="#preguntarOtraCosa"/>
+
+	</block>
+</form>
+
+<form id="preguntarOtraCosa">
+	<field name="repetir">
+		<prompt>
+			Necesitas mas informacion?
+		</prompt>
+		<grammar>si|no</grammar>
+		<help>No te he entendido, responde si o no.</help>
+
+		<filled>
+			<if cond="repetir == 'si'">
+				<goto next="#centrosMenu"/>
+			<else/>
+				<goto next="arandita.vxml#EscogerSeccion"/>
+			</if>
+		</filled>
+	</field>
 </form>
 
 </vxml>

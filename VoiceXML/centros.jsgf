@@ -1,0 +1,5 @@
+#JSGF V1.0;
+
+grammar centros;
+
+public <centros>= escuela de informatica | facultad de educacion | facultad de ciencias ;
