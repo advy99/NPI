@@ -2,13 +2,4 @@
 
 grammar info_comedores;
 
-public <info_comedores> =
-			[<deseo>]
-			[<info>]
-			[<info_comedores> {this.asunto=$info_comedores}];
-
-<deseo> = quiero | me gustaria | [yo] necesito | [yo] queria;
-
-<info> = informacion [sobre | de];
-
-<info_comedores> = horario | contacto | menus | precio | lugar | localizacion | donde se encuentran;
+public <info_comedores>= horario | contacto | menus | precio;

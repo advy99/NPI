@@ -2,13 +2,4 @@
 
 grammar menus;
 
-public <info_comedores> =
-			[<deseo>]
-			[<info>]
-			[<menu> {this.elegido=$menu}];
-
-<deseo> = quiero | me gustaria | [yo] necesito | [yo] queria;
-
-<info> = informacion [sobre | de];
-
-<menu> = estandar de comida | comida | comer | estandar de cena | cena | cenar | vegetariano | vegano | celiaco;
+public <menus>=  estandar de comida | comida | comer | estandar de cena | cena | cenar | vegetariano | vegano | celiaco;
