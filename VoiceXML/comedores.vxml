@@ -1,7 +1,5 @@
 <vxml version="2.1" xml:lang="es-ES" application="arandita_main.vxml">
-
-<link next="\comedoresMenu">
-</link>
+<link next="\comedoresMenu"> </link>
 
 <var name="tipo_informacion"/>
 <var name="tipo_menu"/>
@@ -13,7 +11,7 @@
 		</prompt>
 		<grammar src="comedores.jsgf"/>
 		<help>Te puedo dar información sobre el horario, contacto, los tipos de menús, el precio y su localización</help>
-	</initial>
+	</field>
 
 
 	<filled mode="all">
@@ -63,7 +61,7 @@
 		</prompt>
 		<grammar src="menus.jsgf"/>
 		<help>Disponemos de los siguientes menús. Estándar de comida, estándar de cena, celiaco, vegano y vegetariano. </help>
-	</initial>
+	</field>
 
 
 	<filled mode="all">
