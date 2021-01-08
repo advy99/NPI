@@ -1,0 +1,128 @@
+<vxml version="2.1" xml:lang="es-ES" application="arandita_main.vxml">
+<link next="\comedoresMenu"> </link>
+
+
+<form id="comedoresMenu">
+	<field name="informacion">
+		<prompt>
+			Que te gustaría saber del servicio de comedores de la UGR?
+		</prompt>
+		<grammar src="comedores.jsgf"/>
+		<help>Te puedo dar información sobre el horario, contacto, los tipos de menús, el precio y su localización</help>
+	</field>
+	<filled>
+		<if cond="informacion == 'horario'">
+			<goto next="#preguntaHorario"/>
+		<elseif cond="informacion == 'contacto'"/>
+			<goto next="#preguntaContacto"/>
+		<elseif cond="informacion == 'menus'"/>
+			<goto next="#preguntaMenus"/>
+		<elseif cond="informacion == 'precio'"/>
+			<goto next="#preguntaPrecio"/>
+		</if>
+	</filled>
+</form>
+
+
+<form id="preguntaHorario">
+	<block>
+		<prompt bargein="false"> Los comedores universitarios de la UGR están disponibles de Lunes a Viernes de una a tres y media de la tarde </prompt>
+		<goto next="#preguntarMasComedores"/>
+	</block>
+</form>
+
+
+<form id="preguntaContacto">
+	<block>
+		<prompt bargein="false"> Puedes llamar a la administración de los comedores universitarios mediante los siguientes teléfonos. 958 24 41 17 o 958 24 41 18 </prompt>
+		<goto next="#preguntarMasComedores"/>
+	</block>
+</form>
+
+<form id="preguntaPrecio">
+	<block>
+		<prompt bargein="false"> El precio de los comedores universitarios es 3 con 5 euros, o 4 euros en el caso de querer el menú para llevar </prompt>
+		<goto next="#preguntarMasComedores"/>
+	</block>
+</form>
+
+
+<form id="preguntaMenus">
+	<field name="tipo_menu">
+		<prompt>
+			Que menú de los comedores le gustaría saber?
+		</prompt>
+		<grammar src="menus.jsgf"/>
+		<help>Disponemos de los siguientes menús. Estándar de comida, estándar de cena, celiaco, vegano y vegetariano. </help>
+	</field>
+	<filled>
+		<if cond="tipo_menu == 'estandar de comida' || tipo_menu == 'comida' || tipo_menu == 'comer'">
+			<goto next="#menuEstandar"/>
+		<elseif cond="tipo_menu == 'estandar de cena' || tipo_menu == 'cena' || tipo_menu == 'cenar'"/>
+			<goto next="#menuCena"/>
+		<elseif cond="tipo_menu == 'vegetariano'"/>
+			<goto next="#menuVegetariano"/>
+		<elseif cond="tipo_menu == 'vegano'"/>
+			<goto next="#menuVegano"/>
+		<elseif cond="tipo_menu == 'celiaco'"/>
+			<goto next="#menuCeliaco"/>
+		</if>
+	</filled>
+</form>
+
+<form id="menuEstandar">
+	<block>
+		<prompt bargein="false"> El menú para comer de hoy es el siguiente. De primero espaguetis a la napolitana. De segundo aguja encebollada con menestra. De postre un melocotón. </prompt>
+		<goto next="#preguntarMasComedores"/>
+	</block>
+</form>
+
+
+<form id="menuCena">
+	<block>
+		<prompt bargein="false"> El menú para cenar de hoy es el siguiente. De primero ensalada de arroz con salmón ahumado, pepino y vinagreta de soja y sésamo. De segundo jamón en salsa cazadora con judías, zanahorias y patatas. De postre unas natillas. </prompt>
+		<goto next="#preguntarMasComedores"/>
+	</block>
+</form>
+
+<form id="menuVegetariano">
+	<block>
+		<prompt bargein="false"> El menú vegetariano de hoy es el siguiente. De primero estofado de patatas y acelgas. De segundo rollitos de primavera con ensalada. De postre una naranja. </prompt>
+		<goto next="#preguntarMasComedores"/>
+	</block>
+</form>
+
+<form id="menuVegano">
+	<block>
+		<prompt bargein="false"> El menú vegano de hoy es el siguiente. De primero arroz con variado de verduras. De segundo salteado de tofu, calabaza y guisantes con ensalada Richelieu. De postre una pera. </prompt>
+		<goto next="#preguntarMasComedores"/>
+	</block>
+</form>
+
+
+<form id="menuCeliaco">
+	<block>
+		<prompt bargein="false"> El menú celiaco de hoy es el siguiente. De primero arroz a la cubana. De segundo salteado de ternera con patatas rellenas. De postre un cóctel de frutas. </prompt>
+		<goto next="#preguntarMasComedores"/>
+	</block>
+</form>
+
+<form id="preguntarMasComedores">
+	<field name="repetir">
+		<prompt>
+			Necesitas mas informacion sobre los comedores?
+		</prompt>
+		<grammar>si|no</grammar>
+		<help>No te he entendido, responde si o no.</help>
+
+		<filled>
+			<if cond="repetir == 'si'">
+				<goto next="#comedoresMenu"/>
+			<else/>
+				<goto next="arandita_main.vxml#EscogerSeccion"/>
+			</if>
+		</filled>
+	</field>
+</form>
+
+</vxml>

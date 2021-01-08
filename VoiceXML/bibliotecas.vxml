@@ -1,0 +1,123 @@
+<vxml version="2.1" xml:lang="es-ES" application="arandita_main.vxml">
+
+<link next="\bibliotecasMenu">
+</link>
+
+<var name="tipo_informacion"/>
+
+<form id="bibliotecasMenu">
+	<grammar src="bibliotecas.jsfg"/>
+	<initial>
+		<prompt>
+			De que biblioteca necesitas informacion?
+		</prompt>
+		<help>Te puedo dar información sobre la biblioteca de la ETSIIT, Ciencias, o Bellas Artes.</help>
+	</initial>
+
+	<field name="informacion">
+		<prompt>
+			Que tipo de información necesitas?
+		</prompt>
+		<grammar src="info_bibliotecas.jsgf"/>
+		<help>Puedes preguntarme por información sobre su horario, su contacto, o donde se encuentra.</help>
+	</field>
+
+
+	<filled mode="all">
+		<assign name="tipo_informacion" expr="informacion"/>
+
+		<if cond="biblioteca == 'ETSIIT'">
+			<goto next="#preguntaETSIIT"/>
+		<elseif cond="biblioteca == 'ciencias'"/>
+			<goto next="#preguntaCiencias"/>
+		<elseif cond="biblioteca == 'bellas artes'"/>
+			<goto next="#preguntaBellas"/>
+		</if>
+
+	</filled>
+</form>
+
+
+<form id="preguntaETSIIT">
+	<block>
+		<if cond="tipo_informacion == 'horario'">
+			<prompt>
+				El horario de la biblioteca de la ETSIIT es de 8:00 a 20:00.
+			</prompt>
+		<elseif cond="tipo_informacion == 'contacto'"/>
+			<prompt>
+				Para contactar con la biblioteca de la ETSIIT puedes llamar al 9 5 8 2 4 0 5 9 1 o mandar un correo a bibcirinformatica@ugr.es .
+			</prompt>
+		<elseif cond="tipo_informacion == 'lugar' || tipo_informacion == 'donde se encuentra'"/>
+			<prompt>
+				La biblioteca de la ETSIIT se encuentra en la primera planta del edificio principal de la Escuela.
+			</prompt>
+		</if>
+
+		<goto next="#preguntarMasBiblio"/>
+	</block>
+</form>
+
+
+
+<form id="preguntaCiencias">
+	<block>
+		<if cond="tipo_informacion == 'horario'">
+			<prompt>
+				El horario de la biblioteca de Ciencias es de 8:30 a 20:30.
+			</prompt>
+		<elseif cond="tipo_informacion == 'contacto'"/>
+			<prompt>
+				Para contactar con la biblioteca de Ciencias puedes llamar al 9 5 8 2 4 9 0 6 4 o mandar un correo a bibgesciencias@ugr.es .
+			</prompt>
+		<elseif cond="tipo_informacion == 'lugar' || tipo_informacion == 'donde se encuentra'"/>
+			<prompt>
+				La biblioteca de Ciencias se encuentra en la planta baja del edificio principal del campus de Fuentenueva, a la derecha tras entrar por la puerta principal y a la izquierda de la seccion de Fisica.
+			</prompt>
+		</if>
+
+		<goto next="#preguntarMasBiblio"/>
+	</block>
+</form>
+
+<form id="preguntaBellas">
+	<block>
+		<if cond="tipo_informacion == 'horario'">
+			<prompt>
+				El horario de la biblioteca de Bellas Artes es de 8:30 a 20:30.
+			</prompt>
+		<elseif cond="tipo_informacion == 'contacto'"/>
+			<prompt>
+				Para contactar con la biblioteca de Bellas Artes puedes llamar al 9 5 8 2 4 2 9 6 8 o mandar un correo a mbolivar@ugr.es .
+			</prompt>
+		<elseif cond="tipo_informacion == 'lugar' || tipo_informacion == 'donde se encuentra'"/>
+			<prompt>
+				La biblioteca de Bellas Artes se encuentra en la planta -1 de la facultad, su acceso se encuentra por el pasillo de la izquierda entrando desde la puerta principal.
+			</prompt>
+		</if>
+
+		<goto next="#preguntarMasBiblio"/>
+	</block>
+</form>
+
+
+
+<form id="preguntarMasBiblio">
+	<field name="repetir">
+		<prompt>
+			Necesitas mas informacion sobre las bibliotecas?
+		</prompt>
+		<grammar>si|no</grammar>
+		<help>No te he entendido, responde si o no.</help>
+
+		<filled>
+			<if cond="repetir == 'si'">
+				<goto next="#bibliotecasMenu"/>
+			<else/>
+				<goto next="arandita.vxml#EscogerSeccion"/>
+			</if>
+		</filled>
+	</field>
+</form>
+
+</vxml>

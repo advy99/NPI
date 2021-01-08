@@ -16,13 +16,13 @@
 		<prompt bargein="false">
 			Dime una de las siguientes opciones para que te de informacion:
 		</prompt>
-		<choice next="bibliotecas.xml">
+		<choice next="bibliotecas.vxml">
 			Bibliotecas
 		</choice>
 		<choice next="grados.xml">
 			Grados
 		</choice>
-		<choice next="comedores.xml">
+		<choice next="comedores.vxml">
 			Comedores
 		</choice>
 		<choice next="centros.xml">

@@ -1,0 +1,7 @@
+#JSGF V1.0;
+
+grammar info_bibliotecas;
+
+public <info_bibliotecas> = horario | contacto | donde se encuentra | lugar;
+
+

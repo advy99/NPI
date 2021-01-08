@@ -1,0 +1,5 @@
+#JSGF V1.0;
+
+grammar info_comedores;
+
+public <info_comedores>= horario | contacto | menus | precio;
