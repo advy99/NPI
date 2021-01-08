@@ -3,7 +3,7 @@
 
 <form id="GRADOMENU">
 		<field name="grado">
-			<prompt> De que grado necesitas informacion? </prompt>
+			<prompt> De que grado necesitas informacion? Puedes elegir entre informatica, telecomunicaciones, magisterio y matematicas </prompt>
 			<grammar src="grados.jsgf"/>
 		</field>
 	<filled>
@@ -31,6 +31,9 @@
 			<goto next="#INFOPRE"/>
 		<elseif cond="pregunta == 'facultad'"/>
 			<goto next="#INFOFACUL"/>
+		<elseif cond="pregunta == 'no'"/>
+			<prompt> Perdon no te he entendido bien, puedes repetir </prompt>
+			<goto next="#GRADOMENU"/>
 		</if>
 	</filled>
 </form>
@@ -61,6 +64,9 @@
 			<goto next="#TELECOPRE"/>
 		<elseif cond="pregunta == 'facultad'"/>
 			<goto next="#TELECOFACUL"/>
+		<elseif cond="pregunta == 'no'"/>
+			<prompt> Perdon no te he entendido bien, puedes repetir </prompt>
+			<goto next="#GRADOMENU"/>
 		</if>
 	</filled>
 </form>
@@ -91,6 +97,9 @@
 			<goto next="#MATEPRE"/>
 		<elseif cond="pregunta == 'facultad'"/>
 			<goto next="#MATEFACUL"/>
+		<elseif cond="pregunta == 'no'"/>
+			<prompt> Perdon no te he entendido bien, puedes repetir </prompt>
+			<goto next="#GRADOMENU"/>
 		</if>
 	</filled>
 </form>
@@ -121,6 +130,9 @@
 			<goto next="#MAGEPRE"/>
 		<elseif cond="pregunta == 'facultad'"/>
 			<goto next="#MAGFACUL"/>
+		<elseif cond="pregunta == 'no'"/>
+			<prompt> Perdon no te he entendido bien, puedes repetir </prompt>
+			<goto next="#GRADOMENU"/>
 		</if>
 	</filled>
 </form>
