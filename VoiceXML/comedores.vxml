@@ -112,17 +112,16 @@
 		<prompt>
 			Necesitas mas informacion sobre los comedores?
 		</prompt>
-		<grammar>si|no</grammar>
+		<grammar src="yesno.jsgf"/>
 		<help>No te he entendido, responde si o no.</help>
-
-		<filled>
-			<if cond="repetir == 'si'">
-				<goto next="#comedoresMenu"/>
-			<else/>
-				<goto next="arandita_main.vxml#EscogerSeccion"/>
-			</if>
-		</filled>
 	</field>
+	<filled>
+		<if cond="repetir == 'si'">
+			<goto next="#comedoresMenu"/>
+		<elseif cond="repetir == 'no'"/>
+			<goto next="arandita_main.vxml#EscogerSeccion"/>
+		</if>
+	</filled>
 </form>
 
 </vxml>
