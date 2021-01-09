@@ -9,16 +9,16 @@
 	<field name="centro">
 		<prompt>
 			De que centro necesitas informacion?
-			<help> Escuela de informatica, Facultad de ciencias, Facultad de Bellas Artes</help>
 		</prompt>
+		<help> Escuela de informatica, Facultad de ciencias, Facultad de Bellas Artes</help>
 		<grammar src="centros.jsgf"/>
 	</field>
 
 	<field name="informacion">
 		<prompt>
 			Que necesitas saber?
-			<help> Puedes preguntarme sobre su dirección, su telefono y su delegación de centro </help>
 		</prompt>
+		<help> Puedes preguntarme sobre su dirección, su telefono y su delegación de centro </help>
 		<grammar src="info_centros.jsgf"/>
 	</field>
 
@@ -40,13 +40,12 @@
 		<prompt bargein="false">
 			Has preguntado por la ETSIIT
 		</prompt>
-	</block>
-	<block>
+
 		<if cond="tipo_informacion == 'direccion'">
 			<prompt>
 				La direccion de la ETSIIT es Calle Periodista Daniel Saucedo Aranda, s/n, 18014 Granada
 			</prompt>
-		<elif cond="tipo_informacion == 'contacto'"/>
+		<elif cond="tipo_informacion == 'telefono'"/>
 			<prompt>
 				El telefono de la ETSIIT es 958 24 28 02
 			</prompt>
@@ -66,13 +65,11 @@
 		<prompt bargein="false">
 			Has preguntado por la Facultad de Ciencias
 		</prompt>
-	</block>
-	<block>
 		<if cond="tipo_informacion == 'direccion'">
 			<prompt>
 					La direccion de la Facultad de ciencias es Avenida de Fuente Nueva, s/n, 18071 Granada
 			</prompt>
-		<elif cond="tipo_informacion == 'contacto'"/>
+		<elif cond="tipo_informacion == 'telefono'"/>
 			<prompt>
 				El telefono de la Facultad de ciencias es 958 24 33 80
 			</prompt>
@@ -92,13 +89,11 @@
 		<prompt bargein="false">
 			Has preguntado por la Facultad de Bellas Artes
 		</prompt>
-	</block>
-	<block>
 		<if cond="tipo_informacion == 'direccion'">
 			<prompt>
 					La direccion de la Facultad de bellas artes es Calle Periodista Eugenio Selles, s/n, 18014 Granada
 			</prompt>
-		<elif cond="tipo_informacion == 'contacto'"/>
+		<elif cond="tipo_informacion == 'telefono'"/>
 			<prompt>
 				El telefono de la Facultad de bellas artes 958 24 38 19
 			</prompt>
@@ -120,7 +115,6 @@
 		</prompt>
 		<grammar>si|no</grammar>
 		<help>No te he entendido, responde si o no.</help>
-
 	</field>
 	<filled>
 		<if cond="repetir == 'si'">
