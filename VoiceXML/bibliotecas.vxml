@@ -3,6 +3,61 @@
 <link next="\bibliotecasMenu">
 </link>
 
+<val name="tipo_informacion"/>
+
+<catch event="event.preguntaCiencias">
+	<if cond="tipo_informacion == 'horario'">
+		<prompt>
+			El horario de la biblioteca de Ciencias es de 8:30 a 20:30.
+		</prompt>
+	<elseif cond="tipo_informacion == 'contacto'"/>
+		<prompt>
+			Para contactar con la biblioteca de Ciencias puedes llamar al 9 5 8 2 4 9 0 6 4 o mandar un correo a bibgesciencias@ugr.es .
+		</prompt>
+	<elseif cond="tipo_informacion == 'lugar' || tipo_informacion == 'donde se encuentra'"/>
+		<prompt>
+			La biblioteca de Ciencias se encuentra en la planta baja del edificio principal del campus de Fuentenueva, a la derecha tras entrar por la puerta principal y a la izquierda de la seccion de Fisica.
+		</prompt>
+	</if>
+</catch>
+
+<catch event="event.preguntaETSIIT">
+	<if cond="tipo_informacion == 'horario'">
+		<prompt>
+			El horario de la biblioteca de la ETSIIT es de 8:00 a 20:00.
+		</prompt>
+	<elseif cond="tipo_informacion == 'contacto'"/>
+		<prompt>
+			Para contactar con la biblioteca de la ETSIIT puedes llamar al 9 5 8 2 4 0 5 9 1 o mandar un correo a bibcirinformatica@ugr.es .
+		</prompt>
+	<elseif cond="tipo_informacion == 'lugar' || tipo_informacion == 'donde se encuentra'"/>
+		<prompt>
+			La biblioteca de la ETSIIT se encuentra en la primera planta del edificio principal de la Escuela.
+		</prompt>
+	</if>
+</catch>
+
+
+
+<catch event="event.preguntaBellas">
+	<if cond="tipo_informacion == 'horario'">
+		<prompt>
+			El horario de la biblioteca de Bellas Artes es de 8:30 a 20:30.
+		</prompt>
+	<elseif cond="tipo_informacion == 'contacto'"/>
+		<prompt>
+			Para contactar con la biblioteca de Bellas Artes puedes llamar al 9 5 8 2 4 2 9 6 8 o mandar un correo a mbolivar@ugr.es .
+		</prompt>
+	<elseif cond="tipo_informacion == 'lugar' || tipo_informacion == 'donde se encuentra'"/>
+		<prompt>
+			La biblioteca de Bellas Artes se encuentra en la planta -1 de la facultad, su acceso se encuentra por el pasillo de la izquierda entrando desde la puerta principal.
+		</prompt>
+	</if>
+</catch>
+
+
+
+
 <form id="bibliotecasMenu">
 	<field name="biblioteca">
 		<prompt>
@@ -26,6 +81,14 @@
 
 
 	<filled mode="all">
+		<assign name="tipo_informacion" expr="informacion"/>
+		<if cond="biblioteca == 'ciencias'">
+			<throw event="event.preguntaCiencias"/>
+		<elseif cond="biblioteca == 'ETSIIT'"/>
+			<throw event="event.preguntaETSIIT"/>
+		<elseif cond="biblioteca == 'bellas artes'"/>
+			<throw event="event.preguntaBellas"/>
+		</if>
 		<goto next="#preguntarMasBiblio"/>
 	</filled>
 </form>
