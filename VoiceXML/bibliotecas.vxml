@@ -6,7 +6,6 @@
 <var name="tipo_informacion"/>
 
 <form id="bibliotecasMenu">
-	<grammar src="bibliotecas.jsgf"/>
 	<field name="biblioteca">
 		<prompt>
 			De que biblioteca necesitas informacion?
@@ -14,6 +13,7 @@
 		<catch event="nomatch noinput">
 			Te puedo dar información sobre la biblioteca de la ETSIIT, Ciencias, o Bellas Artes.
       </catch>
+		<grammar src="bibliotecas.jsgf"/>
 	</field>
 
 	<field name="informacion">
@@ -29,12 +29,10 @@
 
 	<filled mode="all">
 		<assign name="tipo_informacion" expr="informacion"/>
-		<block>
-			<prompt>
-				Hago la asignacion bien, has pedido <value expr="tipo_informacion"/>
-			</prompt>
-		</block>
-
+		<prompt>
+			Hago la asignacion bien, has pedido <value expr="tipo_informacion"/>
+			De la biblioteca <value expr="biblioteca"/>
+		</prompt>
 		<if cond="biblioteca == 'ETSIIT'">
 			<goto next="#preguntaETSIIT"/>
 		<elseif cond="biblioteca == 'ciencias'"/>
@@ -42,7 +40,6 @@
 		<elseif cond="biblioteca == 'bellas artes'"/>
 			<goto next="#preguntaBellas"/>
 		</if>
-
 	</filled>
 </form>
 

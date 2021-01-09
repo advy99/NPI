@@ -1,8 +1,8 @@
 #JSGF V1.0;
 
-grammar info_bibliotecas;
+grammar biblio;
 
-public <info_bibliotecas> =
+public <biblio> =
 			[<deseo>]
 			[<info>]
 			[<biblio> {this.biblioteca=$biblio}];
