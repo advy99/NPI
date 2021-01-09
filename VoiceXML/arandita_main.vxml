@@ -43,6 +43,7 @@
 		<prompt bargein="false">
 			Hasta luego! Un placer ayudarte
 		</prompt>
+		<disconnect/>
 	</block>
 </form>
 
