@@ -1,6 +1,6 @@
 <vxml version="2.1" xml:lang="es-ES">
 
-<var name="centroProporcionado" expr="'Ninguno'"/>
+<var name="centroProporcionado"/>
 
 
 <link next="\MainMenu">
