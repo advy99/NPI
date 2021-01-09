@@ -28,7 +28,7 @@
 		<choice next="comedores.vxml">
 			Comedores
 		</choice>
-		<choice next="centros.xml">
+		<choice next="centros.vxml">
 			Centros
 		</choice>
 		<choice next="#quieroSalir">
