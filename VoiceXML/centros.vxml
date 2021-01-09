@@ -121,14 +121,14 @@
 		<grammar>si|no</grammar>
 		<help>No te he entendido, responde si o no.</help>
 
-		<filled>
-			<if cond="repetir == 'si'">
-				<goto next="#centrosMenu"/>
-			<else/>
-				<goto next="arandita.vxml#EscogerSeccion"/>
-			</if>
-		</filled>
 	</field>
+	<filled>
+		<if cond="repetir == 'si'">
+			<goto next="#centrosMenu"/>
+		<else/>
+			<goto next="arandita.vxml#EscogerSeccion"/>
+		</if>
+	</filled>
 </form>
 
 </vxml>
