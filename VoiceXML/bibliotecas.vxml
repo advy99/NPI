@@ -6,7 +6,7 @@
 <var name="tipo_informacion"/>
 
 <form id="bibliotecasMenu">
-	<grammar src="bibliotecas.jsfg"/>
+	<grammar src="bibliotecas.jsgf"/>
 	<initial>
 		<prompt>
 			De que biblioteca necesitas informacion?
