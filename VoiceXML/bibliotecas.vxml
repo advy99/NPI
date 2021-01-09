@@ -11,9 +11,8 @@
 		<prompt>
 			De que biblioteca necesitas informacion?
 		</prompt>
-		<help>Te puedo dar información sobre la biblioteca de la ETSIIT, Ciencias, o Bellas Artes.</help>
 		<catch event="nomatch noinput">
-      	Si necesitas ayuda, solo tienes que pedirla.
+			Te puedo dar información sobre la biblioteca de la ETSIIT, Ciencias, o Bellas Artes.
       </catch>
 	</field>
 
@@ -22,12 +21,19 @@
 			Que tipo de información necesitas?
 		</prompt>
 		<grammar src="info_bibliotecas.jsgf"/>
-		<help>Puedes preguntarme por información sobre su horario, su contacto, o donde se encuentra.</help>
+		<catch event="nomatch noinput">
+			Puedes preguntarme por información sobre su horario, su contacto, o donde se encuentra.
+      </catch>
 	</field>
 
 
 	<filled mode="all">
 		<assign name="tipo_informacion" expr="informacion"/>
+		<block>
+			<prompt>
+				Hago la asignacion bien, has pedido <value expr="tipo_informacion"/>
+			</prompt>
+		</block>
 
 		<if cond="biblioteca == 'ETSIIT'">
 			<goto next="#preguntaETSIIT"/>
