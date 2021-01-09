@@ -19,6 +19,7 @@
 			La biblioteca de Ciencias se encuentra en la planta baja del edificio principal del campus de Fuentenueva, a la derecha tras entrar por la puerta principal y a la izquierda de la seccion de Fisica.
 		</prompt>
 	</if>
+	<goto next="#preguntarMasBiblio"/>
 </catch>
 
 <catch event="event.preguntaETSIIT">
@@ -35,6 +36,7 @@
 			La biblioteca de la ETSIIT se encuentra en la primera planta del edificio principal de la Escuela.
 		</prompt>
 	</if>
+	<goto next="#preguntarMasBiblio"/>
 </catch>
 
 
@@ -53,6 +55,7 @@
 			La biblioteca de Bellas Artes se encuentra en la planta -1 de la facultad, su acceso se encuentra por el pasillo de la izquierda entrando desde la puerta principal.
 		</prompt>
 	</if>
+	<goto next="#preguntarMasBiblio"/>
 </catch>
 
 
@@ -89,7 +92,6 @@
 		<elseif cond="biblioteca == 'bellas artes'"/>
 			<throw event="event.preguntaBellas"/>
 		</if>
-		<goto next="#preguntarMasBiblio"/>
 	</filled>
 </form>
 
