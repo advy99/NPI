@@ -7,12 +7,15 @@
 
 <form id="bibliotecasMenu">
 	<grammar src="bibliotecas.jsgf"/>
-	<initial>
+	<field name="biblioteca">
 		<prompt>
 			De que biblioteca necesitas informacion?
 		</prompt>
 		<help>Te puedo dar información sobre la biblioteca de la ETSIIT, Ciencias, o Bellas Artes.</help>
-	</initial>
+		<catch event="nomatch noinput">
+      	Si necesitas ayuda, solo tienes que pedirla.
+      </catch>
+	</field>
 
 	<field name="informacion">
 		<prompt>
