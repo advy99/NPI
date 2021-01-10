@@ -102,7 +102,7 @@
 
 		<filled>
 			<if cond="!confirmacion_biblio">
-				<clear namelist="biblioteca"/>
+				<clear namelist="biblioteca confirmacion_biblio"/>
 			</if>
 		</filled>
 
@@ -129,7 +129,7 @@
 
 		<filled>
 			<if cond="!confirmacion_info">
-				<clear namelist="informacion"/>
+				<clear namelist="informacion confirmacion_info"/>
 			</if>
 		</filled>
 
