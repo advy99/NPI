@@ -2,4 +2,4 @@
 
 grammar centros;
 
-public <centros>= escuela de informatica | facultad de educacion | facultad de ciencias ;
+public <centros>= escuela de informatica | facultad de bellas artes | facultad de ciencias ;
