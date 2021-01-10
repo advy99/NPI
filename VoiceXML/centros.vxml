@@ -16,7 +16,7 @@
 		</prompt>
 	<elseif cond="tipo_informacion == 'telefono'"/>
 		<prompt>
-			El telefono de la ETSIIT es 958 24 28 02
+			El telefono de la ETSIIT es 9 5 8 2 4 2 8 0 2
 		</prompt>
 	<elseif cond="tipo_informacion == 'delegacion'"/>
 		<prompt>
@@ -38,7 +38,7 @@
 		</prompt>
 	<elseif cond="tipo_informacion == 'telefono'"/>
 		<prompt>
-			El telefono de la Facultad de ciencias es 958 24 33 80
+			El telefono de la Facultad de ciencias es 9 5 8 2 4 3 3 8 0
 		</prompt>
 	<elseif cond="tipo_informacion == 'delegacion'"/>
 		<prompt>
@@ -60,7 +60,7 @@
 		</prompt>
 	<elseif cond="tipo_informacion == 'telefono'"/>
 		<prompt>
-			El telefono de la Facultad de bellas artes 958 24 38 19
+			El telefono de la Facultad de bellas artes 9 5 8 2 4 3 8 1 9
 		</prompt>
 	<elseif cond="tipo_informacion == 'delegacion'"/>
 		<prompt>
@@ -83,6 +83,22 @@
 		<grammar src="centros.jsgf"/>
 	</field>
 
+	<field name="confirmacion_centro" type="boolean" cond="0.6 > centro$.confidence">
+		<prompt bargein="false">
+			Perdona, no te he entendido, me has preguntado por la  <value expr="centro"/>?
+		</prompt>
+		<catch event ="nomatch noinput">
+			No te he entendido, responde si o no.
+		</catch>
+
+		<filled>
+			<if cond="!confirmacion_centro">
+				<clear namelist="centro"/>
+			</if>
+		</filled>
+
+	</field>
+
 	<field name="informacion">
 		<prompt>
 			Que necesitas saber?
@@ -91,7 +107,24 @@
 			Puedes preguntarme sobre su dirección, su telefono y su delegación de centro
 		</catch>
 		<grammar src="info_centros.jsgf"/>
+		</field>
+
+	<field name="confirmacion_info" type="boolean" cond="0.6 > informacion$.confidence">
+		<prompt bargein="false">
+				Perdona, no te he entendido, me has preguntado sobre la <value expr="informacion"/> de la <value expr="centro"/>?
+		</prompt>
+		<catch event ="nomatch noinput">
+			No te he entendido, responde si o no.
+		</catch>
+
+		<filled>
+			<if cond="!confirmacion_info">
+				<clear namelist="centro"/>
+			</if>
+		</filled>
+
 	</field>
+
 
 	<filled mode="all">
 		<assign name="tipo_informacion" expr="informacion"/>
@@ -101,8 +134,6 @@
 			<throw event="event.ciencias"/>
 		<elseif cond="centro == 'facultad de bellas artes'"/>
 			<throw event="event.bellas"/>
-		<else/>
-			<goto next="#preguntarOtraCosa"/>
 		</if>
 
 	</filled>
