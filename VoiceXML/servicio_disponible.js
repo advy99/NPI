@@ -5,7 +5,7 @@ function mensajeDisponible(servicio) {
 	var fecha = new Date();
 
 	var mes = fecha.getMonth();
-	var dia = getDay();
+	var dia = fecha.getDate();
 
 	if ( (mes == 0 && dia < 8) || (mes == 11 && dia > 22) ) {
 		mensaje = servicio + ' no se encuentra disponible debido a las vacaciones de Navidad.';
