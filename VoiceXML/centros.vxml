@@ -78,7 +78,8 @@
 			De que centro necesitas informacion?
 		</prompt>
 		<catch event="nomatch noinput">
-			Escuela de informatica, Facultad de ciencias, Facultad de Bellas Artes
+			Puedo proporcionarte información de la escuela de informatica, la facultad de ciencias y la facultad de Bellas Artes
+			<reprompt/>
 		</catch>
 		<grammar src="centros.jsgf"/>
 	</field>
@@ -93,7 +94,7 @@
 
 		<filled>
 			<if cond="!confirmacion_centro">
-				<clear namelist="centro"/>
+				<clear namelist="centro confirmacion_centro"/>
 			</if>
 		</filled>
 
@@ -105,6 +106,7 @@
 		</prompt>
 		<catch event="nomatch noinput">
 			Puedes preguntarme sobre su dirección, su telefono y su delegación de centro
+			<reprompt/>
 		</catch>
 		<grammar src="info_centros.jsgf"/>
 		</field>
@@ -119,15 +121,16 @@
 
 		<filled>
 			<if cond="!confirmacion_info">
-				<clear namelist="centro"/>
+				<clear namelist="informacion confirmacion_info"/>
 			</if>
 		</filled>
 
 	</field>
 
 
-	<filled mode="all">
+	<filled mode="all" namelist="centro informacion">
 		<assign name="tipo_informacion" expr="informacion"/>
+		<clear namelist="confirmacion_centro confirmacion_info"/>
 		<if cond="centro == 'escuela de informatica'">
 			<throw event="event.etsiit"/>
 		<elseif cond="centro == 'facultad de ciencias'"/>
@@ -135,7 +138,6 @@
 		<elseif cond="centro == 'facultad de bellas artes'"/>
 			<throw event="event.bellas"/>
 		</if>
-
 	</filled>
 </form>
 
