@@ -28,7 +28,7 @@
 		<choice next="comedores.vxml">
 			Comedores
 		</choice>
-		<choice next="centros.xml">
+		<choice next="centros.vxml">
 			Centros
 		</choice>
 		<choice next="#quieroSalir">
@@ -43,6 +43,7 @@
 		<prompt bargein="false">
 			Hasta luego! Un placer ayudarte
 		</prompt>
+		<disconnect/>
 	</block>
 </form>
 

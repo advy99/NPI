@@ -2,6 +2,15 @@
 
 grammar info_bibliotecas;
 
-public <info_bibliotecas> = horario | contacto | donde se encuentra | lugar;
+public <info_bibliotecas> =
+			[<deseo>]
+			[<info>]
+			[<tema> {this.informacion=$tema}];
+
+<deseo> = quiero | me gustaria | [yo] necesito | [yo] queria;
+
+<info> = informacion [sobre [su] | de [su] ];
+
+<tema> = horario | contacto | donde se encuentra;
 
 
