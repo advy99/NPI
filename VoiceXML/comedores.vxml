@@ -115,17 +115,17 @@
 	<field name="centroProporcionado">
 		<prompt>
 			No se a que centro de la UGR perteneces. Dimelo para que te pueda dar la localización de su comedor.
-			<help> Escuela de informatica, Facultad de ciencias, Facultad de Bellas Artes</help>
+			<help> Escuela de informatica, Facultad de ciencias, Facultad de educacion</help>
 		</prompt>
 		<grammar src="centros.jsgf"/>
 	</field>
 	<filled mode="all">
 		<if cond="centroProporcionado == 'escuela de informatica'">
 			<goto next="#localizacionComedoresETSIIT"/>
-		<elif cond="centroProporcionado == 'facultad de educacion'"/>
+		<elif cond="centroProporcionado == 'facultad de ciencias'"/>
 			<goto next="#localizacionComedoresCiencias"/>
 		<elif cond="centroProporcionado == 'facultad de educacion'"/>
-			<goto next="#localizacionComedoresBellas"/>
+			<goto next="#localizacionComedoresEducacion"/>
 		</if>
 	</filled>
 </form>
@@ -146,9 +146,9 @@
 	</block>
 </form>
 
-<form id="localizacionComedoresBellas">
+<form id="localizacionComedoresEducacion">
 	<block>
-		<prompt bargein="false"> La facultad de Bellas Artes dispone de una cafetería, pero no de servicio de comedores. Los comedores más cercanos son los de la escuela de informática. La dirección es: Calle Periodista Daniel Saucedo Aranda, sin número, 18 0 71 </prompt>
+		<prompt bargein="false"> Los comedores de la facultad de educación son los correspondientes al campus de Cartuja. La dirección es: Calle Profesor Vicente Callao, número 7, 18 0 11 </prompt>
 		<goto next="#preguntarMasComedores"/>
 	</block>
 </form>
