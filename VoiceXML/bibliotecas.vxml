@@ -3,13 +3,20 @@
 <link next="\bibliotecasMenu">
 </link>
 
-<val name="tipo_informacion"/>
+<script src="servicio_disponible.js" />
+
+<var name="tipo_informacion"/>
 
 <catch event="event.preguntaCiencias">
 	<if cond="tipo_informacion == 'horario'">
-		<prompt>
-			El horario de la biblioteca de Ciencias es de 8:30 a 20:30.
-		</prompt>
+		<var name="mensaje_vacaciones" expr="mensajeDisponible('La biblioteca de Ciencias');" />
+		<if cond="mensaje_vacaciones == ''">
+			<prompt>
+				El horario de la biblioteca de Ciencias es de 8:30 a 20:30.
+			</prompt>
+		<else/>
+			<prompt> <value expr="mensaje_vacaciones"/> </prompt>
+		</if>
 	<elseif cond="tipo_informacion == 'contacto'"/>
 		<prompt>
 			Para contactar con la biblioteca de Ciencias puedes llamar al 9 5 8 2 4 9 0 6 4 o mandar un correo a bibgesciencias@ugr.es .
@@ -24,9 +31,14 @@
 
 <catch event="event.preguntaETSIIT">
 	<if cond="tipo_informacion == 'horario'">
-		<prompt>
-			El horario de la biblioteca de la ETSIIT es de 8:00 a 20:00.
-		</prompt>
+		<var name="mensaje_vacaciones" expr="mensajeDisponible('La biblioteca de la ETSIIT');"/>
+		<if cond="mensaje_vacaciones == ''">
+			<prompt>
+				El horario de la biblioteca de la ETSIIT es de 8:00 a 20:00.
+			</prompt>
+		<else/>
+			<prompt> <value expr="mensaje_vacaciones"/> </prompt>
+		</if>
 	<elseif cond="tipo_informacion == 'contacto'"/>
 		<prompt>
 			Para contactar con la biblioteca de la ETSIIT puedes llamar al 9 5 8 2 4 0 5 9 1 o mandar un correo a bibcirinformatica@ugr.es .
@@ -43,9 +55,14 @@
 
 <catch event="event.preguntaBellas">
 	<if cond="tipo_informacion == 'horario'">
-		<prompt>
-			El horario de la biblioteca de Bellas Artes es de 8:30 a 20:30.
-		</prompt>
+		<var name="mensaje_vacaciones" expr="mensajeDisponible('La biblioteca de Bellas Artes');"/>
+		<if cond="mensaje_vacaciones == ''">
+			<prompt>
+				El horario de la biblioteca de Bellas Artes es de 8:30 a 20:30.
+			</prompt>
+		<else/>
+			<prompt> <value expr="mensaje_vacaciones"/> </prompt>
+		</if>
 	<elseif cond="tipo_informacion == 'contacto'"/>
 		<prompt>
 			Para contactar con la biblioteca de Bellas Artes puedes llamar al 9 5 8 2 4 2 9 6 8 o mandar un correo a mbolivar@ugr.es .
@@ -84,7 +101,7 @@
 
 		<filled>
 			<if cond="!confirmacion_biblio">
-				<clear namelist="biblioteca"/>
+				<clear namelist="biblioteca confirmacion_biblio"/>
 			</if>
 		</filled>
 
@@ -111,7 +128,7 @@
 
 		<filled>
 			<if cond="!confirmacion_info">
-				<clear namelist="informacion"/>
+				<clear namelist="informacion confirmacion_info"/>
 			</if>
 		</filled>
 
