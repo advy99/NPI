@@ -68,22 +68,57 @@
 		</prompt>
 		<catch event="nomatch noinput">
 			Te puedo dar información sobre la biblioteca de la ETSIIT, Ciencias, o Bellas Artes.
+			<reprompt/>
       </catch>
 		<grammar src="bibliotecas.jsgf"/>
+
+	</field>
+
+	<field name="confirmacion_biblio" type="boolean" cond="0.6 > biblioteca$.confidence">
+		<prompt bargein="false">
+			Perdona, no te he entendido bien, me has preguntado por la biblioteca de <value expr="biblioteca"/>?
+		</prompt>
+		<catch event="nomatch noinput">
+			No te he entendido, responde si o no.
+		</catch>
+
+		<filled>
+			<if cond="!confirmacion_biblio">
+				<clear namelist="biblioteca"/>
+			</if>
+		</filled>
+
 	</field>
 
 	<field name="informacion">
 		<prompt>
-			Que tipo de información necesitas?
+			Que tipo de información necesitas sobre la biblioteca de <value expr="biblioteca"/>?
 		</prompt>
 		<grammar src="info_bibliotecas.jsgf"/>
 		<catch event="nomatch noinput">
 			Puedes preguntarme por información sobre su horario, su contacto, o donde se encuentra.
+			<reprompt/>
       </catch>
 	</field>
 
+	<field name="confirmacion_info" type="boolean" cond="0.6 > informacion$.confidence">
+		<prompt bargein="false">
+			Perdona, no te he entendido bien, me has preguntado por sobre el <value expr="informacion"/> de la biblioteca?
+		</prompt>
+		<catch event="nomatch noinput">
+			No te he entendido, responde si o no.
+		</catch>
 
-	<filled mode="all">
+		<filled>
+			<if cond="!confirmacion_info">
+				<clear namelist="informacion"/>
+			</if>
+		</filled>
+
+	</field>
+
+
+	<filled mode="all" namelist="biblioteca informacion">
 		<assign name="tipo_informacion" expr="informacion"/>
 		<if cond="biblioteca == 'ciencias'">
 			<throw event="event.preguntaCiencias"/>
