@@ -2,4 +2,4 @@
 
 grammar info_comedores;
 
-public <info_comedores>= horario | contacto | menus | precio | localizacion | donde se encuentra;
+public <info_comedores>= horario | contacto | telefono | menus | precio | localizacion | donde se encuentra;

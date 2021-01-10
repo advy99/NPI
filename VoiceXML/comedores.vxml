@@ -8,12 +8,31 @@
 			Que te gustaría saber del servicio de comedores de la UGR?
 		</prompt>
 		<grammar src="comedores.jsgf"/>
-		<help>Te puedo dar información sobre el horario, contacto, los tipos de menús, el precio y su localización</help>
+		<catch event="nomatch noinput">
+      	Te puedo dar información sobre el horario, contacto, los tipos de menús, el precio y su localización
+		<reprompt/>
+		</catch>
 	</field>
-	<filled mode="any">
+
+	<field name="confirmacion_comedores" type="boolean" cond="0.75 > informacion$.confidence">
+		<prompt bargein="false">
+			Perdona, no te he entendido bien, me has preguntado por <value expr="informacion"/>?
+		</prompt>
+		<catch event="nomatch noinput">
+			No te he entendido, responde si o no.
+		</catch>
+
+		<filled>
+			<if cond="!confirmacion_comedores">
+				<clear namelist="informacion confirmacion_comedores"/>
+			</if>
+		</filled>
+	</field>
+
+	<filled mode="all" namelist="informacion">
 		<if cond="informacion == 'horario'">
 			<goto next="#preguntaHorario"/>
-		<elseif cond="informacion == 'contacto'"/>
+		<elseif cond="informacion == 'contacto' || informacion == 'telefono'"/>
 			<goto next="#preguntaContacto"/>
 		<elseif cond="informacion == 'menus'"/>
 			<goto next="#preguntaMenus"/>
@@ -55,9 +74,28 @@
 			Que menú de los comedores le gustaría saber?
 		</prompt>
 		<grammar src="menus.jsgf"/>
-		<help>Disponemos de los siguientes menús. Estándar de comida, estándar de cena, celiaco, vegano y vegetariano. </help>
+		<catch event="nomatch noinput">
+		Disponemos de los siguientes menús. Estándar de comida, estándar de cena, celiaco, vegano y vegetariano.
+		<reprompt/> 
+		</catch>
 	</field>
-	<filled mode="any">
+
+	<field name="confirmacion_menus" type="boolean" cond="0.75 > tipo_menu$.confidence">
+		<prompt bargein="false">
+			Perdona, no te he entendido bien, me has preguntado por el menú <value expr="tipo_menu"/>?
+		</prompt>
+		<catch event="nomatch noinput">
+			No te he entendido, responde si o no.
+		</catch>
+
+		<filled>
+			<if cond="!confirmacion_menus">
+				<clear namelist="tipo_menu confirmacion_menus"/>
+			</if>
+		</filled>
+	</field>
+
+	<filled mode="all" namelist="tipo_menu">
 		<if cond="tipo_menu == 'estandar de comida' || tipo_menu == 'comida' || tipo_menu == 'comer'">
 			<goto next="#menuEstandar"/>
 		<elseif cond="tipo_menu == 'estandar de cena' || tipo_menu == 'cena' || tipo_menu == 'cenar'"/>
@@ -115,17 +153,36 @@
 	<field name="centroProporcionado">
 		<prompt>
 			No se a que centro de la UGR perteneces. Dimelo para que te pueda dar la localización de su comedor.
-			<help> Escuela de informatica, Facultad de ciencias, Facultad de educacion</help>
 		</prompt>
 		<grammar src="centros.jsgf"/>
+		<catch event="nomatch noinput">
+      		Responda Escuela de informatica, Facultad de ciencias o Facultad de bellas artes.
+			<reprompt/> 
+		</catch>
 	</field>
-	<filled mode="all">
+
+	<field name="confirmacion_localizacion" type="boolean" cond="0.75 > centroProporcionado$.confidence">
+		<prompt bargein="false">
+			Perdona, no te he entendido bien, me has preguntado por la <value expr="centroProporcionado"/>?
+		</prompt>
+		<catch event="nomatch noinput">
+			No te he entendido, responde si o no.
+		</catch>
+
+		<filled>
+			<if cond="!confirmacion_localizacion">
+				<clear namelist="centroProporcionado confirmacion_localizacion"/>
+			</if>
+		</filled>
+	</field>
+
+	<filled mode="all" namelist="centroProporcionado">
 		<if cond="centroProporcionado == 'escuela de informatica'">
 			<goto next="#localizacionComedoresETSIIT"/>
 		<elif cond="centroProporcionado == 'facultad de ciencias'"/>
 			<goto next="#localizacionComedoresCiencias"/>
-		<elif cond="centroProporcionado == 'facultad de educacion'"/>
-			<goto next="#localizacionComedoresEducacion"/>
+		<elif cond="centroProporcionado == 'facultad de bellas artes'"/>
+			<goto next="#localizacionComedoresBellas"/>
 		</if>
 	</filled>
 </form>
@@ -146,9 +203,9 @@
 	</block>
 </form>
 
-<form id="localizacionComedoresEducacion">
+<form id="localizacionComedoresBellas">
 	<block>
-		<prompt bargein="false"> Los comedores de la facultad de educación son los correspondientes al campus de Cartuja. La dirección es: Calle Profesor Vicente Callao, número 7, 18 0 11 </prompt>
+		<prompt bargein="false"> La facultad de Bellas Artes no dispone de comedores universitarios, en su lugar puede ir al de la escuela de informática, que es el más cercano. La dirección es: Calle Periodista Daniel Saucedo Aranda, sin número, 18 0 71 </prompt>
 		<goto next="#preguntarMasComedores"/>
 	</block>
 </form>
@@ -160,9 +217,11 @@
 			Necesitas mas informacion sobre los comedores?
 		</prompt>
 		<grammar src="yesno.jsgf"/>
-		<help>No te he entendido, responde si o no.</help>
+		<catch event="nomatch noinput">
+		No te he entendido, responde si o no.
+      	</catch>
 	</field>
-	<filled mode="any">
+	<filled mode="all">
 		<if cond="repetir == 'si'">
 			<goto next="#comedoresMenu"/>
 		<elseif cond="repetir == 'no'"/>
