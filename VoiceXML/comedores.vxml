@@ -14,7 +14,7 @@
 		</catch>
 	</field>
 
-	<field name="confirmacion_comedores" type="boolean" cond="0.75 > informacion$.confidence">
+	<field name="confirmacion_comedores" type="boolean" cond="0.6 > informacion$.confidence">
 		<prompt bargein="false">
 			Perdona, no te he entendido bien, me has preguntado por <value expr="informacion"/>?
 		</prompt>
@@ -24,7 +24,7 @@
 
 		<filled>
 			<if cond="!confirmacion_comedores">
-				<clear namelist="informacion confirmacion_comedores"/>
+				<clear namelist="informacion"/>
 			</if>
 		</filled>
 	</field>
@@ -80,7 +80,7 @@
 		</catch>
 	</field>
 
-	<field name="confirmacion_menus" type="boolean" cond="0.75 > tipo_menu$.confidence">
+	<field name="confirmacion_menus" type="boolean" cond="0.6 > tipo_menu$.confidence">
 		<prompt bargein="false">
 			Perdona, no te he entendido bien, me has preguntado por el menú <value expr="tipo_menu"/>?
 		</prompt>
@@ -90,7 +90,7 @@
 
 		<filled>
 			<if cond="!confirmacion_menus">
-				<clear namelist="tipo_menu confirmacion_menus"/>
+				<clear namelist="tipo_menu"/>
 			</if>
 		</filled>
 	</field>
@@ -161,7 +161,7 @@
 		</catch>
 	</field>
 
-	<field name="confirmacion_localizacion" type="boolean" cond="0.75 > centroProporcionado$.confidence">
+	<field name="confirmacion_localizacion" type="boolean" cond="0.6 > centroProporcionado$.confidence">
 		<prompt bargein="false">
 			Perdona, no te he entendido bien, me has preguntado por la <value expr="centroProporcionado"/>?
 		</prompt>
@@ -171,7 +171,7 @@
 
 		<filled>
 			<if cond="!confirmacion_localizacion">
-				<clear namelist="centroProporcionado confirmacion_localizacion"/>
+				<clear namelist="centroProporcionado"/>
 			</if>
 		</filled>
 	</field>
