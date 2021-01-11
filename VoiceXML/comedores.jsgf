@@ -1,5 +1,14 @@
 #JSGF V1.0;
 
-grammar info_comedores;
+grammar comedores;
 
-public <info_comedores>= horario | contacto | telefono | menus | precio | localizacion | donde se encuentra;
+public <comedores> =
+			[<deseo>]
+			[<info>]
+			<asunto> {this.informacion=$asunto};
+
+<deseo> = quiero | me gustaria | [yo] necesito | [yo] queria;
+
+<info> = informacion [sobre | de];
+
+<asunto> = horario | contacto | telefono | menus | precio | localizacion | donde se encuentra;
