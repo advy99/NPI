@@ -5,16 +5,16 @@
 <form id="comedoresMenu">
 	<field name="informacion">
 		<prompt>
-			Que te gustaría saber del servicio de comedores de la UGR?
+			Que te gustaria saber del servicio de comedores de la UGR?
 		</prompt>
-		<grammar src="comedores.jsgf"/>
 		<catch event="nomatch noinput">
-      	Te puedo dar información sobre el horario, contacto, los tipos de menús, el precio y su localización
-		<reprompt/>
+          	Te puedo dar informacion sobre el horario, contacto, los tipos de menus, el precio y su localizacion
+		    <reprompt/>
 		</catch>
+		<grammar src="comedores.jsgf"/>
 	</field>
 
-	<field name="confirmacion_comedores" type="boolean" cond="0.75 > informacion$.confidence">
+	<field name="confirmacion_comedores" type="boolean" cond="0.8 > informacion$.confidence">
 		<prompt bargein="false">
 			Perdona, no te he entendido bien, me has preguntado por <value expr="informacion"/>?
 		</prompt>
@@ -47,7 +47,7 @@
 
 <form id="preguntaHorario">
 	<block>
-		<prompt bargein="false"> Los comedores universitarios de la UGR están disponibles de Lunes a Viernes de una a tres y media de la tarde </prompt>
+		<prompt bargein="false"> Los comedores universitarios de la UGR estan disponibles de Lunes a Viernes de una a tres y media de la tarde </prompt>
 		<goto next="#preguntarMasComedores"/>
 	</block>
 </form>
@@ -55,14 +55,14 @@
 
 <form id="preguntaContacto">
 	<block>
-		<prompt bargein="false"> Puedes llamar a la administración de los comedores universitarios mediante los siguientes teléfonos. 958 24 41 17 o 958 24 41 18 </prompt>
+		<prompt bargein="false"> Puedes llamar a la administracion de los comedores universitarios mediante los siguientes telefonos. 958 24 41 17 o 958 24 41 18 </prompt>
 		<goto next="#preguntarMasComedores"/>
 	</block>
 </form>
 
 <form id="preguntaPrecio">
 	<block>
-		<prompt bargein="false"> El precio de los comedores universitarios es 3 con 5 euros, o 4 euros en el caso de querer el menú para llevar </prompt>
+		<prompt bargein="false"> El precio de los comedores universitarios es 3 con 5 euros, o 4 euros en el caso de querer el menu para llevar </prompt>
 		<goto next="#preguntarMasComedores"/>
 	</block>
 </form>
@@ -71,18 +71,18 @@
 <form id="preguntaMenus">
 	<field name="tipo_menu">
 		<prompt>
-			Que menú de los comedores le gustaría saber?
+			Que menu de los comedores le gustaria saber?
 		</prompt>
 		<grammar src="menus.jsgf"/>
 		<catch event="nomatch noinput">
-		Disponemos de los siguientes menús. Estándar de comida, estándar de cena, celiaco, vegano y vegetariano.
+		Disponemos de los siguientes menus. Estandar de comida, estandar de cena, celiaco, vegano y vegetariano.
 		<reprompt/> 
 		</catch>
 	</field>
 
-	<field name="confirmacion_menus" type="boolean" cond="0.75 > tipo_menu$.confidence">
+	<field name="confirmacion_menus" type="boolean" cond="0.8 > tipo_menu$.confidence">
 		<prompt bargein="false">
-			Perdona, no te he entendido bien, me has preguntado por el menú <value expr="tipo_menu"/>?
+			Perdona, no te he entendido bien, me has preguntado por el menu <value expr="tipo_menu"/>?
 		</prompt>
 		<catch event="nomatch noinput">
 			No te he entendido, responde si o no.
@@ -90,7 +90,7 @@
 
 		<filled>
 			<if cond="!confirmacion_menus">
-				<clear namelist="tipo_menu confirmacion_menus"/>
+				<clear namelist="tipo_menu confirmacion_menu"/>
 			</if>
 		</filled>
 	</field>
@@ -112,7 +112,7 @@
 
 <form id="menuEstandar">
 	<block>
-		<prompt bargein="false"> El menú para comer de hoy es el siguiente. De primero espaguetis a la napolitana. De segundo aguja encebollada con menestra. De postre un melocotón. </prompt>
+		<prompt bargein="false"> El menu para comer de hoy es el siguiente. De primero espaguetis a la napolitana. De segundo aguja encebollada con menestra. De postre un melocoton. </prompt>
 		<goto next="#preguntarMasComedores"/>
 	</block>
 </form>
@@ -120,21 +120,21 @@
 
 <form id="menuCena">
 	<block>
-		<prompt bargein="false"> El menú para cenar de hoy es el siguiente. De primero ensalada de arroz con salmón ahumado, pepino y vinagreta de soja y sésamo. De segundo jamón en salsa cazadora con judías, zanahorias y patatas. De postre unas natillas. </prompt>
+		<prompt bargein="false"> El menu para cenar de hoy es el siguiente. De primero ensalada de arroz con salmon ahumado, pepino y vinagreta de soja y sesamo. De segundo jamon en salsa cazadora con judias, zanahorias y patatas. De postre unas natillas. </prompt>
 		<goto next="#preguntarMasComedores"/>
 	</block>
 </form>
 
 <form id="menuVegetariano">
 	<block>
-		<prompt bargein="false"> El menú vegetariano de hoy es el siguiente. De primero estofado de patatas y acelgas. De segundo rollitos de primavera con ensalada. De postre una naranja. </prompt>
+		<prompt bargein="false"> El menu vegetariano de hoy es el siguiente. De primero estofado de patatas y acelgas. De segundo rollitos de primavera con ensalada. De postre una naranja. </prompt>
 		<goto next="#preguntarMasComedores"/>
 	</block>
 </form>
 
 <form id="menuVegano">
 	<block>
-		<prompt bargein="false"> El menú vegano de hoy es el siguiente. De primero arroz con variado de verduras. De segundo salteado de tofu, calabaza y guisantes con ensalada Richelieu. De postre una pera. </prompt>
+		<prompt bargein="false"> El menu vegano de hoy es el siguiente. De primero arroz con variado de verduras. De segundo salteado de tofu, calabaza y guisantes con ensalada Richelieu. De postre una pera. </prompt>
 		<goto next="#preguntarMasComedores"/>
 	</block>
 </form>
@@ -142,7 +142,7 @@
 
 <form id="menuCeliaco">
 	<block>
-		<prompt bargein="false"> El menú celiaco de hoy es el siguiente. De primero arroz a la cubana. De segundo salteado de ternera con patatas rellenas. De postre un cóctel de frutas. </prompt>
+		<prompt bargein="false"> El menu celiaco de hoy es el siguiente. De primero arroz a la cubana. De segundo salteado de ternera con patatas rellenas. De postre un coctel de frutas. </prompt>
 		<goto next="#preguntarMasComedores"/>
 	</block>
 </form>
@@ -152,7 +152,7 @@
 <form id="preguntaLocalizacion">
 	<field name="centroProporcionado">
 		<prompt>
-			No se a que centro de la UGR perteneces. Dimelo para que te pueda dar la localización de su comedor.
+			No se a que centro de la UGR perteneces. Dimelo para que te pueda dar la localizacion de su comedor.
 		</prompt>
 		<grammar src="centros.jsgf"/>
 		<catch event="nomatch noinput">
@@ -161,7 +161,7 @@
 		</catch>
 	</field>
 
-	<field name="confirmacion_localizacion" type="boolean" cond="0.75 > centroProporcionado$.confidence">
+	<field name="confirmacion_localizacion" type="boolean" cond="0.8 > centroProporcionado$.confidence">
 		<prompt bargein="false">
 			Perdona, no te he entendido bien, me has preguntado por la <value expr="centroProporcionado"/>?
 		</prompt>
@@ -179,9 +179,9 @@
 	<filled mode="all" namelist="centroProporcionado">
 		<if cond="centroProporcionado == 'escuela de informatica'">
 			<goto next="#localizacionComedoresETSIIT"/>
-		<elif cond="centroProporcionado == 'facultad de ciencias'"/>
+		<elseif cond="centroProporcionado == 'facultad de ciencias'"/>
 			<goto next="#localizacionComedoresCiencias"/>
-		<elif cond="centroProporcionado == 'facultad de bellas artes'"/>
+		<elseif cond="centroProporcionado == 'facultad de bellas artes'"/>
 			<goto next="#localizacionComedoresBellas"/>
 		</if>
 	</filled>
@@ -190,7 +190,7 @@
 
 <form id="localizacionComedoresETSIIT">
 	<block>
-		<prompt bargein="false"> Los comedores de la escuela de informática se encuentran en la propia escuela. La dirección es: Calle Periodista Daniel Saucedo Aranda, sin número, 18 0 71 </prompt>
+		<prompt bargein="false"> Los comedores de la escuela de informatica se encuentran en la propia escuela. La direccion es: Calle Periodista Daniel Saucedo Aranda, sin numero, 18 0 71 </prompt>
 		<goto next="#preguntarMasComedores"/>
 	</block>
 </form>
@@ -198,14 +198,14 @@
 
 <form id="localizacionComedoresCiencias">
 	<block>
-		<prompt bargein="false"> Los comedores de la facultad de ciencias son los correspondientes al campus de Fuentenueva. La dirección es: Calle Rector Marín Ocete, sin número, 18 0 71 </prompt>
+		<prompt bargein="false"> Los comedores de la facultad de ciencias son los correspondientes al campus de Fuentenueva. La direccion es: Calle Rector Marin Ocete, sin numero, 18 0 71 </prompt>
 		<goto next="#preguntarMasComedores"/>
 	</block>
 </form>
 
 <form id="localizacionComedoresBellas">
 	<block>
-		<prompt bargein="false"> La facultad de Bellas Artes no dispone de comedores universitarios, en su lugar puede ir al de la escuela de informática, que es el más cercano. La dirección es: Calle Periodista Daniel Saucedo Aranda, sin número, 18 0 71 </prompt>
+		<prompt bargein="false"> La facultad de Bellas Artes no dispone de comedores universitarios, en su lugar puede ir al de la escuela de informatica, que es el mas cercano. La direccion es: Calle Periodista Daniel Saucedo Aranda, sin numero, 18 0 71 </prompt>
 		<goto next="#preguntarMasComedores"/>
 	</block>
 </form>
