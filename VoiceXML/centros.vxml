@@ -3,16 +3,17 @@
 <link next="\centrosMenu">
 </link>
 
+<!--
 <script src="localizacion.js"/>
-
+-->
 <var name="tipo_informacion"/>
 
 <catch event="event.etsiit">
 	<prompt bargein="false">
 		Has preguntado por la ETSIIT
 	</prompt>
-
 	<if cond="tipo_informacion == 'direccion'">
+<!--
 		<var name="mensaje_vacaciones" expr="geoFindMe();" />
 		<if cond="mensaje_vacaciones == ''">
 			<prompt>
@@ -21,11 +22,11 @@
 		<else/>
 			<prompt> <value expr="mensaje_vacaciones"/> </prompt>
 		</if>
-		<!--
+-->
 		<prompt>
 			La direccion de la ETSIIT es Calle Periodista Daniel Saucedo Aranda, s/n, 18014 Granada
 		</prompt>
-		-->
+
 	<elseif cond="tipo_informacion == 'telefono'"/>
 		<prompt>
 			El telefono de la ETSIIT es 9 5 8 2 4 2 8 0 2
@@ -89,14 +90,15 @@
 		<prompt>
 			De que centro necesitas informacion?
 		</prompt>
-		<catch event="nomatch noinput">
+		<catch event="noinput">
 			Puedo proporcionarte información de la escuela de informatica, la facultad de ciencias y la facultad de Bellas Artes
 			<reprompt/>
 		</catch>
 		<grammar src="centros.jsgf"/>
+		<goto nextitem="#confirmacion_centro"/>
 	</field>
 
-	<field name="confirmacion_centro" type="boolean" cond="0.6 > centro$.confidence">
+	<field name="confirmacion_centro" type="boolean" cond="0.8 > centro$.confidence">
 		<prompt bargein="false">
 			Perdona, no te he entendido, me has preguntado por la  <value expr="centro"/>?
 		</prompt>
@@ -116,14 +118,15 @@
 		<prompt>
 			Que necesitas saber?
 		</prompt>
-		<catch event="nomatch noinput">
+		<catch event="noinput">
 			Puedes preguntarme sobre su dirección, su telefono y su delegación de centro
 			<reprompt/>
 		</catch>
 		<grammar src="info_centros.jsgf"/>
+		<goto nextitem="#confirmacion_info"/>
 		</field>
 
-	<field name="confirmacion_info" type="boolean" cond="0.6 > informacion$.confidence">
+	<field name="confirmacion_info" type="boolean" cond="0.8 > informacion$.confidence">
 		<prompt bargein="false">
 				Perdona, no te he entendido, me has preguntado sobre la <value expr="informacion"/> de la <value expr="centro"/>?
 		</prompt>
