@@ -3,6 +3,8 @@
 <link next="\centrosMenu">
 </link>
 
+<script src="localizacion.js"/>
+
 <var name="tipo_informacion"/>
 
 <catch event="event.etsiit">
@@ -11,9 +13,19 @@
 	</prompt>
 
 	<if cond="tipo_informacion == 'direccion'">
+		<var name="mensaje_vacaciones" expr="geoFindMe();" />
+		<if cond="mensaje_vacaciones == ''">
+			<prompt>
+				La direccion de la ETSIIT es Calle Periodista Daniel Saucedo Aranda, s/n, 18014 Granada
+			</prompt>
+		<else/>
+			<prompt> <value expr="mensaje_vacaciones"/> </prompt>
+		</if>
+		<!--
 		<prompt>
 			La direccion de la ETSIIT es Calle Periodista Daniel Saucedo Aranda, s/n, 18014 Granada
 		</prompt>
+		-->
 	<elseif cond="tipo_informacion == 'telefono'"/>
 		<prompt>
 			El telefono de la ETSIIT es 9 5 8 2 4 2 8 0 2
