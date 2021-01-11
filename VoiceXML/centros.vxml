@@ -95,7 +95,6 @@
 			<reprompt/>
 		</catch>
 		<grammar src="centros.jsgf"/>
-		<goto nextitem="#confirmacion_centro"/>
 	</field>
 
 	<field name="confirmacion_centro" type="boolean" cond="0.8 > centro$.confidence">
@@ -123,7 +122,6 @@
 			<reprompt/>
 		</catch>
 		<grammar src="info_centros.jsgf"/>
-		<goto nextitem="#confirmacion_info"/>
 		</field>
 
 	<field name="confirmacion_info" type="boolean" cond="0.8 > informacion$.confidence">
