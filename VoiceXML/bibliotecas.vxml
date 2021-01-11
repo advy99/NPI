@@ -116,24 +116,15 @@
 			Puedes preguntarme por información sobre su horario, su contacto, o donde se encuentra.
 			<reprompt/>
       </catch>
-	</field>
-
-	<field name="confirmacion_info" type="boolean" cond="0.6 > informacion$.confidence">
-		<prompt bargein="false">
-			Perdona, no te he entendido bien, me has preguntado por sobre el <value expr="informacion"/> de la biblioteca?
-		</prompt>
-		<catch event="nomatch noinput">
-			No te he entendido, responde si o no.
-		</catch>
 
 		<filled>
-			<if cond="!confirmacion_info">
-				<clear namelist="informacion confirmacion_info"/>
+			<if cond="0.6 > informacion$.confidence">
+				Perdona, no te he entendido bien.
+				<clear namelist="informacion"/>
 			</if>
 		</filled>
 
 	</field>
-
 
 	<filled mode="all" namelist="biblioteca informacion">
 		<assign name="tipo_informacion" expr="informacion"/>
