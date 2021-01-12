@@ -1,7 +1,3 @@
-<!-- Esta gramática contempla las diferentes cuestiones que se pueden hacer sobre 
-los comedores universitarios de la UGR -->
-
-
 #JSGF V1.0;
 
 grammar comedores;

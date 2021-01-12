@@ -1,5 +1,3 @@
-<!-- Esta gramática contempla los diferentes menús de los comedores universitarios -->
-
 #JSGF V1.0;
 
 grammar menus;
