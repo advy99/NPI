@@ -5,7 +5,7 @@
 	<!--Esta sección pregunta al ususario si quería entrar en la sección de grados, en caso contrario le permite redirigirse a cualquiera de las otras secciones.-->
 <form id="CONFIRMACION">
 	<field name="res">
-		<prompt> Has entrado en el menu de informacion de grados. Si te he entendido mal puedes indicarme a que menu de informacion querias acceder: comedores, centros o bibliotecas</prompt>
+		<prompt> Has entrado en el menu de informacion de grados. Si te he entendido mal puedes indicarme a que menu de informacion querias acceder: Grados, comedores, centros o bibliotecas</prompt>
 		<grammar src="secciones.jsgf"/>
 	</field>
 	<filled>
