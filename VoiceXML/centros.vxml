@@ -90,7 +90,7 @@
 			De que centro necesitas informacion?
 		</prompt>
 		<catch event="nomatch noinput">
-			Puedo proporcionarte información de la escuela de informatica, la facultad de ciencias y la facultad de Bellas Artes
+			Puedo proporcionarte información de la escuela de informatica, la facultad de ciencias y la facultad de Bellas Artes. Tambien puedes decirme <emp>salir</emp> para volver al menu principal.
 			<reprompt/>
 		</catch>
 		<grammar src="centros.jsgf"/>
