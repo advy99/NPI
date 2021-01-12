@@ -13,16 +13,6 @@
 		Has preguntado por la ETSIIT
 	</prompt>
 	<if cond="tipo_informacion == 'direccion'">
-<!--
-		<var name="mensaje_vacaciones" expr="geoFindMe();" />
-		<if cond="mensaje_vacaciones == ''">
-			<prompt>
-				La direccion de la ETSIIT es Calle Periodista Daniel Saucedo Aranda, s/n, 18014 Granada
-			</prompt>
-		<else/>
-			<prompt> <value expr="mensaje_vacaciones"/> </prompt>
-		</if>
--->
 		<prompt>
 			La direccion de la ETSIIT es Calle Periodista Daniel Saucedo Aranda, s/n, 18014 Granada
 		</prompt>
@@ -90,17 +80,17 @@
 		<prompt>
 			De que centro necesitas informacion?
 		</prompt>
-		<catch event="noinput">
+		<catch event="nomatch noinput">
 			Puedo proporcionarte información de la escuela de informatica, la facultad de ciencias y la facultad de Bellas Artes
 			<reprompt/>
 		</catch>
 		<grammar src="centros.jsgf"/>
 
 		<filled>
-			<if cond="0.8 > centro.$confidence">
+			<if cond="0.6 > centro.$confidence">
 				Perdona, no te he entendido bien, me has preguntado por la <value expr="centro"/>?
 				<clear namelist="centro"/>
-			<elseif centro="salir"/>
+			<elseif cond="centro == 'salir'"/>
 				<goto next="arandita_main.vxml#EscogerSeccion"/>
 			</if>
 		</filled>
@@ -112,7 +102,7 @@
 		<prompt>
 			Que necesitas saber?
 		</prompt>
-		<catch event="noinput">
+		<catch event="nomatch noinput">
 			Puedes preguntarme sobre su dirección, su telefono y su delegación de centro
 			<reprompt/>
 		</catch>
@@ -120,7 +110,7 @@
 		<grammar src="info_centros.jsgf"/>
 
 		<filled>
-			<if cond="0.8 > informacion.$confidence">
+			<if cond="0.6 > informacion.$confidence">
 				Perdona, no te he entendido, me has preguntado sobre la <value expr="informacion"/> de la <value expr="centro"/>?
 				<clear namelist="informacion"/>
 						</if>
