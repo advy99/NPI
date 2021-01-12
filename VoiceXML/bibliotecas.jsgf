@@ -11,6 +11,6 @@ public <biblio> =
 
 <info> = informacion [sobre | de];
 
-<biblio> = ETSIIT | ciencias | bellas artes;
+<biblio> = ETSIIT | ciencias | bellas artes | salir;
 
 
