@@ -95,23 +95,18 @@
 			<reprompt/>
 		</catch>
 		<grammar src="centros.jsgf"/>
-	</field>
-
-	<field name="confirmacion_centro" type="boolean" cond="0.8 > centro$.confidence">
-		<prompt bargein="false">
-			Perdona, no te he entendido, me has preguntado por la  <value expr="centro"/>?
-		</prompt>
-		<catch event ="nomatch noinput">
-			No te he entendido, responde si o no.
-		</catch>
 
 		<filled>
-			<if cond="!confirmacion_centro">
-				<clear namelist="centro confirmacion_centro"/>
+			<if cond="0.8 > centro.$confidence">
+				Perdona, no te he entendido bien, me has preguntado por la <value expr="centro"/>?
+				<clear namelist="centro"/>
+			<elseif centro="salir"/>
+				<goto next="arandita_main.vxml#EscogerSeccion"/>
 			</if>
 		</filled>
 
 	</field>
+
 
 	<field name="informacion">
 		<prompt>
@@ -121,25 +116,17 @@
 			Puedes preguntarme sobre su dirección, su telefono y su delegación de centro
 			<reprompt/>
 		</catch>
-		<grammar src="info_centros.jsgf"/>
-		</field>
 
-	<field name="confirmacion_info" type="boolean" cond="0.8 > informacion$.confidence">
-		<prompt bargein="false">
-				Perdona, no te he entendido, me has preguntado sobre la <value expr="informacion"/> de la <value expr="centro"/>?
-		</prompt>
-		<catch event ="nomatch noinput">
-			No te he entendido, responde si o no.
-		</catch>
+		<grammar src="info_centros.jsgf"/>
 
 		<filled>
-			<if cond="!confirmacion_info">
-				<clear namelist="informacion confirmacion_info"/>
-			</if>
+			<if cond="0.8 > informacion.$confidence">
+				Perdona, no te he entendido, me has preguntado sobre la <value expr="informacion"/> de la <value expr="centro"/>?
+				<clear namelist="informacion"/>
+						</if>
 		</filled>
 
 	</field>
-
 
 	<filled mode="all" namelist="centro informacion">
 		<assign name="tipo_informacion" expr="informacion"/>
