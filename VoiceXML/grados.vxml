@@ -1,6 +1,8 @@
 <vxml version="2.1" xml:lang="es-ES">
 <link next="\GRADOMENU"> </link>
 
+	<!-- Confirmación  -->
+	<!--Esta sección pregunta al ususario si quería entrar en la sección de grados, en caso contrario le permite redirigirse a cualquiera de las otras secciones.-->
 <form id="CONFIRMACION">
 	<field name="res">
 		<prompt> Has entrado en el menu de informacion de grados. Si te he entendido mal puedes indicarme a que menu de informacion querias acceder: comedores, centros o bibliotecas</prompt>
@@ -19,6 +21,8 @@
 	</filled>
 </form>
 
+<!-- Grado Menú -->
+<!-- En esta sección se pregunta al usuario sobre que grado necesita información. -->
 
 <form id="GRADOMENU">
 		<field name="grado">
@@ -39,6 +43,8 @@
 </form>
 
 <!-- Informática -->
+<!-- En esta sección prgunta al usuario si que información requeire del grado de informática su presentación o a que facultad pertenece. -->
+
 
 <form id="INFORMATICA">
 	<field name="pregunta">
@@ -57,6 +63,8 @@
 	</filled>
 </form>
 
+<!-- Las siguientes secciones devuelven información al usuario sobre la presentación o la facultad a la que pertenece el grado.-->
+
 <form id="INFOPRE">
 	<block>
 		<prompt bargein="false"> Los Graduados en Ingenieria Informatica de la Universidad de Granada seran profesionales con una solida formacion en todas las ramas fundamentales de la informatica. </prompt>
@@ -70,6 +78,8 @@
 		<goto next="#CONTINUAR"/>
 	</block>
 </form>
+
+<!-- Las secciones de telecomunicaciones, matemáticas y magisterio son idénticas a las de informática con la diferencia de que devuelven la información de sus grados respectivos. -->
 
 <!-- Telecomunicaciones -->
 
