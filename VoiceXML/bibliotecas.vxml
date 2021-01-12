@@ -1,34 +1,47 @@
 <vxml version="2.1" xml:lang="es-ES" application="arandita_main.vxml">
 
+<!-- Al inicio vamos al menu principal de la biblioteca -->
 <link next="\bibliotecasMenu">
 </link>
 
+<!-- Incluimos el script donde se encuentra el codigo en JavaScript para las funciones -->
 <script src="servicio_disponible.js" />
 
+<!-- Variable para comprobar información dentro de los distintos eventos -->
 <var name="tipo_informacion"/>
 
+<!-- Evento para responder una pregunta sobre la facultad de ciencias -->
 <catch event="event.preguntaCiencias">
+
+	<!-- Si nos preguntan sobre el horario -->
 	<if cond="tipo_informacion == 'horario'">
+		<!-- Utilizamos una variable para almacenar el resultado de la función para saber si esta abierta -->
 		<var name="mensaje_vacaciones" expr="mensajeDisponible('La biblioteca de Ciencias');" />
+		<!-- Si esta vacia, es que está abierta, y damos su horario -->
 		<if cond="mensaje_vacaciones == ''">
 			<prompt bargein="false">
 				El horario de la biblioteca de Ciencias es de 8:30 a 20:30.
 			</prompt>
 		<else/>
+			<!-- Si no, está cerrada y respondemos con el mensaje del script -->
 			<prompt bargein="false"> <value expr="mensaje_vacaciones"/> </prompt>
 		</if>
+	<!-- Si nos preguntan por su contacto, damos su mail y su telefono -->
 	<elseif cond="tipo_informacion == 'contacto'"/>
 		<prompt bargein="false">
 			Para contactar con la biblioteca de Ciencias puedes llamar al 9 5 8 2 4 9 0 6 4 o mandar un correo a bibgesciencias@ugr.es .
 		</prompt>
+	<!-- Si nos preguntan lo ubicación, respondemos con su ubicacion en la facultad -->
 	<elseif cond="tipo_informacion == 'lugar' || tipo_informacion == 'donde se encuentra'"/>
 		<prompt bargein="false">
 			La biblioteca de Ciencias se encuentra en la planta baja del edificio principal del campus de Fuentenueva, a la derecha tras entrar por la puerta principal y a la izquierda de la seccion de Fisica.
 		</prompt>
 	</if>
+	<!-- Vamos a preguntar si quiere más información sobre las bibliotecas -->
 	<goto next="#preguntarMasBiblio"/>
 </catch>
 
+<!-- Igual que el evento anterior, pero con información de la ETSIIT -->
 <catch event="event.preguntaETSIIT">
 	<if cond="tipo_informacion == 'horario'">
 		<var name="mensaje_vacaciones" expr="mensajeDisponible('La biblioteca de la ETSIIT');"/>
@@ -53,6 +66,7 @@
 
 
 
+<!-- Igual que el evento anterior, pero con información de Bellas Artes -->
 <catch event="event.preguntaBellas">
 	<if cond="tipo_informacion == 'horario'">
 		<var name="mensaje_vacaciones" expr="mensajeDisponible('La biblioteca de Bellas Artes');"/>
@@ -77,17 +91,23 @@
 
 
 
-
+<!-- Menu principal-->
 <form id="bibliotecasMenu">
+
+	<!-- Preguntamos sobre que biblioteca quiere informacion-->
 	<field name="biblioteca">
 		<prompt>
 			De que biblioteca necesitas informacion?
 		</prompt>
+		<!-- Si nos responde mal, le damos informacion sobre que puede responder -->
 		<catch event="nomatch noinput">
 			Te puedo dar información sobre la biblioteca de la ETSIIT, Ciencias, o Bellas Artes. Si quieres volver al menu principal, di <emp>salir</emp>.
 			<reprompt/>
-      </catch>
+		</catch>
+
+		<!-- Usamos la gramatica correspondiente -->
 		<grammar src="bibliotecas.jsgf"/>
+		<!-- Si nos pide salir, nos vamos al menu principal -->
 		<filled>
 			<if cond="biblioteca == 'salir'">
 				<goto next="arandita_main.vxml#EscogerSeccion"/>
@@ -96,6 +116,7 @@
 
 	</field>
 
+	<!-- Si no estamos seguros de lo que nos ha respondido, pedimos confirmación -->
 	<field name="confirmacion_biblio" type="boolean" cond="0.6 > biblioteca$.confidence">
 		<prompt bargein="false">
 			Perdona, no te he entendido bien, me has preguntado por la biblioteca de <value expr="biblioteca"/>?
@@ -112,6 +133,7 @@
 
 	</field>
 
+	<!-- Pedimos la información concreta que quiere que demos -->
 	<field name="informacion">
 		<prompt>
 			Que tipo de información necesitas sobre la biblioteca de <value expr="biblioteca"/>?
@@ -131,6 +153,7 @@
 
 	</field>
 
+	<!-- Dependiendo del centro, lanzamos el evento para responder sobre dicho centro -->
 	<filled mode="all" namelist="biblioteca informacion">
 		<assign name="tipo_informacion" expr="informacion"/>
 		<if cond="biblioteca == 'ciencias'">
@@ -144,7 +167,7 @@
 </form>
 
 
-
+<!-- Finalmente, preguntamos si necesita más informacion-->
 <form id="preguntarMasBiblio">
 	<field name="repetir">
 		<prompt>
@@ -157,6 +180,7 @@
 	</field>
 
 
+	<!-- Si responde que si, volvemos al menu de biblioteca, si es un no, volvemos al menu principal-->
 	<filled mode="all">
 		<if cond="repetir == 'no'">
 			<goto next="arandita_main.vxml#EscogerSeccion"/>
