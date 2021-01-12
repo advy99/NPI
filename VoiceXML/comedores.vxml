@@ -14,13 +14,28 @@
 		</catch>
 		<filled>
 			<if cond="0.6 > informacion$.confidence">
-				Perdona, no te he entendido bien. Has dicho <value expr="informacion"/>?
-				<clear namelist="informacion"/>
+				<goto nextitem="confirmacion_info"/>
 			</if>
 		</filled>
 	</field>
 
-	<filled mode="all" namelist="informacion">
+	<field name="confirmacion_info">
+		<prompt bargein="false">
+			Perdona, no te he entendido bien. Has dicho <value expr="informacion"/>?
+		</prompt>
+		<grammar src="yesno.jsgf"/>
+		<catch event ="nomatch noinput">
+			No te he entendido, responde si o no.
+		</catch>
+		<filled>
+			<if cond="confirmacion_info == 'no'">
+				<clear namelist="informacion confirmacion_info"/>
+				<goto next="#comedoresMenu"/>
+			</if>
+		</filled>
+	</field>
+
+	<filled mode="any">
 		<if cond="informacion == 'horario'">
 			<goto next="#preguntaHorario"/>
 		<elseif cond="informacion == 'contacto' || informacion == 'telefono'"/>
@@ -71,13 +86,28 @@
 		</catch>
 		<filled>
 			<if cond="0.6 > tipo_menu$.confidence">
-				Perdona, no te he entendido bien. Te refieres al menu <value expr="tipo_menu"/>?
-				<clear namelist="tipo_menu"/>
+				<goto nextitem="confirmacion_menu"/>
 			</if>
 		</filled>
 	</field>
 
-	<filled mode="all" namelist="tipo_menu">
+	<field name="confirmacion_menu">
+		<prompt bargein="false">
+			Perdona, no te he entendido bien. Te refieres al menu <value expr="tipo_menu"/>?
+		</prompt>
+		<grammar src="yesno.jsgf"/>
+		<catch event ="nomatch noinput">
+			No te he entendido, responde si o no.
+		</catch>
+		<filled>
+			<if cond="confirmacion_menu == 'no'">
+				<clear namelist="tipo_menu confirmacion_menu"/>
+				<goto next="#preguntaMenus"/>
+			</if>
+		</filled>
+	</field>
+
+	<filled mode="any">
 		<if cond="tipo_menu == 'estandar de comida' || tipo_menu == 'comida' || tipo_menu == 'comer'">
 			<goto next="#menuEstandar"/>
 		<elseif cond="tipo_menu == 'estandar de cena' || tipo_menu == 'cena' || tipo_menu == 'cenar'"/>
@@ -143,13 +173,29 @@
 		</catch>
 		<filled>
 			<if cond="0.6 > centroProporcionado$.confidence">
-				Perdona, no te he entendido bien. Te refieres a <value expr="centroProporcionado"/>?
-				<clear namelist="centroProporcionado"/>
+				<goto nextitem="confirmacion_localizacion"/>
 			</if>
 		</filled>
 	</field>
 
-	<filled mode="all" namelist="centroProporcionado">
+	<field name="confirmacion_localizacion">
+		<prompt bargein="false">
+			Perdona, no te he entendido bien. Te refieres a la <value expr="centroProporcionado"/>?
+		</prompt>
+		<grammar src="yesno.jsgf"/>
+		<catch event ="nomatch noinput">
+			No te he entendido, responde si o no.
+		</catch>
+		<filled>
+			<if cond="confirmacion_localizacion == 'no'">
+				<clear namelist="centroProporcionado confirmacion_localizacion"/>
+				<goto next="#preguntaLocalizacion"/>
+			</if>
+		</filled>
+	</field>
+
+
+	<filled mode="any">
 		<if cond="centroProporcionado == 'escuela de informatica'">
 			<goto next="#localizacionComedoresETSIIT"/>
 		<elseif cond="centroProporcionado == 'facultad de ciencias'"/>
