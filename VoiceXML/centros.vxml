@@ -1,13 +1,13 @@
 <vxml version="2.1" xml:lang="es-ES" application="arandita_main.vxml">
 
+<!-- La primera sección que debe ejecutarse es centrosMenu -->
 <link next="\centrosMenu">
 </link>
 
-<!--
-<script src="localizacion.js"/>
--->
+<!--Variable auxiliar necesaria para almacenar el tipo de información que se ha preguntado -->
 <var name="tipo_informacion"/>
 
+<!-- Evento que proporciona información sobre la etsiit -->
 <catch event="event.etsiit">
 	<prompt bargein="false">
 		Has preguntado por la ETSIIT
@@ -16,7 +16,6 @@
 		<prompt>
 			La direccion de la ETSIIT es Calle Periodista Daniel Saucedo Aranda, s/n, 18014 Granada
 		</prompt>
-
 	<elseif cond="tipo_informacion == 'telefono'"/>
 		<prompt>
 			El telefono de la ETSIIT es 9 5 8 2 4 2 8 0 2
@@ -31,6 +30,7 @@
 
 </catch>
 
+<!-- Evento que proporciona información sobre la facultad de ciencias -->
 <catch event="event.ciencias">
 	<prompt bargein="false">
 		Has preguntado por la Facultad de Ciencias
@@ -53,6 +53,7 @@
 
 </catch>
 
+<!-- Evento que proporciona información sobre la facultad de bellas artes -->
 <catch event="event.bellas">
 	<prompt bargein="false">
 		Has preguntado por la Facultad de Bellas Artes
@@ -75,6 +76,14 @@
 
 </catch>
 
+<!--
+	Menu de selección de centros.
+	El sistema pregunta por el centro en el que el usuario esta interesado y la información que necesita obtener
+	Si el usuario responde salir, el sistema vuelve al menu principal
+	Si el sistema no entiende al usuario con una confianza superior al 60%, lo avisa y vuelve a preguntar
+	Dependiendo del centro y la información solicitada, se actualiza la variable auxiliar tipo_informacion y
+	se lanza el evento correspondiente
+-->
 <form id="centrosMenu">
 	<field name="centro">
 		<prompt>
@@ -85,7 +94,6 @@
 			<reprompt/>
 		</catch>
 		<grammar src="centros.jsgf"/>
-
 		<filled>
 			<if cond="centro == 'salir'">
 				<goto next="arandita_main.vxml#EscogerSeccion"/>
@@ -94,9 +102,7 @@
 				<clear namelist="centro"/>
 			</if>
 		</filled>
-
 	</field>
-
 
 	<field name="informacion">
 		<prompt>
@@ -106,9 +112,7 @@
 			Puedes preguntarme sobre su dirección, su telefono y su delegación de centro
 			<reprompt/>
 		</catch>
-
 		<grammar src="info_centros.jsgf"/>
-
 		<filled>
 			<if cond="0.6 > informacion$.confidence">
 				Perdona, no te he entendido, me has preguntado sobre la <value expr="informacion"/> de la <value expr="centro"/>?
@@ -117,7 +121,6 @@
 				Te he entendido con una confianda de <value expr="informacion$.confidence"/>
 			</if>
 		</filled>
-
 	</field>
 
 	<filled mode="all" namelist="centro informacion">
@@ -133,7 +136,11 @@
 	</filled>
 </form>
 
-
+<!--
+	Este formulario se ejecuta siempre que ya se ha devuelto alguna información
+	Si se requiere más información se vuelve al menú de selección y si no se pasa
+	al menú principal
+-->
 <form id="preguntarOtraCosa">
 	<field name="repetir">
 		<prompt>
@@ -144,7 +151,6 @@
 			No te he entendido, responde si o no.
 		</catch>
 	</field>
-
 	<filled>
 		<if cond="repetir == 'si'">
 			<goto next="#centrosMenu"/>
