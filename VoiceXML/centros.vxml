@@ -87,11 +87,11 @@
 		<grammar src="centros.jsgf"/>
 
 		<filled>
-			<if cond="0.6 > centro.$confidence">
+			<if cond="centro == 'salir'">
+				<goto next="arandita_main.vxml#EscogerSeccion"/>
+			<elseif cond="0.6 > centro$.confidence"/>
 				Perdona, no te he entendido bien, me has preguntado por la <value expr="centro"/>?
 				<clear namelist="centro"/>
-			<elseif cond="centro == 'salir'"/>
-				<goto next="arandita_main.vxml#EscogerSeccion"/>
 			</if>
 		</filled>
 
@@ -110,10 +110,12 @@
 		<grammar src="info_centros.jsgf"/>
 
 		<filled>
-			<if cond="0.6 > informacion.$confidence">
+			<if cond="0.6 > informacion$.confidence">
 				Perdona, no te he entendido, me has preguntado sobre la <value expr="informacion"/> de la <value expr="centro"/>?
 				<clear namelist="informacion"/>
-						</if>
+			<else/>
+				Te he entendido con una confianda de <value expr="informacion$.confidence"/>
+			</if>
 		</filled>
 
 	</field>
