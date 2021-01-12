@@ -7,24 +7,15 @@
 		<prompt>
 			Que te gustaria saber del servicio de comedores de la UGR?
 		</prompt>
+		<grammar src="comedores.jsgf"/>
 		<catch event="nomatch noinput">
           	Te puedo dar informacion sobre el horario, contacto, los tipos de menus, el precio y su localizacion
 		    <reprompt/>
 		</catch>
-		<grammar src="comedores.jsgf"/>
-	</field>
-
-	<field name="confirmacion_comedores" type="boolean" cond="0.8 > informacion$.confidence">
-		<prompt bargein="false">
-			Perdona, no te he entendido bien, me has preguntado por <value expr="informacion"/>?
-		</prompt>
-		<catch event="nomatch noinput">
-			No te he entendido, responde si o no.
-		</catch>
-
 		<filled>
-			<if cond="!confirmacion_comedores">
-				<clear namelist="informacion confirmacion_comedores"/>
+			<if cond="0.6 > informacion$.confidence">
+				Perdona, no te he entendido bien. Has dicho <value expr="informacion"/>?
+				<clear namelist="informacion"/>
 			</if>
 		</filled>
 	</field>
@@ -78,19 +69,10 @@
 		Disponemos de los siguientes menus. Estandar de comida, estandar de cena, celiaco, vegano y vegetariano.
 		<reprompt/> 
 		</catch>
-	</field>
-
-	<field name="confirmacion_menus" type="boolean" cond="0.8 > tipo_menu$.confidence">
-		<prompt bargein="false">
-			Perdona, no te he entendido bien, me has preguntado por el menu <value expr="tipo_menu"/>?
-		</prompt>
-		<catch event="nomatch noinput">
-			No te he entendido, responde si o no.
-		</catch>
-
 		<filled>
-			<if cond="!confirmacion_menus">
-				<clear namelist="tipo_menu confirmacion_menu"/>
+			<if cond="0.6 > tipo_menu$.confidence">
+				Perdona, no te he entendido bien. Te refieres al menu <value expr="tipo_menu"/>?
+				<clear namelist="tipo_menu"/>
 			</if>
 		</filled>
 	</field>
@@ -159,19 +141,10 @@
       		Responda Escuela de informatica, Facultad de ciencias o Facultad de bellas artes.
 			<reprompt/> 
 		</catch>
-	</field>
-
-	<field name="confirmacion_localizacion" type="boolean" cond="0.8 > centroProporcionado$.confidence">
-		<prompt bargein="false">
-			Perdona, no te he entendido bien, me has preguntado por la <value expr="centroProporcionado"/>?
-		</prompt>
-		<catch event="nomatch noinput">
-			No te he entendido, responde si o no.
-		</catch>
-
 		<filled>
-			<if cond="!confirmacion_localizacion">
-				<clear namelist="centroProporcionado confirmacion_localizacion"/>
+			<if cond="0.6 > centroProporcionado$.confidence">
+				Perdona, no te he entendido bien. Te refieres a <value expr="centroProporcionado"/>?
+				<clear namelist="centroProporcionado"/>
 			</if>
 		</filled>
 	</field>
