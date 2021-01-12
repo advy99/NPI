@@ -8,13 +8,17 @@
 	</field>
 	<filled>
 		<if cond="res == 'grados'">
-			<goto next="#GRADOMENU">
-		<if cond="res == 'bibliotecas'">
+			<goto next="#GRADOMENU"/>
+		<elseif cond="res == 'bibliotecas'"/>
 			<goto next="bibliotecas.vxml"/>
-		<if cond="res == 'comedores'">
-			<goto next="comedores.vxml">
-		<if cond="res == 'centros'">
-			<goto next="centros.vxml">
+		<elseif cond="res == 'comedores'"/>
+			<goto next="comedores.vxml"/>
+		<elseif cond="res == 'centros'"/>
+			<goto next="centros.vxml"/>
+		</if>
+	</filled>
+</form>
+
 
 <form id="GRADOMENU">
 		<field name="grado">
