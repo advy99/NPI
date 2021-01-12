@@ -19,7 +19,7 @@
 		<choice next="bibliotecas.vxml">
 			Bibliotecas
 		</choice>
-		<choice next="grados.xml">
+		<choice next="grados.vxml">
 			Grados
 		</choice>
 		<choice next="comedores.vxml">
