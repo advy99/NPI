@@ -1,6 +1,9 @@
 <vxml version="2.1" xml:lang="es-ES" application="arandita_main.vxml">
 <link next="\comedoresMenu"> </link>
 
+<!-- El siguiente formulario sirve como menú para acceder a los diferentes formularios
+que responden a las preguntas de los comedores universitarios. Se usará el valor de confianza
+para confirmar que estamos accediendo al formulario deseado -->
 
 <form id="comedoresMenu">
 	<field name="informacion">
@@ -50,6 +53,7 @@
 	</filled>
 </form>
 
+<!-- El siguiente formulario devuelve el horario de los comedores universitarios -->
 
 <form id="preguntaHorario">
 	<block>
@@ -58,6 +62,7 @@
 	</block>
 </form>
 
+<!-- El siguiente formulario devuelve los teléfonos de contacto de los comedores universitarios -->
 
 <form id="preguntaContacto">
 	<block>
@@ -66,6 +71,8 @@
 	</block>
 </form>
 
+<!-- El siguiente formulario devuelve el precio de los comedores universitarios -->
+
 <form id="preguntaPrecio">
 	<block>
 		<prompt bargein="false"> El precio de los comedores universitarios es 3 con 5 euros, o 4 euros en el caso de querer el menu para llevar </prompt>
@@ -73,6 +80,9 @@
 	</block>
 </form>
 
+<!-- El siguiente formulario actúa como menú para acceder a los diferentes menús de los comedores universitarios,
+ya sea el estándar, el vegetariano, el vegano o el celiaco. También se usará un valor de confianza para comprobar
+que estamos accediendo al menú deseado por el usuario. -->
 
 <form id="preguntaMenus">
 	<field name="tipo_menu">
@@ -122,6 +132,8 @@
 	</filled>
 </form>
 
+<!-- El siguiente formulario devuelve el menú estandar del medio día de los comedores universitarios -->
+
 <form id="menuEstandar">
 	<block>
 		<prompt bargein="false"> El menu para comer de hoy es el siguiente. De primero espaguetis a la napolitana. De segundo aguja encebollada con menestra. De postre un melocoton. </prompt>
@@ -129,6 +141,7 @@
 	</block>
 </form>
 
+<!-- El siguiente formulario devuelve el menú estándar de cena de los comedores universitarios -->
 
 <form id="menuCena">
 	<block>
@@ -137,12 +150,16 @@
 	</block>
 </form>
 
+<!-- El siguiente formulario devuelve el menú vegetariano de los comedores universitarios -->
+
 <form id="menuVegetariano">
 	<block>
 		<prompt bargein="false"> El menu vegetariano de hoy es el siguiente. De primero estofado de patatas y acelgas. De segundo rollitos de primavera con ensalada. De postre una naranja. </prompt>
 		<goto next="#preguntarMasComedores"/>
 	</block>
 </form>
+
+<!-- El siguiente formulario devuelve el menú vegano de los comedores universitarios -->
 
 <form id="menuVegano">
 	<block>
@@ -151,6 +168,7 @@
 	</block>
 </form>
 
+<!-- El siguiente formulario devuelve el menú celiaco de los comedores universitarios -->
 
 <form id="menuCeliaco">
 	<block>
@@ -159,7 +177,10 @@
 	</block>
 </form>
 
-
+<!-- El siguiente formulario actúa como menú para acceder a las diferentes localizaciones de los comedores universitarios
+de cada facultad. En este caso hemos contemplado 3 facultades por simplicidad pero se podría hacer para todas.
+Aquí también se utiliza un valor de confianza para comprobar que se está accediendo a la facultad requerida por
+el usuario -->
 
 <form id="preguntaLocalizacion">
 	<field name="centroProporcionado">
@@ -206,6 +227,7 @@
 	</filled>
 </form>
 
+<!-- Este formulario devuelve la localización de los comedores universitarios de la ETSIIT -->
 
 <form id="localizacionComedoresETSIIT">
 	<block>
@@ -214,6 +236,7 @@
 	</block>
 </form>
 
+<!-- Este formulario devuelve la localización de los comedores universitarios de la facultad de ciencias -->
 
 <form id="localizacionComedoresCiencias">
 	<block>
@@ -222,6 +245,8 @@
 	</block>
 </form>
 
+<!-- Este formulario devuelve la localización de los comedores universitarios de la facultad de bellas artes -->
+
 <form id="localizacionComedoresBellas">
 	<block>
 		<prompt bargein="false"> La facultad de Bellas Artes no dispone de comedores universitarios, en su lugar puede ir al de la escuela de informatica, que es el mas cercano. La direccion es: Calle Periodista Daniel Saucedo Aranda, sin numero, 18 0 71 </prompt>
@@ -229,6 +254,8 @@
 	</block>
 </form>
 
+<!-- Este formulario nos ofrece la posibilidad de hacer otra pregunta sobre los comedores o volver al menú general
+del asistente -->
 
 <form id="preguntarMasComedores">
 	<field name="repetir">
