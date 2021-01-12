@@ -117,8 +117,6 @@
 			<if cond="0.6 > informacion$.confidence">
 				Perdona, no te he entendido, me has preguntado sobre la <value expr="informacion"/> de la <value expr="centro"/>?
 				<clear namelist="informacion"/>
-			<else/>
-				Te he entendido con una confianda de <value expr="informacion$.confidence"/>
 			</if>
 		</filled>
 	</field>
