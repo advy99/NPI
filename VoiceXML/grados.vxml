@@ -1,4 +1,4 @@
-<vxml version="2.1" xml:lang="es-ES">
+<vxml version="2.1" xml:lang="es-ES" application="arandita_main.vxml">
 <link next="\GRADOMENU"> </link>
 
 	<!-- Confirmación  -->
@@ -166,7 +166,7 @@
 	</filled>
 </form>
 
-<form id="MAGPRE">
+<form id="MAGEPRE">
 	<block>
 		<prompt bargein="false"> El grado en Educacion Primaria tiene como finalidad la formacion de Maestros de Educacion Primaria, especialistas en la etapa educativa que va desde los seis a los doce años en las areas de Lengua, Matematicas, Conocimiento del Medio Natural, Social y Cultural, Artes Visuales y Plastica</prompt>
 		<goto next="#CONTINUAR"/>
